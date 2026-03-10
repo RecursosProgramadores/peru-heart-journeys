@@ -18,12 +18,12 @@ const HeroSection = () => {
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
       />
-      <div className="absolute inset-0 bg-foreground/40" />
+
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
         <h1
-          className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-primary-foreground leading-[1.1] mb-6"
+          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-[1.1] mb-6"
           style={{ animationDelay: "0.2s" }}
         >
           ¿Listos para el viaje de su vida a Perú?
@@ -31,20 +31,6 @@ const HeroSection = () => {
         <p className="font-body text-lg sm:text-xl md:text-2xl text-primary-foreground/90 max-w-2xl mx-auto mb-10 leading-relaxed">
           Descubran el auténtico Perú, sin multitudes. Vivan experiencias reales, personalizadas y con amor.
         </p>
-
-        {/* Stats badges */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {stats.map((s) => (
-            <div
-              key={s.label}
-              className="flex items-center gap-2 bg-primary-foreground/15 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-5 py-2.5"
-            >
-              <span className="text-accent">{s.icon}</span>
-              <span className="font-body font-bold text-primary-foreground text-sm">{s.value}</span>
-              <span className="font-body text-primary-foreground/80 text-sm">{s.label}</span>
-            </div>
-          ))}
-        </div>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

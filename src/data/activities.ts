@@ -29,26 +29,6 @@ export interface Activity {
 
 export const activities: Activity[] = [
   {
-    slug: "city-tour-cusco",
-    emoji: "🏛",
-    title: "City Tour Cusco",
-    shortTitle: "City Tour Cusco",
-    location: "Cusco",
-    duration: "Medio día",
-    difficulty: "Fácil",
-    altitude: "3,400 msnm",
-    img: actCityTourCusco,
-    alt: "Fortaleza de Sacsayhuamán en Cusco con enormes bloques de piedra inca y cielo dorado",
-    excerpt: "La mejor introducción a la antigua capital del Imperio Inca con Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay.",
-    description: [
-      "El City Tour en Cusco es la mejor introducción a la antigua capital del Imperio Inca. La experiencia inicia generalmente por la tarde, recorriendo los principales sitios arqueológicos ubicados en los alrededores de la ciudad.",
-      "Durante el tour se visita la imponente fortaleza de Sacsayhuamán, famosa por sus enormes bloques de piedra perfectamente ensamblados. Luego se continúa hacia Qenqo, antiguo centro ceremonial; Puka Pukara, puesto militar estratégico; y Tambomachay, conocido como el templo del agua.",
-      "Este recorrido permite comprender la historia, arquitectura e ingeniería inca antes de visitar Machu Picchu. Ideal para aclimatarse y comenzar a conectar con la cultura andina.",
-    ],
-    highlights: ["Sacsayhuamán", "Qenqo", "Puka Pukara", "Tambomachay", "Aclimatación"],
-    keywords: ["city tour cusco", "sacsayhuaman", "tours cusco", "sitios arqueológicos cusco"],
-  },
-  {
     slug: "tour-machu-picchu",
     emoji: "🏔",
     title: "Tour Machu Picchu Full Day",
@@ -67,6 +47,26 @@ export const activities: Activity[] = [
     ],
     highlights: ["Tren turístico", "Ciudadela inca", "Templos ceremoniales", "Terrazas agrícolas", "Miradores panorámicos"],
     keywords: ["tour machu picchu", "entrada machu picchu", "tren turístico machu picchu", "visita guiada machu picchu"],
+  },
+  {
+    slug: "city-tour-cusco",
+    emoji: "🏛",
+    title: "City Tour Cusco",
+    shortTitle: "City Tour Cusco",
+    location: "Cusco",
+    duration: "Medio día",
+    difficulty: "Fácil",
+    altitude: "3,400 msnm",
+    img: actCityTourCusco,
+    alt: "Fortaleza de Sacsayhuamán en Cusco con enormes bloques de piedra inca y cielo dorado",
+    excerpt: "La mejor introducción a la antigua capital del Imperio Inca con Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay.",
+    description: [
+      "El City Tour en Cusco es la mejor introducción a la antigua capital del Imperio Inca. La experiencia inicia generalmente por la tarde, recorriendo los principales sitios arqueológicos ubicados en los alrededores de la ciudad.",
+      "Durante el tour se visita la imponente fortaleza de Sacsayhuamán, famosa por sus enormes bloques de piedra perfectamente ensamblados. Luego se continúa hacia Qenqo, antiguo centro ceremonial; Puka Pukara, puesto militar estratégico; y Tambomachay, conocido como el templo del agua.",
+      "Este recorrido permite comprender la historia, arquitectura e ingeniería inca antes de visitar Machu Picchu. Ideal para aclimatarse y comenzar a conectar con la cultura andina.",
+    ],
+    highlights: ["Sacsayhuamán", "Qenqo", "Puka Pukara", "Tambomachay", "Aclimatación"],
+    keywords: ["city tour cusco", "sacsayhuaman", "tours cusco", "sitios arqueológicos cusco"],
   },
   {
     slug: "tour-valle-sagrado",

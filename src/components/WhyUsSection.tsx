@@ -1,23 +1,24 @@
 import { MapPin, Heart, Puzzle, Smile } from "lucide-react";
+import expertosImg from "@/assets/principal/expertos.jpg";
 
 const features = [
   {
-    icon: <MapPin className="w-8 h-8" />,
+    icon: <MapPin className="w-6 h-6" />,
     title: "Sin multitudes",
     desc: "Rutas exclusivas lejos de las masas turísticas. Perú como debe experimentarse.",
   },
   {
-    icon: <Heart className="w-8 h-8" />,
+    icon: <Heart className="w-6 h-6" />,
     title: "Experiencias 100% auténticas",
     desc: "Conecta con comunidades locales, tradiciones vivas y sabores genuinos.",
   },
   {
-    icon: <Puzzle className="w-8 h-8" />,
+    icon: <Puzzle className="w-6 h-6" />,
     title: "Totalmente a tu medida",
     desc: "Cada viaje es único. Diseñamos tu itinerario perfecto de principio a fin.",
   },
   {
-    icon: <Smile className="w-8 h-8" />,
+    icon: <Smile className="w-6 h-6" />,
     title: "Guías apasionados locales",
     desc: "Nuestros guías nacieron aquí y aman compartir sus secretos contigo.",
   },
@@ -25,7 +26,7 @@ const features = [
 
 const WhyUsSection = () => {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-background overflow-hidden" id="nosotros">
       <div className="container-narrow">
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -36,19 +37,34 @@ const WhyUsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((f) => (
-            <div
-              key={f.title}
-              className="text-center p-8 rounded-2xl bg-muted/50 hover:bg-muted transition-colors duration-300 group"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
-                {f.icon}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left: Features */}
+          <div className="flex flex-col gap-10 order-2 lg:order-1">
+            {features.map((f) => (
+              <div
+                key={f.title}
+                className="flex gap-6 items-start group"
+              >
+                <div className="flex-shrink-0 flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                  {f.icon}
+                </div>
+                <div>
+                  <h3 className="font-display text-xl font-bold text-foreground mb-2">{f.title}</h3>
+                  <p className="font-body text-muted-foreground leading-relaxed max-w-md">{f.desc}</p>
+                </div>
               </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-3">{f.title}</h3>
-              <p className="font-body text-muted-foreground leading-relaxed">{f.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Right: Image */}
+          <div className="relative group overflow-hidden rounded-3xl shadow-2xl order-1 lg:order-2">
+            <img
+              src={expertosImg}
+              alt="Expertos guías locales en Perú"
+              className="w-full h-auto object-cover aspect-[4/5] lg:aspect-auto group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+          </div>
         </div>
       </div>
     </section>

@@ -7,65 +7,86 @@ const ActivitiesSection = () => {
   return (
     <section id="actividades" className="section-padding bg-background">
       <div className="container-narrow">
-        <div className="text-center mb-16">
-          <span className="inline-block text-sm font-semibold tracking-widest uppercase text-primary mb-3">
-            Experiencias únicas
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Actividades en Perú
-          </h2>
-          <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
-            Cada actividad está diseñada para conectarte con la cultura, naturaleza e historia del Perú auténtico.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {activities.map((a) => (
-            <Link
-              to={`/actividades/${a.slug}`}
-              key={a.slug}
-              className="group bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-border/50 flex flex-col"
-            >
-              <div className="relative overflow-hidden aspect-[4/3]">
-                <img
-                  src={a.img}
-                  alt={a.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                />
-                <span className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm text-foreground text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                  <span className="text-base">{a.emoji}</span> {a.shortTitle}
-                </span>
-                <span className="absolute top-4 right-4 bg-primary/90 text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full">
-                  {a.difficulty}
-                </span>
-              </div>
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="font-display text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {a.title}
-                </h3>
-                <p className="font-body text-muted-foreground text-sm mb-4 flex-1">
-                  {a.excerpt}
-                </p>
-                <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground mb-4">
-                  <span className="flex items-center gap-1">
-                    <MapPin size={14} className="text-primary" /> {a.location}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock size={14} className="text-primary" /> {a.duration}
-                  </span>
-                  {a.altitude && (
-                    <span className="flex items-center gap-1">
-                      <Mountain size={14} className="text-primary" /> {a.altitude}
-                    </span>
-                  )}
-                </div>
-                <span className="inline-flex items-center text-sm font-semibold text-primary group-hover:gap-2 transition-all">
-                  Ver detalles →
-                </span>
-              </div>
+        <div className="flex flex-col lg:flex-row gap-16 item-start mb-16 px-4">
+          {/* Left: Text Content */}
+          <div className="lg:w-1/3 lg:sticky lg:top-32">
+            <span className="inline-block text-sm font-semibold tracking-widest uppercase text-primary mb-3">
+              Experiencias únicas
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-5xl font-bold text-foreground mb-6 leading-[1.1]">
+              Experiencias <br /> en Perú
+            </h2>
+            <p className="font-body text-lg text-muted-foreground mb-8 leading-relaxed">
+              Explora nuestros paquetes turísticos diseñados para conectarte con la esencia más pura del Perú.
+            </p>
+            <Link to="/tours/cusco">
+              <Button size="xl" className="font-bold px-10">
+                Ver todos los Tours
+              </Button>
             </Link>
-          ))}
+          </div>
+
+          {/* Right: Grid Layout */}
+          <div className="lg:w-2/3">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 auto-rows-[200px] md:auto-rows-[240px]">
+              {activities.slice(0, 9).map((a, index) => {
+                // Determine category based on slug/location for linking
+                let linkTo = `/tours/cusco`;
+                if (a.slug.includes("lima")) linkTo = "/tours/lima";
+                if (a.slug.includes("puno") || a.slug.includes("ruta-del-sol")) linkTo = "/tours/combinados";
+
+                // Specific spans for a balanced 9-item grid
+                const spans = [
+                  "md:col-span-2 md:row-span-2", // 0: Machu Picchu (Hero)
+                  "md:col-span-1 md:row-span-1", // 1: City Tour Cusco
+                  "md:col-span-1 md:row-span-1", // 2: Valle Sagrado
+                  "md:col-span-1 md:row-span-1", // 3: Montaña 7 Colores
+                  "md:col-span-1 md:row-span-1", // 4: Laguna Humantay
+                  "md:col-span-1 md:row-span-2", // 5: Valle Sur
+                  "md:col-span-1 md:row-span-1", // 6: Ruta del Sol
+                  "md:col-span-1 md:row-span-1", // 7: Lago Titicaca
+                  "md:col-span-1 md:row-span-1", // 8: City Tour Lima
+                ];
+
+                const spanClass = spans[index] || "md:col-span-1 md:row-span-1";
+
+                return (
+                  <Link
+                    to={linkTo}
+                    key={a.slug}
+                    className={`${spanClass} relative group rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700`}
+                  >
+                    <img
+                      src={a.img}
+                      alt={a.alt}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1.5s]"
+                      loading="lazy"
+                    />
+                    {/* Dark Professional Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-70 group-hover:opacity-60 transition-opacity" />
+
+                    {/* Content */}
+                    <div className="absolute bottom-6 left-6 right-6">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        {a.location.split(' – ')[0]}
+                      </span>
+                      <h3 className="font-display text-xl md:text-2xl font-bold text-white leading-tight">
+                        {a.shortTitle}
+                      </h3>
+                      <div className="h-1 w-0 bg-primary group-hover:w-full transition-all duration-500 mt-3" />
+                    </div>
+
+                    {/* Subtle Hover Reveal for Location */}
+                    <div className="absolute top-4 right-4 translate-x-10 group-hover:translate-x-0 transition-transform duration-500">
+                      <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full border border-white/30">
+                        {a.difficulty}
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
