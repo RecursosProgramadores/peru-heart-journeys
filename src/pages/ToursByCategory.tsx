@@ -66,8 +66,8 @@ const ToursByCategory = () => {
                                 <Badge className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-foreground hover:bg-white font-bold">
                                     {t.difficulty}
                                 </Badge>
-                                <div className="absolute top-4 right-4 bg-primary text-white font-bold px-3 py-1 rounded-full text-sm shadow-lg">
-                                    Desde ${t.price}
+                                <div className="absolute top-4 right-4 bg-primary text-white font-bold px-3 py-1 rounded-full text-sm shadow-lg cursor-default">
+                                    Consultar
                                 </div>
                             </div>
 

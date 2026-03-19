@@ -1,26 +1,21 @@
-import { MapPin, Heart, Puzzle, Smile } from "lucide-react";
+import { Map, Sparkles, Wand2 } from "lucide-react";
 import expertosImg from "@/assets/principal/expertos.jpg";
 
 const features = [
   {
-    icon: <MapPin className="w-6 h-6" />,
-    title: "Sin multitudes",
-    desc: "Rutas exclusivas lejos de las masas turísticas. Perú como debe experimentarse.",
+    icon: <Map className="w-6 h-6" />,
+    title: "Planes de viaje",
+    desc: "Itinerarios diseñados para descubrir lo mejor de Perú, cubriendo los rincones más icónicos con detalles exclusivos.",
   },
   {
-    icon: <Heart className="w-6 h-6" />,
-    title: "Experiencias 100% auténticas",
-    desc: "Conecta con comunidades locales, tradiciones vivas y sabores genuinos.",
+    icon: <Sparkles className="w-6 h-6" />,
+    title: "Viajes transformacionales",
+    desc: "Experiencias inmersivas que conectan con la cultura ancestral y renuevan tu perspectiva del mundo.",
   },
   {
-    icon: <Puzzle className="w-6 h-6" />,
-    title: "Totalmente a tu medida",
-    desc: "Cada viaje es único. Diseñamos tu itinerario perfecto de principio a fin.",
-  },
-  {
-    icon: <Smile className="w-6 h-6" />,
-    title: "Guías apasionados locales",
-    desc: "Nuestros guías nacieron aquí y aman compartir sus secretos contigo.",
+    icon: <Wand2 className="w-6 h-6" />,
+    title: "Diseño de viajes personalizados",
+    desc: "Creación a medida de la aventura de tus sueños, cuidando cada detalle para que sea exactamente como tú deseas.",
   },
 ];
 
@@ -29,11 +24,11 @@ const WhyUsSection = () => {
     <section className="section-padding bg-background overflow-hidden" id="nosotros">
       <div className="container-narrow">
         <div className="text-center mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Expertos en tu viaje soñado
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-foreground mb-6 tracking-tight">
+            Qué hacemos
           </h2>
-          <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Somos exploradores apasionados… nos enamoramos de Perú y queremos que tú también lo hagas. Precisión alemana + pasión peruana.
+          <p className="font-body text-lg sm:text-xl text-muted-foreground/90 max-w-3xl mx-auto leading-relaxed">
+            <span className="font-semibold text-foreground/80">Inkateam Travel</span> es un proyecto especializado en diseñar experiencias de viaje en Perú. Ofrecemos itinerarios cuidadosamente planificados que combinan cultura, naturaleza, aventura y gastronomía.
           </p>
         </div>
 
@@ -45,7 +40,7 @@ const WhyUsSection = () => {
                 key={f.title}
                 className="flex gap-6 items-start group"
               >
-                <div className="flex-shrink-0 flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                <div className="flex-shrink-0 flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm group-hover:shadow-md group-hover:-translate-y-1">
                   {f.icon}
                 </div>
                 <div>

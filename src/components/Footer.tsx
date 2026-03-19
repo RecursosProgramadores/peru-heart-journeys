@@ -1,178 +1,219 @@
-import fbIcon from "@/assets/logos/facebook.svg";
-import igIcon from "@/assets/logos/instagram.svg";
-import ytIcon from "@/assets/logos/youtube.svg";
-import ttIcon from "@/assets/logos/tiktok.svg";
-import liIcon from "@/assets/logos/linkedin.svg";
-import { MapPin, ShieldCheck, Award } from "lucide-react";
+import { MapPin, ShieldCheck, Award, Facebook, Instagram, Twitter, Mail, Phone, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "@/assets/logos/logoinkateam.png";
+import minceturImg from "@/assets/Mincetur.png";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socials = [
-    { icon: fbIcon, label: "Facebook", path: "#" },
-    { icon: igIcon, label: "Instagram", path: "#" },
-    { icon: ytIcon, label: "Youtube", path: "#" },
-    { icon: ttIcon, label: "TikTok", path: "#" },
-    { icon: liIcon, label: "LinkedIn", path: "#" },
+    { icon: <Facebook className="w-5 h-5" />, label: "Facebook", path: "https://www.facebook.com/inkateamtravelperu" },
+    { icon: <Instagram className="w-5 h-5" />, label: "Instagram", path: "https://www.instagram.com/inkateamtravel/?__pwa=1" },
+    { icon: <Twitter className="w-5 h-5" />, label: "X (Twitter)", path: "https://x.com/inkateamtravel" },
   ];
 
   const footerLinks = {
-    Información: [
-      { name: "Blog", path: "/blog" },
-      { name: "Sobre nosotros", path: "/sobre-nosotros" },
-      { name: "Para socios B2B", path: "#" },
-      { name: "Guía de viaje de Perú GRATIS", path: "#" },
-      { name: "Destinos", path: "/tours/cusco" },
-      { name: "Sostenibilidad", path: "/sostenibilidad" },
-      { name: "Proyecto Social", path: "#" },
+    "Rutas de la Página": [
+      { name: "Inicio", path: "/" },
+      { name: "Tours Destacados", path: "/tours/cusco" },
+      { name: "Viajes Transformacionales", path: "/viajes-transformacionales" },
+      { name: "Diseña Tu Viaje", path: "/disena-tu-viaje" },
+      { name: "Nuestros Destinos", path: "/destinos" },
+      { name: "Blog de Viajes", path: "/blog" },
+      { name: "Contacto", path: "/contacto" },
     ],
-    General: [
-      { name: "Preguntas frecuentes", path: "#" },
-      { name: "Reseñas", path: "#" },
-      { name: "Contáctenos", path: "#contacto" },
-      { name: "Política de privacidad", path: "/privacidad" },
-      { name: "Libro de reclamaciones", path: "#" },
-      { name: "Términos y condiciones", path: "/terminos" },
-    ],
-    "Los tours más vendidos": [
-      { name: "Tour Auténtico de 8 días por Perú", path: "/tours/combinados/cusco-puno-8d-7n" },
-      { name: "Maravillas peruanas en 8 días", path: "/tours/combinados/lima-ica-cusco-8d-7n" },
-      { name: "Aventura épica de 12 días en Perú", path: "#" },
-      { name: "Tours personalizados en Perú", path: "#contacto" },
-      { name: "Tours en Perú", path: "/tours/cusco" },
-      { name: "Excursiones de un día", path: "/tours/cusco" },
-    ],
+    "Acerca de Nosotros": [],
   };
+
+  const legalLinks = [
+    { name: "Términos y Condiciones", path: "/terminos" },
+    { name: "Política de Privacidad", path: "/privacidad" },
+    { name: "Libro de Reclamaciones", path: "#" },
+  ];
 
   return (
     <footer className="bg-[#fcfcfc] border-t border-border mt-20">
-      <div className="container px-4 mx-auto py-20">
+      <div className="container px-4 mx-auto pt-20 pb-10">
 
-        {/* Top Section: Contact & Social */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-border/60">
-          <div className="space-y-4">
-            <h4 className="font-bold text-base uppercase tracking-wider text-foreground/80">Correo electrónico</h4>
-            <a href="mailto:reservas@inkateamtravel.com" className="text-muted-foreground hover:text-primary transition-colors text-lg">
-              reservas@inkateamtravel.com
-            </a>
+        {/* Top Section: Logo, Slogan & Socials */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-12 border-b border-border/60">
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <Link to="/" className="inline-block hover:opacity-90 transition-opacity">
+              <img src={logo} alt="Inka Team Travel Logo" className="h-16 md:h-20 w-auto object-contain drop-shadow-sm" />
+            </Link>
+            <p className="font-display text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-600 italic uppercase tracking-wider">
+              #ViajaViveMasEmociones
+            </p>
           </div>
-
-          <div className="space-y-4">
-            <h4 className="font-bold text-base uppercase tracking-wider text-foreground/80">Teléfono</h4>
-            <div className="space-y-1">
-              <p className="text-muted-foreground flex items-center gap-2">
-                <span className="font-bold text-foreground/70">PE:</span> +51 942293293
-              </p>
-              <p className="text-muted-foreground flex items-center gap-2">
-                <span className="font-bold text-foreground/70">Email:</span> reservas@inkateamtravel.com
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h4 className="font-bold text-base uppercase tracking-wider text-foreground/80">DIRECCIÓN</h4>
-            <div className="flex items-start gap-2 text-muted-foreground">
-              <MapPin className="w-5 h-5 shrink-0 text-primary/60 mt-0.5" />
-              <p className="leading-relaxed">Jose Gregorio Paredes 273, Pueblo Libre, Lima - Perú</p>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h4 className="font-bold text-base uppercase tracking-wider text-foreground/80">Social</h4>
-            <div className="flex gap-4">
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.path}
-                  className="p-2.5 rounded-full bg-muted/40 hover:bg-primary transition-all duration-300 flex items-center justify-center grayscale hover:grayscale-0"
-                  aria-label={social.label}
-                >
-                  <img src={social.icon} alt={social.label} className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
+          
+          <div className="flex items-center gap-4">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.path}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white border border-border shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-primary hover:text-primary transition-all duration-300 flex items-center justify-center text-muted-foreground"
+                aria-label={social.label}
+              >
+                {social.icon}
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* Middle Section: Links */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-16">
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h4 className="font-bold text-xl text-foreground mb-8">{category}</h4>
-              <ul className="space-y-4">
-                {links.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.path}
-                      className="text-muted-foreground hover:text-primary transition-colors inline-block group"
-                    >
-                      <span className="relative">
-                        {link.name}
-                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                      </span>
-                    </Link>
-                  </li>
-                ))}
+        {/* Middle Section: Info & Links */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-16 border-b border-border/60">
+          
+          {/* Contact Info */}
+          <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-10">
+            <div className="space-y-4">
+              <h4 className="font-bold text-base uppercase tracking-wider text-foreground">Contacto Oficial</h4>
+              <ul className="space-y-4 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <Mail className="w-5 h-5 text-primary shrink-0" />
+                  <a href="mailto:reservas@inkateamtravel.com" className="hover:text-primary transition-colors hover:underline">
+                    reservas@inkateamtravel.com
+                  </a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Phone className="w-5 h-5 text-primary shrink-0" />
+                  <a href="https://wa.me/51942293293" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors hover:underline">
+                    +51 942 293 293
+                  </a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Clock className="w-5 h-5 text-primary shrink-0" />
+                  <span>Lunes a Domingo<br />Atención 24/7 p/Viajeros</span>
+                </li>
               </ul>
             </div>
-          ))}
-        </div>
+            
+            <div className="space-y-4">
+              <h4 className="font-bold text-base uppercase tracking-wider text-foreground">Ubicación</h4>
+              <ul className="space-y-4 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-primary shrink-0" />
+                  <p className="leading-relaxed">
+                    Operaciones Centrales en<br/>
+                    Cusco & Lima, Perú.<br/>
+                    Jose Gregorio Paredes 273, Pueblo Libre
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-        {/* Bottom Section: Awards */}
-        <div className="flex flex-wrap justify-center gap-8 md:gap-16 py-12 border-t border-border/60">
-          {[2022, 2023, 2024, 2025].map((year) => (
-            <div key={year} className="flex flex-col items-center text-center">
-              <div className="relative mb-3">
-                <div className="w-20 h-20 rounded-full border-4 border-[#00AF87]/20 flex items-center justify-center bg-white shadow-sm">
-                  <div className="text-[10px] font-bold text-[#00AF87] flex flex-col items-center">
-                    <span className="uppercase">Tripadvisor</span>
-                    <span className="text-xs">Travelers' Choice</span>
-                    <span className="text-base font-black">{year}</span>
-                  </div>
+          {/* Links Columns */}
+          {Object.entries(footerLinks).map(([category, links]) => (
+            <div key={category}>
+              <h4 className="font-bold text-base uppercase tracking-wider text-foreground mb-6">{category}</h4>
+              
+              {links.length > 0 && (
+                <ul className="space-y-3 mb-8">
+                  {links.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        to={link.path}
+                        className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2 group text-sm md:text-base font-medium"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              
+              {/* Certificación Mincetur */}
+              {category === "Acerca de Nosotros" && (
+                <div className="mt-2">
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <button className="transition-transform hover:scale-105 active:scale-95 group flex flex-col items-start gap-2">
+                        <div className="bg-white p-2 rounded-md shadow-sm border border-border/50 group-hover:border-primary/50 inline-block">
+                          <img 
+                            src={minceturImg} 
+                            alt="Certificación Mincetur" 
+                            className="h-16 w-auto object-contain"
+                          />
+                        </div>
+                        <span className="text-xs font-medium text-muted-foreground group-hover:text-primary">
+                          Ver Certificación Mincetur
+                        </span>
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl bg-transparent border-none shadow-none p-0 flex justify-center items-center">
+                      <DialogTitle className="sr-only">Documento de Certificación Mincetur</DialogTitle>
+                      <img 
+                        src={minceturImg} 
+                        alt="Mincetur Certificación" 
+                        className="w-full h-auto max-h-[90vh] object-contain rounded-xl"
+                      />
+                    </DialogContent>
+                  </Dialog>
                 </div>
-                {/* Wreath effect with small dots/stars */}
-                <div className="absolute -inset-2 border-2 border-dashed border-[#00AF87]/10 rounded-full animate-spin-slow" />
-              </div>
+              )}
             </div>
           ))}
         </div>
 
         {/* Certifications Row */}
-        <div className="pt-12 text-center space-y-8">
-          <h4 className="text-lg font-bold text-foreground/70 uppercase tracking-widest">Afiliaciones y certificaciones de viajes</h4>
-          <div className="flex flex-wrap justify-center items-center gap-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-700">
-            {/* Mock logos based on image text */}
-            <div className="flex flex-col items-center gap-2">
-              <ShieldCheck className="w-10 h-10 text-primary" />
+        <div className="pt-12 pb-8 text-center space-y-8 border-b border-border/60">
+          <h4 className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Con el respaldo y certificaciones de:</h4>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14 opacity-75 grayscale hover:grayscale-0 transition-all duration-700">
+            {/* Tripadvisor */}
+            <div className="flex flex-col items-center gap-1.5">
+              <div className="w-12 h-12 rounded-full border-2 border-[#00AF87]/30 flex items-center justify-center bg-white shadow-sm hover:border-[#00AF87] transition-colors">
+                <span className="text-[10px] font-black text-[#00AF87]">T.A</span>
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-tighter">Travelers Choice</span>
+            </div>
+            {/* ATTA */}
+            <div className="flex flex-col items-center gap-1">
+              <ShieldCheck className="w-10 h-10 text-slate-800" />
               <span className="text-[10px] font-bold uppercase tracking-tighter">Member ATTA</span>
             </div>
+            {/* PROMPERU */}
             <div className="flex flex-col items-center gap-1">
-              <span className="text-xl font-black italic text-red-600">prom<span className="text-foreground">perú</span></span>
+              <span className="text-xl font-black italic text-red-600">prom<span className="text-slate-800">perú</span></span>
+              <span className="text-[10px] font-bold uppercase tracking-tighter">Marca Perú</span>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <Award className="w-10 h-10 text-blue-600" />
-              <span className="text-[10px] font-bold uppercase">Agencia Registrada</span>
+            {/* Turismo Oficial */}
+            <div className="flex flex-col items-center gap-1">
+              <Award className="w-10 h-10 text-amber-600" />
+              <span className="text-[10px] font-bold uppercase tracking-tight">Agencia Calificada</span>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-sm font-bold text-green-700 font-serif">Travelife</span>
-              <span className="text-[8px] uppercase font-bold text-muted-foreground text-center leading-tight">Committed to<br />sustainability</span>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center p-2">
-                <ShieldCheck className="w-full h-full text-white" />
-              </div>
-              <span className="text-[10px] font-bold uppercase">Protégeme</span>
+            {/* Travelife */}
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-sm font-bold text-green-700 font-serif border border-green-700 px-2 rounded">Travelife</span>
+              <span className="text-[8px] uppercase font-bold text-muted-foreground text-center leading-tight">Sostenibilidad</span>
             </div>
           </div>
         </div>
 
-        {/* Legal Footer */}
-        <div className="mt-20 pt-8 border-t border-border/40 text-center">
-          <p className="text-sm text-muted-foreground">
-            © {currentYear} Inka Team Travel. Orgullosamente peruanos 🇵🇪. Todos los derechos reservados.
+        {/* Legal Bottom Bar */}
+        <div className="pt-10 text-center space-y-8">
+          
+          <ul className="flex flex-wrap justify-center gap-6 sm:gap-10 text-sm font-medium text-muted-foreground">
+            {legalLinks.map((link) => (
+               <li key={link.name}>
+                 <Link to={link.path} className="hover:text-primary transition-colors hover:underline">
+                   {link.name}
+                 </Link>
+               </li>
+            ))}
+          </ul>
+          
+          <p className="text-xs md:text-sm font-bold text-foreground/70 uppercase tracking-widest max-w-4xl mx-auto leading-relaxed border border-border/60 bg-white inline-block px-6 py-3 rounded-full shadow-sm">
+            INKATEAM TRAVEL SAC - RUC 20565445261 - INSCRITO EN EL DIRECTORIO NACIONAL DE PRESTADORES DE SERVICIOS TURÍSTICOS CALIFICADOS
+          </p>
+          <p className="text-xs text-muted-foreground bg-clip-text">
+            © {currentYear} Inka Team Travel. Orgullosamente peruanos 🇵🇪. Construyendo sueños. Todos los derechos reservados.
           </p>
         </div>
+
       </div>
     </footer>
   );

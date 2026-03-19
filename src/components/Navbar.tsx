@@ -11,11 +11,11 @@ import {
 import { Link } from "react-router-dom";
 
 const navLinks = [
-  { label: "Actividades", href: "#actividades" },
-  { label: "Destinos", href: "#destinos" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Sostenibilidad", href: "#sostenibilidad" },
-  { label: "Blog", href: "#blog" },
+  { label: "Viajes transformacionales", href: "/viajes-transformacionales" },
+  { label: "Diseña tu viaje", href: "/disena-tu-viaje" },
+  { label: "Destinos", href: "/destinos" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 const tourCategories = [
@@ -52,10 +52,17 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          {/* Tours Dropdown */}
+          <Link
+            to="/"
+            className={`text-sm font-medium transition-colors ${scrolled ? "text-foreground hover:text-primary" : "text-primary-foreground hover:text-accent"}`}
+          >
+            Inicio
+          </Link>
+
+          {/* Planes de viaje Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger className={`flex items-center gap-1 text-sm font-medium transition-colors outline-none ${scrolled ? "text-foreground hover:text-primary" : "text-primary-foreground hover:text-accent"}`}>
-              Tours <ChevronDown size={14} className="mt-0.5" />
+              Planes de viaje <ChevronDown size={14} className="mt-0.5" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-56 p-2 bg-white rounded-xl shadow-xl border-border/50 animate-in fade-in zoom-in duration-200">
               {tourCategories.map((cat) => (
@@ -93,8 +100,9 @@ const Navbar = () => {
             variant="default"
             size="sm"
             className="shadow-md transition-all duration-300"
+            asChild
           >
-            Personaliza tu viaje
+            <Link to="/disena-tu-viaje">Personaliza tu viaje</Link>
           </Button>
         </div>
 
@@ -111,6 +119,30 @@ const Navbar = () => {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-background/95 backdrop-blur-sm border-b border-border px-4 pb-6 pt-2 animate-fade-up">
+          <Link
+            to="/"
+            className="block py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            Inicio
+          </Link>
+
+          <div className="py-3">
+            <span className="block text-base font-medium text-muted-foreground mb-2">Planes de viaje</span>
+            <div className="pl-4 flex flex-col gap-3">
+              {tourCategories.map((cat) => (
+                <Link
+                  key={cat.href}
+                  to={cat.href}
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setOpen(false)}
+                >
+                  • {cat.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           {navLinks.map((l) => (
             <a
               key={l.href + l.label}
@@ -121,8 +153,10 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <Button variant="outline" size="default" className="w-full mt-4">
-            Personaliza tu viaje
+          <Button variant="outline" size="default" className="w-full mt-4" asChild>
+            <Link to="/disena-tu-viaje" onClick={() => setOpen(false)}>
+              Personaliza tu viaje
+            </Link>
           </Button>
         </div>
       )}

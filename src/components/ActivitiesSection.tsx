@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Mountain } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
 import { activities } from "@/data/activities";
 
 const ActivitiesSection = () => {
@@ -19,11 +19,9 @@ const ActivitiesSection = () => {
             <p className="font-body text-lg text-muted-foreground mb-8 leading-relaxed">
               Explora nuestros paquetes turísticos diseñados para conectarte con la esencia más pura del Perú.
             </p>
-            <Link to="/tours/cusco">
-              <Button size="xl" className="font-bold px-10">
-                Ver todos los Tours
-              </Button>
-            </Link>
+            <Button size="xl" className="font-bold px-10" asChild>
+              <Link to="/destinos">Ver todos los planes <ArrowRight className="w-5 h-5 ml-2" /></Link>
+            </Button>
           </div>
 
           {/* Right: Grid Layout */}

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { BookOpen, Download } from "lucide-react";
+import { ArrowRight, BookOpen, Download } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const articles = [
   { title: "13 cosas que debes saber antes de viajar a Perú", tag: "Esencial" },
@@ -51,9 +52,9 @@ const BlogSection = () => {
               </div>
             ))}
             <div className="pt-4">
-              <Button variant="outline" size="default">
-                Ver más blogs →
-              </Button>
+              <Button variant="default" size="lg" asChild>
+              <Link to="/blog">Ver todos los artículos</Link>
+            </Button>
             </div>
           </div>
         </div>

@@ -131,7 +131,6 @@ const TourDetail = () => {
                                     ))}
                                 </Accordion>
                             </div>
-
                             {/* Rates Table */}
                             {tour.rates && (
                                 <div className="mb-16">
