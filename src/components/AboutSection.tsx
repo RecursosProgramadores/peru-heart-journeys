@@ -1,26 +1,6 @@
-import { Search, Pencil, Plane, CheckCircle2, ShieldCheck, Heart, UserCheck } from "lucide-react";
+import { Search, CheckCircle2, ShieldCheck, Heart, UserCheck } from "lucide-react";
 import { Badge } from "./ui/badge";
 
-const steps = [
-  {
-    step: "01",
-    title: "Explora nuestros planes",
-    desc: "Revisa nuestros itinerarios base y encuentra la inspiración perfecta para tu próxima gran aventura en Perú.",
-    icon: <Search className="w-8 h-8" />
-  },
-  {
-    step: "02",
-    title: "Personaliza tu viaje",
-    desc: "Trabajamos contigo para adaptar cada detalle a tus gustos, presupuesto y ritmo, creando tu itinerario ideal.",
-    icon: <Pencil className="w-8 h-8" />
-  },
-  {
-    step: "03",
-    title: "Viaja a Perú",
-    desc: "Nos encargamos de toda la logística. Tú solo relájate, disfruta y prepárate para vivir experiencias inolvidables.",
-    icon: <Plane className="w-8 h-8" />
-  }
-];
 
 const workCriteria = [
   { title: "Logística eficiente", desc: "Rutas optimizadas para aprovechar cada minuto." },
@@ -107,36 +87,6 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* How it works (Simplified but kept) */}
-        <div className="pt-24 border-t border-border/60">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              ¿Cómo <span className="text-primary italic">funciona?</span>
-            </h2>
-            <p className="text-muted-foreground">Tu viaje ideal en tres sencillos pasos.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-            {steps.map((s, i) => (
-              <div key={i} className="flex flex-col items-center text-center group">
-                <div className="relative mb-6">
-                  <div className="w-20 h-20 rounded-2xl bg-white border border-border/60 shadow-xl flex items-center justify-center text-primary group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-500 z-10 relative">
-                    {s.icon}
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs shadow-lg transform group-hover:scale-110 transition-transform">
-                    {s.step}
-                  </div>
-                </div>
-                <h3 className="font-display text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {s.title}
-                </h3>
-                <p className="font-body text-xs text-muted-foreground leading-relaxed px-4">
-                  {s.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

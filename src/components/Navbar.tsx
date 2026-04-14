@@ -10,11 +10,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Link } from "react-router-dom";
 
+const tripTypes = [
+  { label: "Viajes transformacionales", href: "/viajes-transformacionales", icon: <MapPin size={16} /> },
+  { label: "Turismos comunitario", href: "/turismo-comunitario", icon: <MapPin size={16} /> },
+  { label: "Diseña tu viaje", href: "/disena-tu-viaje", icon: <MapPin size={16} /> },
+];
+
 const navLinks = [
-  { label: "Viajes transformacionales", href: "/viajes-transformacionales" },
   { label: "Full Days", href: "/full-days" },
-  { label: "Turismo Comunitario", href: "/turismo-comunitario" },
-  { label: "Diseña tu viaje", href: "/disena-tu-viaje" },
   { label: "Destinos", href: "/destinos" },
   { label: "Blog", href: "/blog" },
   { label: "Contacto", href: "/contacto" },
@@ -54,12 +57,27 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link
-            to="/"
-            className={`text-sm font-medium transition-colors ${scrolled ? "text-foreground hover:text-primary" : "text-primary-foreground hover:text-accent"}`}
-          >
-            Inicio
-          </Link>
+          {/* Tipos de viaje Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger className={`flex items-center gap-1 text-sm font-medium transition-colors outline-none ${scrolled ? "text-foreground hover:text-primary" : "text-primary-foreground hover:text-accent"}`}>
+              Tipos de viaje <ChevronDown size={14} className="mt-0.5" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-64 p-2 bg-white rounded-xl shadow-xl border-border/50 animate-in fade-in zoom-in duration-200">
+              {tripTypes.map((type) => (
+                <DropdownMenuItem key={type.href} asChild>
+                  <Link
+                    to={type.href}
+                    className="flex items-center gap-3 w-full px-3 py-2.5 cursor-pointer rounded-lg hover:bg-primary/5 group transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                      {type.icon}
+                    </div>
+                    <span className="font-semibold text-foreground text-sm">{type.label}</span>
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {/* Planes de viaje Dropdown */}
           <DropdownMenu>
@@ -121,13 +139,21 @@ const Navbar = () => {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-background/95 backdrop-blur-sm border-b border-border px-4 pb-6 pt-2 animate-fade-up">
-          <Link
-            to="/"
-            className="block py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
-            onClick={() => setOpen(false)}
-          >
-            Inicio
-          </Link>
+          <div className="py-3">
+            <span className="block text-base font-medium text-muted-foreground mb-2">Tipos de viaje</span>
+            <div className="pl-4 flex flex-col gap-3">
+              {tripTypes.map((type) => (
+                <Link
+                  key={type.href}
+                  to={type.href}
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setOpen(false)}
+                >
+                  • {type.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <div className="py-3">
             <span className="block text-base font-medium text-muted-foreground mb-2">Planes de viaje</span>

@@ -1,4 +1,5 @@
 import { Star, MessageSquareQuote } from "lucide-react";
+import { useEffect } from "react";
 
 const reviews = [
   {
@@ -27,7 +28,24 @@ const reviews = [
   }
 ];
 
-const ContactSection = () => {
+const TestimonialsSection = () => {
+  useEffect(() => {
+    // Load TripAdvisor Script (cdsratingsonlynarrow version)
+    const script = document.createElement("script");
+    script.src = "https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&uniq=842&locationId=27953529&lang=es_PE&border=true&display_version=2";
+    script.async = true;
+    script.setAttribute("data-loadtrk", "true");
+    script.onload = () => {
+      // @ts-ignore
+      this.loadtrk = true;
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <section id="testimonios" className="py-24 bg-muted/20">
       <div className="container-narrow px-4 mx-auto leading-relaxed">
@@ -40,24 +58,24 @@ const ContactSection = () => {
             Nuestra mayor recompensa es leer sobre las experiencias inolvidables que ayudamos a crear día a día.
           </p>
 
-          <a 
-            href="https://www.tripadvisor.com.pe/Attraction_Review-g15221445-d27953529-Reviews-Inkateam_Travel-Magdalena_del_Mar_Lima_Region.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-4 py-3 px-6 sm:px-8 bg-white rounded-full border border-border shadow-sm hover:shadow-md hover:border-[#00AF87]/50 hover:-translate-y-1 transition-all duration-300 group"
-          >
-            <span className="text-sm sm:text-base font-body font-medium text-foreground">
-              Calificado con un <span className="font-bold">96% de "Excelente"</span> en
-            </span>
-            <div className="flex items-center gap-1.5 py-1 px-3 bg-[#00AF87] rounded text-white font-bold text-xs">
-              <span className="text-[11px] uppercase tracking-wide">Tripadvisor</span>
-              <div className="flex gap-0.5">
-                {[1, 2, 3, 4, 5].map(i => (
-                  <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />
-                ))}
+          <div className="flex flex-col items-center gap-6">
+            <p className="font-body text-lg sm:text-lg text-foreground font-semibold flex items-center gap-3">
+              Calificado con un <span className="text-primary text-2xl font-black italic">96%</span> de "Excelente" en
+            </p>
+            
+            {/* TripAdvisor Widget Container (New Version) */}
+            <div className="bg-white px-8 py-4 rounded-[2rem] shadow-xl shadow-primary/5 border border-primary/10 hover:border-primary/30 transition-all duration-500 scale-110 md:scale-125 my-4">
+              <div id="TA_cdsratingsonlynarrow842" className="TA_cdsratingsonlynarrow">
+                <ul id="apaqA8jFJB" className="TA_links 6FcyzImn">
+                  <li id="ofQgKVZ" className="BN6r8Ifi">
+                    <a target="_blank" href="https://www.tripadvisor.com.pe/Attraction_Review-g15221445-d27953529-Reviews-Inkateam_Travel-Magdalena_del_Mar_Lima_Region.html" rel="noreferrer">
+                      <img src="https://www.tripadvisor.com.pe/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-18034-2.svg" alt="TripAdvisor" className="w-48" />
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
-          </a>
+          </div>
         </div>
 
         {/* 4 Cards Grid */}
@@ -102,4 +120,4 @@ const ContactSection = () => {
   );
 };
 
-export default ContactSection;
+export default TestimonialsSection;

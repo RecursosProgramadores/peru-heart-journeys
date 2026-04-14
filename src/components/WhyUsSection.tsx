@@ -1,34 +1,6 @@
-import { MapPin, ShieldCheck, Headphones, Star, Sliders, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import expertosImg from "@/assets/principal/expertos.jpg";
 import { Badge } from "./ui/badge";
-
-const pillars = [
-  {
-    icon: <MapPin className="w-6 h-6" />,
-    title: "Conocimiento local real",
-    desc: "Somos peruanos diseñando viajes en Perú. Conocemos el destino de primera mano, lo que nos permite ofrecerte lugares y experiencias que no aparecen en las guías convencionales.",
-  },
-  {
-    icon: <ShieldCheck className="w-6 h-6" />,
-    title: "Planificación sin improvisaciones",
-    desc: "Cada itinerario está estructurado meticulosamente para optimizar tiempos, evitar errores logísticos y mejorar tu experiencia global.",
-  },
-  {
-    icon: <Headphones className="w-6 h-6" />,
-    title: "Asistencia constante",
-    desc: "No estás solo. Te acompañamos antes, durante y después del viaje con atención personalizada y soporte 24/7.",
-  },
-  {
-    icon: <Star className="w-6 h-6" />,
-    title: "Experiencias auténticas",
-    desc: "Trabajamos con proveedores locales y experiencias reales, enfocadas en la calidad y la autenticidad, lejos del turismo masivo.",
-  },
-  {
-    icon: <Sliders className="w-6 h-6" />,
-    title: "Flexibilidad",
-    desc: "Entendemos que cada viajero es único. Por eso ofrecemos tanto planes listos como viajes completamente personalizados según tus necesidades.",
-  },
-];
 
 const WhyUsSection = () => {
   return (
@@ -39,11 +11,8 @@ const WhyUsSection = () => {
         <div className="text-center mb-16 md:mb-24">
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Por qué elegirnos</Badge>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-foreground mb-6 tracking-tight">
-            Más que una agencia, <br /><span className="text-primary italic">un aliado en tu viaje</span>
+            Nuestra Filosofia<br /><span className="text-primary italic">de viaje</span>
           </h2>
-          <p className="font-body text-lg sm:text-xl text-muted-foreground/90 max-w-3xl mx-auto leading-relaxed">
-            Elegir quién organiza tu viaje es una decisión clave. En <span className="font-bold text-foreground">Inkateam Travel</span> nos enfocamos en ofrecer seguridad, claridad y experiencias diseñadas con maestría.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -55,46 +24,29 @@ const WhyUsSection = () => {
               className="w-full h-auto object-cover aspect-[4/5] lg:aspect-square group-hover:scale-110 transition-transform duration-[2s]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-            
-            <div className="absolute bottom-8 left-8 right-8 space-y-4">
-               <div className="bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-xl flex items-center gap-4 animate-fade-up">
-                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
-                    <Check size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-foreground">Seguridad Total</h4>
-                    <p className="text-xs text-muted-foreground">Tu tranquilidad es nuestra prioridad.</p>
-                  </div>
-               </div>
-               <div className="bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-xl flex items-center gap-4 animate-fade-up delay-150">
-                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
-                    <Check size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-foreground">Claridad Absoluta</h4>
-                    <p className="text-xs text-muted-foreground">Sin cargos ocultos ni sorpresas.</p>
-                  </div>
-               </div>
-            </div>
           </div>
 
-          {/* Right: Pillars List */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold mb-8 text-foreground pb-4 border-b border-border/60">Lo que nos diferencia</h3>
-            {pillars.map((p, i) => (
-              <div
-                key={p.title}
-                className="flex gap-6 p-6 rounded-[2rem] hover:bg-white hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group border border-transparent hover:border-border/60"
-              >
-                <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-white shadow-sm text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shrink-0 self-start">
-                  {p.icon}
-                </div>
-                <div className="space-y-2">
-                  <h4 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors">{p.title}</h4>
-                  <p className="font-body text-sm text-muted-foreground leading-relaxed italic line-clamp-3 group-hover:line-clamp-none transition-all">{p.desc}</p>
-                </div>
+          {/* Right: Philosophy Text */}
+          <div className="space-y-8 flex flex-col justify-center">
+            <h3 className="font-display text-3xl font-extrabold text-foreground pb-4 border-b border-primary/20">
+              Nuestro compromiso contigo
+            </h3>
+            <div className="space-y-6">
+              <p className="font-body text-xl text-foreground/80 leading-relaxed text-pretty">
+                En <span className="font-bold text-primary">Inkateam Travel</span> entendemos que un gran viaje no se improvisa, <span className="italic">se diseña</span>. Por eso, cada experiencia que creamos combina conocimiento local, planificación estratégica y una ejecución impecable, cuidando cada detalle como si fuera un viaje propio.
+              </p>
+              <p className="font-body text-xl text-foreground/80 leading-relaxed text-pretty">
+                No se trata solo de visitar destinos como <span className="font-semibold text-foreground">Cusco, Machu Picchu o el Lago Titicaca</span>. Se trata de vivirlos de la manera correcta: con ritmo, sentido y sin fricciones.
+              </p>
+              <p className="font-body text-xl text-foreground/80 leading-relaxed text-pretty">
+                Trabajamos con rutas optimizadas, proveedores confiables y una visión clara: ofrecerte un viaje auténtico, bien estructurado y memorable de principio a fin. 
+              </p>
+              <div className="p-8 rounded-3xl bg-primary/5 border-l-4 border-primary italic shadow-sm">
+                <p className="font-body text-lg text-primary-dark font-medium leading-relaxed">
+                  "Porque el verdadero valor está en lo bien pensado, no en lo improvisado. Tu viaje a Perú, diseñado por peruanos."
+                </p>
               </div>
-            ))}
+            </div>
           </div>
         </div>
         

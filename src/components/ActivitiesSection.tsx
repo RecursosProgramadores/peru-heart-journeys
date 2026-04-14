@@ -4,6 +4,19 @@ import { MapPin, ArrowRight } from "lucide-react";
 import { activities } from "@/data/activities";
 
 const ActivitiesSection = () => {
+  // Selección personalizada de 9 actividades para esta sección
+  const displayActivities = [
+    activities[0], // Machu Picchu
+    { ...activities[8], shortTitle: "Tour Lima" }, // Lima en lugar de Cusco
+    activities[2], // Valle Sagrado
+    activities[3], // Montaña 7 Colores
+    activities[4], // Laguna Humantay
+    activities[9], // Circuito del Agua en lugar de Valle Sur
+    activities[6], // Ruta del Sol
+    activities[7], // Lago Titicaca
+    activities[10], // Paracas en lugar de la posición original de Lima
+  ];
+
   return (
     <section id="actividades" className="section-padding bg-background">
       <div className="container-narrow">
@@ -27,7 +40,7 @@ const ActivitiesSection = () => {
           {/* Right: Grid Layout */}
           <div className="lg:w-2/3">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 auto-rows-[200px] md:auto-rows-[240px]">
-              {activities.slice(0, 9).map((a, index) => {
+              {displayActivities.map((a, index) => {
                 // Determine category based on slug/location for linking
                 let linkTo = `/tours/cusco`;
                 if (a.slug.includes("lima")) linkTo = "/tours/lima";

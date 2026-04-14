@@ -2,16 +2,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
-import { MapPin, Calendar, Compass, ArrowRight, Camera } from "lucide-react";
+import { MapPin, Calendar, Compass, ArrowRight, Camera, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// Institutional Components
-import WhyUsSection from "@/components/WhyUsSection";
-import AboutSection from "@/components/AboutSection";
-import BlogSection from "@/components/BlogSection";
-import FAQSection from "@/components/FAQSection";
-import ContactSection from "@/components/ContactSection";
-import LegalInfoSection from "@/components/LegalInfoSection";
 
 import imgCusco from "@/assets/tour-cusco.jpg";
 import imgMachuPicchu from "@/assets/hero-machu-picchu.jpg";
@@ -190,29 +183,19 @@ const Destinos = () => {
         </div>
       </section>
 
-      {/* Institutional Sections */}
-      <div className="space-y-0">
-        <WhyUsSection />
-        <AboutSection />
-        <BlogSection />
-        <FAQSection />
-        <ContactSection />
-        <LegalInfoSection />
-      </div>
-
-      {/* CTA Final (Customized for Destinos or reused from Index if needed) */}
+      {/* CTA Final (WhatsApp) */}
       <section className="py-24 bg-primary/5 border-t border-border/40">
         <div className="container mx-auto px-4 text-center max-w-3xl">
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            ¿No sabes por dónde empezar?
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 text-foreground leading-tight">
+            ¿Listo para empezar tu viaje?
           </h2>
-          <p className="font-body text-xl text-muted-foreground mb-10">
-            Nuestros expertos en viajes pueden combinar cualquiera de estos destinos en un itinerario perfectamente equilibrado y a tu medida.
+          <p className="font-body text-xl text-muted-foreground mb-10 leading-relaxed">
+            Escríbenos ahora y recibe asesoría personalizada de nuestros expertos.
           </p>
-          <Button size="xl" className="font-bold text-lg px-8 py-6 rounded-full shadow-lg" asChild>
-            <Link to="/disena-tu-viaje">
-              Diseñar Mi Viaje a Medida <Compass className="w-5 h-5 ml-2" />
-            </Link>
+          <Button size="xl" className="font-bold text-lg px-8 py-7 rounded-full shadow-2xl bg-[#25D366] hover:bg-[#20ba5a] text-white border-none transition-all duration-300 hover:scale-105 group" asChild>
+            <a href="https://wa.me/51942293293" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="w-6 h-6 mr-2 group-hover:animate-pulse" /> WhatsApp Solicita asesoría
+            </a>
           </Button>
         </div>
       </section>

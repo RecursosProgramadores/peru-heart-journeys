@@ -37,7 +37,7 @@ const DestinationsSection = () => {
       <div className="container-narrow px-4">
         <div className="text-center mb-16">
           <span className="inline-block text-sm font-semibold tracking-widest uppercase text-primary mb-3">
-            Nuestros Paquetes
+            Nuestros Planes de Viaje
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Destinos diseñados a tu medida
@@ -66,7 +66,7 @@ const DestinationsSection = () => {
                 <div className="mb-4 inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                   <span className="text-[10px] font-bold text-white uppercase tracking-widest">
-                    {cat.count} Paquetes
+                    {cat.count} Planes de Viaje
                   </span>
                 </div>
                 <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
