@@ -1,4 +1,5 @@
-import { Search, Pencil, Plane } from "lucide-react";
+import { Search, Pencil, Plane, CheckCircle2, ShieldCheck, Heart, UserCheck } from "lucide-react";
+import { Badge } from "./ui/badge";
 
 const steps = [
   {
@@ -21,45 +22,138 @@ const steps = [
   }
 ];
 
+const workCriteria = [
+  { title: "Logística eficiente", desc: "Rutas optimizadas para aprovechar cada minuto." },
+  { title: "Proveedores confiables", desc: "Selección rigurosa de hoteles, transporte y guías." },
+  { title: "Equilibrio perfecto", desc: "Actividades estimulantes con tiempo libre para el descanso." },
+  { title: "Experiencia real", desc: "Sumergirte de verdad en la esencia de cada destino." }
+];
+
+const commitmentItems = [
+  { text: "Ofrecer experiencias bien organizadas", icon: <CheckCircle2 className="w-5 h-5 text-primary" /> },
+  { text: "Garantizar acompañamiento constante", icon: <UserCheck className="w-5 h-5 text-primary" /> },
+  { text: "Brindar información clara y actualizada", icon: <ShieldCheck className="w-5 h-5 text-primary" /> }
+];
+
 const AboutSection = () => {
   return (
-    <section id="como-funciona" className="py-24 bg-background border-t border-b border-border/40 relative overflow-hidden">
-      <div className="absolute inset-0 bg-muted/10 pointer-events-none" />
+    <section id="sobre-nosotros" className="py-24 bg-background border-t border-border/40 relative overflow-hidden">
+      <div className="absolute inset-0 bg-muted/5 pointer-events-none" />
+      
       <div className="container-narrow px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-foreground mb-6 tracking-tight">
-            Cómo <span className="text-primary">funciona</span>
-          </h2>
-          <p className="font-body text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Tu viaje de ensueño a Perú está a solo tres sencillos pasos de distancia. Nosotros nos encargamos de todo el trabajo pesado.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 relative">
-          {/* Connecting Line for Desktop */}
-          <div className="hidden md:block absolute top-[48px] left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent -z-10" />
-
-          {steps.map((s, i) => (
-            <div key={i} className="flex flex-col items-center text-center group">
-              <div className="relative mb-8">
-                <div className="w-24 h-24 rounded-full bg-background border border-border/60 shadow-xl flex items-center justify-center text-primary group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-500 z-10 relative">
-                  {s.icon}
-                </div>
-                <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold font-display shadow-lg transform group-hover:scale-110 transition-transform">
-                  {s.step}
-                </div>
-              </div>
-              <h3 className="font-display text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
-                {s.title}
-              </h3>
-              <p className="font-body text-muted-foreground leading-relaxed">
-                {s.desc}
+        {/* Core Description */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+          <div className="space-y-8">
+            <div>
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Sobre Nosotros</Badge>
+              <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-foreground mb-6 leading-tight">
+                Expertos en diseñar <br /><span className="text-primary italic">viajes en Perú</span>
+              </h2>
+              <p className="font-body text-lg text-muted-foreground leading-relaxed">
+                En <span className="font-bold text-foreground">Inkateam Travel</span> somos especialistas en la creación de experiencias de viaje en Perú, combinando conocimiento local, planificación estratégica y un enfoque personalizado.
               </p>
             </div>
-          ))}
+            
+            <div className="p-8 rounded-3xl bg-primary/5 border border-primary/10 relative">
+               <div className="absolute top-4 right-4 text-primary/20">
+                 <Search size={40} />
+               </div>
+               <h3 className="text-xl font-bold mb-4">No solo organizamos itinerarios.</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                 Diseñamos viajes que tienen sentido, que fluyen y que permiten vivir el destino de forma auténtica, alejándonos de lo convencional para brindarte una conexión real.
+               </p>
+            </div>
+
+            <div className="flex flex-wrap gap-4 pt-4">
+              <Button className="rounded-full px-8" asChild>
+                <a href="#tours">Descubre nuestros planes</a>
+              </Button>
+              <Button variant="outline" className="rounded-full px-8" asChild>
+                <a href="#contacto">Diseña tu viaje</a>
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8">
+            <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-border/60">
+               <h3 className="font-display text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
+                 <Badge variant="outline" className="w-8 h-8 rounded-full p-0 flex items-center justify-center bg-primary/10 border-none">1</Badge>
+                 Nuestra forma de trabajar
+               </h3>
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {workCriteria.map((item, i) => (
+                    <div key={i} className="p-4 rounded-2xl bg-muted/30 border border-border/40 hover:border-primary/30 transition-colors">
+                      <h4 className="font-bold text-sm mb-1">{item.title}</h4>
+                      <p className="text-xs text-muted-foreground">{item.desc}</p>
+                    </div>
+                  ))}
+               </div>
+            </div>
+
+            <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-border/60">
+               <h3 className="font-display text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
+                 <Badge variant="outline" className="w-8 h-8 rounded-full p-0 flex items-center justify-center bg-primary/10 border-none">2</Badge>
+                 Nuestro compromiso
+               </h3>
+               <div className="space-y-4">
+                  {commitmentItems.map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 border border-primary/10">
+                      {item.icon}
+                      <span className="text-sm font-semibold">{item.text}</span>
+                    </div>
+                  ))}
+               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* How it works (Simplified but kept) */}
+        <div className="pt-24 border-t border-border/60">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              ¿Cómo <span className="text-primary italic">funciona?</span>
+            </h2>
+            <p className="text-muted-foreground">Tu viaje ideal en tres sencillos pasos.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+            {steps.map((s, i) => (
+              <div key={i} className="flex flex-col items-center text-center group">
+                <div className="relative mb-6">
+                  <div className="w-20 h-20 rounded-2xl bg-white border border-border/60 shadow-xl flex items-center justify-center text-primary group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-500 z-10 relative">
+                    {s.icon}
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs shadow-lg transform group-hover:scale-110 transition-transform">
+                    {s.step}
+                  </div>
+                </div>
+                <h3 className="font-display text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  {s.title}
+                </h3>
+                <p className="font-body text-xs text-muted-foreground leading-relaxed px-4">
+                  {s.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
+  );
+};
+
+// Internal Button component shim if not imported globally correctly
+const Button = ({ children, className, variant, asChild }: any) => {
+  const Comp = asChild ? 'span' : 'button';
+  const variants = {
+    default: "bg-primary text-white hover:bg-primary/90",
+    outline: "border-2 border-primary text-primary hover:bg-primary/5"
+  };
+  const v = variant === 'outline' ? variants.outline : variants.default;
+  return (
+    <Comp className={`inline-flex items-center justify-center font-bold transition-all duration-300 h-12 shadow-sm ${v} ${className}`}>
+      {children}
+    </Comp>
   );
 };
 

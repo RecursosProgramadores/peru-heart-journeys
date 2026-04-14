@@ -2,213 +2,220 @@ import { Tour } from "../../types/tour";
 
 export const combinadosTours: Tour[] = [
     {
-        slug: "cusco-puno-8d-7n-vivencial",
-        category: "combinados",
-        title: "CUSCO & PUNO 8D-7N: Experiencia Vivencial",
-        shortTitle: "CUSCO & PUNO 8D-7N",
-        duration: "8 Días / 7 Noches",
-        price: "1040",
-        difficulty: "Moderada",
-        img: "/assets/act-lago-titicaca.jpg",
-        alt: "Lago Titicaca experiencia vivencial",
-        excerpt: "Una inmersión profunda en la cultura andina, desde la capital inca hasta las islas del Titicaca.",
-        description: [
-            "Este viaje combina la majestuosidad del Cusco con la espiritualidad del Lago Titicaca.",
-            "Vivirás una experiencia única pernoctando en una casa de familia local en la Isla Amantani, compartiendo tradiciones y costumbres ancestrales."
-        ],
-        highlights: ["Ruta del Sol", "Noche vivencial en Amantani", "Machu Picchu", "Isla de los Uros"],
-        itinerary: [
-            { day: 1, title: "Recepción en Cusco", content: "Traslado privado del aeropuerto al hotel. Tarde libre para aclimatación." },
-            { day: 2, title: "City Tour Cusco", content: "Exploración de Sacsayhuaman, Qenqo, Puka Pukara y Tambomachay." },
-            { day: 3, title: "Valle Sagrado Completo", content: "Visita a Pisac, Ollantaytambo y Chincheros con almuerzo incluido." },
-            { day: 4, title: "Machu Picchu", content: "Día completo en la ciudadela sagrada. Almuerzo buffet incluido." },
-            { day: 5, title: "Ruta del Sol a Puno", content: "Viaje en bus turístico con paradas en Andahuaylillas, La Raya y Pukara." },
-            { day: 6, title: "Titicaca Día 1 (Uros y Amantani)", content: "Visita a las islas flotantes y noche en casa de una familia local en Amantani." },
-            { day: 7, title: "Titicaca Día 2 (Taquile)", content: "Exploración de Taquile y retorno a Puno por la tarde." },
-            { day: 8, title: "Traslado a Juliaca", content: "Traslado al aeropuerto de Juliaca para su vuelo de salida." }
-        ],
-        includes: [
-            "Traslados aeropuerto/hotel/aeropuerto - estación en privado en Cusco y Puno",
-            "04 noches en Cusco + 02 noches en Puno + 01 noche en casa de Familia",
-            "City Tour Cusco",
-            "Full Day Valle Sagrado con almuerzo",
-            "Full Day MachuPicchu con almuerzo",
-            "Ruta del Sol Cusco a Puno con almuerzo",
-            "Experiencia Vivencial Lago Titicaca 2D-1N con alimentación",
-            "Guías para las visitas"
-        ],
-        notIncludes: [
-            "Alimentación no especificada",
-            "Boleto Turístico Integral (USD$38 aprox)",
-            "Entrada a Maras (USD$8 aprox)",
-            "Tiquetes aéreos"
-        ],
-        rates: [
-            { hotel: "Hotel Cat Turista", single: "1040", doble: "830", triple: "779" },
-            { hotel: "Hotel Cat Turista Sup", single: "1213", doble: "900", triple: "832", isRecommended: true }
-        ]
-    },
-    {
         slug: "lima-cusco-5d-4n",
         category: "combinados",
-        title: "LIMA & CUSCO 5D-4N: Las Dos Capitales",
+        title: "Lima & Cusco 5D / 4N: Costa y Andes",
         shortTitle: "LIMA & CUSCO 5D-4N",
         duration: "5 Días / 4 Noches",
         price: "769",
         difficulty: "Fácil",
         img: "/assets/act-city-tour-lima.jpg",
         alt: "Lima y Cusco combinado",
-        excerpt: "Conoce la Lima moderna y colonial antes de sumergirte en el corazón del Imperio Inca.",
+        excerpt: "Una combinación perfecta entre la modernidad de Lima y la historia milenaria de Cusco.",
         description: [
-            "El paquete ideal para quienes visitan Perú por primera vez.",
-            "Disfruta de la gastronomía de Lima y la historia viva del Cusco y Machu Picchu en un solo itinerario perfectamente organizado."
+            "Conoce lo mejor del Perú en un solo viaje: la capital gastronómica de Sudamérica y la maravilla del mundo, Machu Picchu.",
+            "Este itinerario optimiza tu tiempo, permitiéndote disfrutar de los contrastes culturales más impactantes del país con una logística de primera clase.",
+            "⭐ Experiencia destacada: Este viaje combina lo mejor del Perú: la capital gastronómica de Sudamérica y la maravilla del mundo."
         ],
-        highlights: ["City Tour Lima", "Circuito Mágico del Agua", "Valle Sagrado", "Machu Picchu"],
+        highlights: ["City Tour Lima", "Circuito Mágico del Agua", "Machu Picchu", "Capitales Peruanas"],
         itinerary: [
-            { day: 1, title: "Lima: Recepción y City Tour", content: "Llegada a Lima y tour por la ciudad incluyendo el Circuito Mágico del Agua." },
-            { day: 2, title: "Vuelo a Cusco", content: "Traslado al aeropuerto. Al llegar a Cusco, tour panorámico por la ciudad." },
-            { day: 3, title: "Valle Sagrado", content: "Día completo explorando los rincones más bellos del valle." },
-            { day: 4, title: "Machu Picchu", content: "Visita guiada a la ciudadela con almuerzo incluido." },
-            { day: 5, title: "Traslado", content: "Tiempo libre y traslado al aeropuerto de Cusco." }
+            { day: 1, title: "Llegada a Lima", content: "Recepción en el aeropuerto Jorge Chávez y traslado privado a tu hotel. Tiempo libre para descansar." },
+            { day: 2, title: "Lima: Historia y Fuentes", content: "Recorrido por el Centro Histórico y Miraflores. Por la noche, visita al espectacular Circuito Mágico del Agua." },
+            { day: 3, title: "Lima – Cusco", content: "Vuelo a Cusco (no incluido). Recepción en el aeropuerto Velasco Astete y traslado al hotel para aclimatación." },
+            { day: 4, title: "Machu Picchu", content: "Viaje en tren y visita guiada a la ciudadela arqueológica. Incluye bus, entrada y un delicioso almuerzo." },
+            { day: 5, title: "Salida", content: "Mañana libre en Cusco y traslado final al aeropuerto según tu horario de vuelo." }
         ],
         includes: [
-            "Traslados aeropuerto/hotel/aeropuerto en privado en Lima y Cusco",
-            "01 noche en Lima + 03 noches en Cusco con desayunos",
+            "Traslados en Lima y Cusco",
+            "2 noches en Lima + 2 noches en Cusco con desayunos",
             "City Tour Lima + Circuito Mágico del Agua",
-            "Tour Panorámico Cusco",
-            "Full Day Valle Sagrado con almuerzo",
-            "Full Day MachuPicchu con almuerzo",
-            "Guías para las visitas",
-            "Tarjeta de Asistencia"
+            "Machu Picchu completo con almuerzo",
+            "Guía profesional y asistencia permanente"
         ],
-        notIncludes: [
-            "Alimentación no especificada",
-            "Boleto Turístico Parcial (USD$20 aprox)",
-            "Entrada a Maras (USD$8 aprox)",
-            "Tiquetes aéreos"
-        ],
+        notIncludes: ["Vuelos internacionales y Lima–Cusco", "Boleto Turístico Cusco", "Gastos personales"],
         rates: [
             { hotel: "Hotel Cat Turista", single: "769", doble: "610", triple: "573" },
             { hotel: "Hotel Cat Turista Sup", single: "918", doble: "675", triple: "629", isRecommended: true }
         ]
     },
     {
-        slug: "lima-ica-3d-2n",
-        category: "combinados",
-        title: "LIMA & ICA 3D-2N: Costa y Desierto",
-        shortTitle: "LIMA & ICA 3D-2N",
-        duration: "3 Días / 2 Noches",
-        price: "311",
-        difficulty: "Fácil",
-        img: "/assets/act-paracas-ica.jpg",
-        alt: "Huacachina y Paracas",
-        excerpt: "Escápate de la ciudad hacia las dunas de la Huacachina y la fauna marina de Paracas.",
-        description: [
-            "Una aventura rápida pero intensa en la costa peruana.",
-            "Descubre la fauna de las Islas Ballestas y siente la adrenalina de los tubulares en el desierto de Ica."
-        ],
-        highlights: ["Islas Ballestas", "Desierto de Huacachina", "Vinos y Piscos", "Tubulares"],
-        itinerary: [
-            { day: 1, title: "Lima: Recepción", content: "Bienvenida y City Tour por la capital." },
-            { day: 2, title: "Full Day Ica y Paracas", content: "Viaje a la costa. Tour en lancha, cata de pisco y aventura en el desierto." },
-            { day: 3, title: "Traslado", content: "Tiempo libre y traslado final al aeropuerto de Lima." }
-        ],
-        includes: [
-            "Traslados aeropuerto/hotel/aeropuerto en privado",
-            "02 noches de alojamiento con desayuno",
-            "City Tour Lima Panorámico",
-            "Full Day Paracas, Ica, Huacachina con almuerzo",
-            "Tarjeta de Asistencia"
-        ],
-        notIncludes: ["Vuelos internacionales", "Cenas"],
-        rates: [
-            { hotel: "Hoteles Tambo", single: "311", doble: "217", triple: "192" },
-            { hotel: "Ibis Budget Lima Miraflores", single: "318", doble: "217", triple: "189" },
-            { hotel: "Radisson Red Miraflores", single: "358", doble: "242", triple: "226", isRecommended: true }
-        ]
-    },
-    {
-        slug: "lima-ica-4d-3n",
-        category: "combinados",
-        title: "LIMA & ICA 4D-3N: Relax y Aventura",
-        shortTitle: "LIMA & ICA 4D-3N",
-        duration: "4 Días / 3 Noches",
-        price: "398",
-        difficulty: "Fácil",
-        img: "/assets/tour-adventure.jpg",
-        alt: "Aventura en Ica",
-        excerpt: "Más tiempo para disfrutar de la capital y la magia del desierto peruano.",
-        description: [
-            "Este paquete añade una visita al Circuito Mágico del Agua en Lima, ideal para familias.",
-            "Disfruta de la mejor gastronomía costera y paisajes únicos en el desierto y el océano."
-        ],
-        highlights: ["Circuito Mágico del Agua", "Huacachina", "Ballestas", "Cata de Piscos"],
-        itinerary: [
-            { day: 1, title: "Llegada a Lima", content: "Traslado al hotel." },
-            { day: 2, title: "City Tour y Fuentes", content: "Tour por Lima y visita nocturna al Circuito Mágico del Agua." },
-            { day: 3, title: "Aventura en la Costa", content: "Día completo en Paracas e Ica con almuerzo incluido." },
-            { day: 4, title: "Finalización", content: "Traslado al aeropuerto." }
-        ],
-        includes: [
-            "Traslados aeropuerto/hotel/aeropuerto en privado",
-            "03 noches de alojamiento con desayuno",
-            "City Tour Lima Panorámico",
-            "Visita Circuito Mágico del Agua",
-            "Full Day Paracas, Ica, Huacachina con almuerzo",
-            "Tarjeta de Asistencia"
-        ],
-        notIncludes: ["Propinas", "Extras"],
-        rates: [
-            { hotel: "Hoteles Tambo", single: "398", doble: "274", triple: "242" },
-            { hotel: "Ibis Budget Lima Miraflores", single: "410", doble: "274", triple: "237" },
-            { hotel: "Radisson Red Miraflores", single: "469", doble: "312", triple: "292", isRecommended: true }
-        ]
-    },
-    {
         slug: "lima-ica-cusco-8d-7n",
         category: "combinados",
-        title: "LIMA, ICA & CUSCO 8D-7N: El Gran Triángulo",
+        title: "Lima, Ica & Cusco 8D / 7N: El Perú Completo",
         shortTitle: "LIMA, ICA & CUSCO 8D-7N",
         duration: "8 Días / 7 Noches",
         price: "1020",
         difficulty: "Moderada",
         img: "/assets/hero-machu-picchu.jpg",
         alt: "Triángulo de oro Perú",
-        excerpt: "El recorrido definitivo que incluye ciudad, costa, desierto y montañas sagradas.",
+        excerpt: "Una experiencia integral que combina ciudad, desierto y las montañas de los Andes.",
         description: [
-            "Conoce la diversidad del Perú en solo 8 días.",
-            "Desde la vibrante Lima hasta las dunas de Ica, culminando en la asombrosa ciudadela de Machu Picchu."
+            "Desde el océano Pacífico hasta los Andes, este viaje muestra la diversidad total del Perú en una sola ruta perfectamente coordinada.",
+            "Disfruta de la modernidad limeña, la adrenalina del desierto de Ica y la espiritualidad profunda de la cultura inca en Cusco.",
+            "⭐ Experiencia destacada: Desde el océano Pacífico hasta los Andes, este viaje muestra la diversidad total del Perú en una sola ruta."
         ],
         highlights: ["Huacachina", "Machu Picchu", "Islas Ballestas", "Valle Sagrado"],
         itinerary: [
-            { day: 1, title: "Llegada a Lima", content: "Recepción y traslado." },
-            { day: 2, title: "Lima Colonial", content: "City Tour Panorámico." },
-            { day: 3, title: "Costa y Desierto", content: "Full Day Paracas e Ica." },
-            { day: 4, title: "Hacia los Andes", content: "Vuelo de Lima a Cusco. Tarde libre." },
-            { day: 5, title: "Cusco Sagrado", content: "City Tour por la ciudad de piedra." },
-            { day: 6, title: "Corazón del Valle", content: "Full Day Valle Sagrado Completo." },
-            { day: 7, title: "Machu Picchu", content: "Día inolvidable en la maravilla." },
-            { day: 8, title: "Fin del Viaje", content: "Traslado al aeropuerto de Cusco." }
+            { day: 1, title: "Llegada a Lima", content: "Recepción y traslado privado a tu hotel seleccionado." },
+            { day: 2, title: "Lima Cultural", content: "Exploración del Centro histórico y visita nocturna al Circuito Mágico del Agua." },
+            { day: 3, title: "Paracas & Ica", content: "Expedición a las Islas Ballestas. Continuación a Ica para visita a bodega y aventura en Huacachina (tubulares + sandboarding). Incluye almuerzo." },
+            { day: 4, title: "Hacia la Capital Inca", content: "Vuelo a Cusco y traslado al hotel para aclimatación segura." },
+            { day: 5, title: "City Tour Cusco", content: "Visita a Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay." },
+            { day: 6, title: "Valle Sagrado de los Incas", content: "Tour por Chinchero, Moray, Maras, Ollantaytambo y Pisac con almuerzo buffet." },
+            { day: 7, title: "Machu Picchu", content: "Día completo en la ciudadela con tren, bus, entrada y almuerzo incluidos." },
+            { day: 8, title: "Regreso", content: "Traslado final al aeropuerto." }
         ],
         includes: [
-            "Traslados aeropuerto/hotel/aeropuerto en privado en Lima y Cusco",
-            "03 noches en Lima + 04 noches en Cusco con desayunos",
-            "City Tour Panorámico Lima",
-            "Full Day Paracas, Ica, Huacachina con almuerzo",
-            "City Tour Cusco",
-            "Full Day Valle Sagrado con almuerzo",
-            "Full Day MachuPicchu con almuerzo",
-            "Tarjeta de Asistencia"
+            "Traslados completos en privado",
+            "3 noches en Lima + 4 noches en Cusco con desayunos",
+            "City Tour Lima + Circuito Mágico",
+            "Full Day Paracas & Ica (Grupal)",
+            "City Tour Cusco y Valle Sagrado",
+            "Machu Picchu completo con almuerzo",
+            "Guía profesional y asistencia permanente"
         ],
-        notIncludes: [
-            "Alimentación no especificada",
-            "Boleto Turístico Integral (USD$38 aprox)",
-            "Entrada a Maras (USD$8 aprox)",
-            "Tiquetes aéreos"
-        ],
+        notIncludes: ["Vuelos", "Impuestos en Paracas", "Boleto Turístico Cusco", "Entradas adicionales"],
         rates: [
             { hotel: "Hotel Cat Turista", single: "1020", doble: "769", triple: "712" },
             { hotel: "Hotel Cat Turista Sup", single: "1252", doble: "876", triple: "815", isRecommended: true }
         ]
+    },
+    {
+        slug: "cusco-puno-8d-7n-vivencial",
+        category: "combinados",
+        title: "Cusco & Puno 8D / 7N: Andes en profundidad",
+        shortTitle: "CUSCO & PUNO 8D-7N",
+        duration: "8 Días / 7 Noches",
+        price: "1040",
+        difficulty: "Moderada",
+        img: "/assets/act-lago-titicaca.jpg",
+        alt: "Lago Titicaca vivencial",
+        excerpt: "Ruta del Sol y Lago Titicaca vivencial: cultura auténtica y paisajes del altiplano.",
+        description: [
+            "Conecta el corazón del Imperio Inca con el lago navegable más alto del mundo en una experiencia que combina historia y convivencia.",
+            "Dormir en una isla del Lago Titicaca y compartir con una familia local transforma el viaje en una experiencia auténtica, más allá del turismo tradicional.",
+            "⭐ Experiencia destacada: Dormir en una isla del Lago Titicaca y compartir con una familia local transforma el viaje en una experiencia auténtica."
+        ],
+        highlights: ["Lago Titicaca", "Isla Amantani", "Ruta del Sol", "Machu Picchu"],
+        itinerary: [
+            { day: 1, title: "Llegada a Cusco", content: "Recepción y traslado. Tiempo libre para aclimatación." },
+            { day: 2, title: "City Tour Cusco", content: "Introducción a la cosmovisión Inca visitando Sacsayhuamán y otros centros arqueológicos." },
+            { day: 3, title: "Valle Sagrado", content: "Recorrido por Moray, Maras y Ollantaytambo con almuerzo buffet." },
+            { day: 4, title: "Machu Picchu", content: "Visita guiada profunda a la maravilla del mundo con almuerzo incluido." },
+            { day: 5, title: "Ruta del Sol", content: "Viaje escénico hacia Puno visitando Andahuaylillas, Raqchi y Pukara. Incluye almuerzo." },
+            { day: 6, title: "Experiencia Vivencial: Uros y Amantaní", content: "Lancha por el Titicaca. Noche con familia local en Amantaní, compartiendo su cultura y alimentación." },
+            { day: 7, title: "Isla Taquile", content: "Visita a los famosos tejedores de Taquile y retorno a Puno." },
+            { day: 8, title: "Salida", content: "Traslado al aeropuerto de Juliaca." }
+        ],
+        includes: [
+            "Traslados completos",
+            "4 noches en Cusco + 2 noches en Puno + 1 noche en Amantaní",
+            "Todos los tours mencionados (Cusco, Valle, Machu Picchu, Ruta del Sol, Titicaca)",
+            "Alimentación completa en Amantaní",
+            "Guía profesional y asistencia permanente"
+        ],
+        notIncludes: ["Vuelos", "Boleto Turístico Integral Cusco", "Entradas específicas (Maras, Andahuaylillas)", "Propinas"],
+        rates: [
+            { hotel: "Hotel Cat Turista", single: "1040", doble: "830", triple: "779" },
+            { hotel: "Hotel Cat Turista Sup", single: "1213", doble: "900", triple: "832", isRecommended: true }
+        ]
+    },
+    {
+        slug: "cusco-trekking-4d-3n",
+        category: "combinados",
+        title: "Cusco Machu Picchu & Trekking 4D / 3N",
+        shortTitle: "CUSCO TREKKING 4D-3N",
+        duration: "4 Días / 3 Noches",
+        price: "Consulte",
+        difficulty: "Exigente",
+        img: "/assets/act-montana-colores.jpg",
+        alt: "Aventura en Vinicunca",
+        excerpt: "Aventura en los Andes: Machu Picchu y Montaña 7 Colores en 4 días intensos.",
+        description: [
+            "Este itinerario combina dos extremos: la historia de Machu Picchu y la exigencia física de la alta montaña.",
+            "Una experiencia completa diseñada para viajeros activos que buscan paisajes inolvidables y retos personales.",
+            "⭐ Experiencia destacada: Este itinerario combina dos extremos: la historia de Machu Picchu y la exigencia física de la alta montaña."
+        ],
+        highlights: ["Desafío Vinicunca", "Machu Picchu", "Alta Montaña", "Experiencia Activa"],
+        itinerary: [
+            { day: 1, title: "Llegada a Cusco", content: "Recepción y traslado. Descanso para aclimatación." },
+            { day: 2, title: "Machu Picchu", content: "Visita guiada a la ciudadela con tren y almuerzo incluidos." },
+            { day: 3, title: "Montaña 7 Colores", content: "Trekking hacia la cumbre de Vinicunca (5,000 msnm) con alimentación completa." },
+            { day: 4, title: "Traslado de Salida", content: "Traslado final al aeropuerto." }
+        ],
+        includes: [
+            "Traslados completos",
+            "3 noches de alojamiento con desayuno",
+            "Full Day Machu Picchu completo",
+            "Tour Montaña 7 Colores con alimentación",
+            "Guía profesional y asistencia permanente"
+        ],
+        notIncludes: ["Vuelos", "Entrada a Montaña 7 Colores", "Boleto Turístico Cusco", "Gastos personales"]
+    },
+    {
+        slug: "cusco-valle-trekking-5d-4n",
+        category: "combinados",
+        title: "Cusco Valle Sagrado & Trekking 5D / 4N",
+        shortTitle: "CUSCO VALLE TREKKING 5D-4N",
+        duration: "5 Días / 4 Noches",
+        price: "Consulte",
+        difficulty: "Moderada",
+        img: "/assets/act-valle-sagrado.jpg",
+        alt: "Valle y montaña",
+        excerpt: "Historia Inca y aventura en altura: una combinación equilibrada y completa.",
+        description: [
+            "Un viaje que combina el legado Inca con el reto físico de la montaña, ideal para quienes buscan una experiencia completa.",
+            "Disfruta de la arqueología del Valle Sagrado antes de coronar tu viaje con una visita a Machu Picchu y un trekking panorámico.",
+            "⭐ Experiencia destacada: Un viaje que combina el legado Inca con el reto físico de la montaña, ideal para quienes buscan una experiencia completa."
+        ],
+        highlights: ["Valle Sagrado", "Vinicunca", "Machu Picchu", "Cusco Imperial"],
+        itinerary: [
+            { day: 1, title: "Bienvenida", content: "Llegada y traslado al hotel seleccionado." },
+            { day: 2, title: "Cusco Arqueológico", content: "City Tour visitando Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay." },
+            { day: 3, title: "Valle Sagrado", content: "Recorrido por Chinchero, Moray, Maras y Ollantaytambo con almuerzo." },
+            { day: 4, title: "Machu Picchu", content: "Tour guiado a la ciudadela con tren y almuerzo incluidos." },
+            { day: 5, title: "Montaña 7 Colores", content: "Caminata de alta montaña y traslado final al aeropuerto por la noche." }
+        ],
+        includes: [
+            "Traslados completos",
+            "4 noches de alojamiento con desayuno",
+            "Tours mencionados (Cusco, Valle, Machu Picchu, 7 Colores)",
+            "Alimentación según itinerario",
+            "Guía profesional y asistencia permanente"
+        ],
+        notIncludes: ["Vuelos", "Entradas específicas", "Boleto Turístico", "Gastos personales"]
+    },
+    {
+        slug: "cusco-cultural-adventure-5d-4n",
+        category: "combinados",
+        title: "Cusco Cultural & Trekking 5D / 4N",
+        shortTitle: "CUSCO CULTURAL ADVENTURE 5D-4N",
+        duration: "5 Días / 4 Noches",
+        price: "Consulte",
+        difficulty: "Exigente",
+        img: "/assets/act-laguna-humantay.jpg",
+        alt: "Laguna y Montaña",
+        excerpt: "El itinerario más completo en trekking para viajeros activos: Machu Picchu, Humantay y 7 Colores.",
+        description: [
+            "Dos de los trekkings más impresionantes del Perú en un solo viaje, combinados con la visita a Machu Picchu.",
+            "Diseñado para quienes no quieren perderse nada de los paisajes de alta montaña y buscan una experiencia de trekking real.",
+            "⭐ Experiencia destacada: Dos de los trekkings más impresionantes del Perú en un solo viaje, combinados con la visita a Machu Picchu."
+        ],
+        highlights: ["Laguna Humantay", "Montaña 7 Colores", "Machu Picchu", "Trekkings icónicos"],
+        itinerary: [
+            { day: 1, title: "Llegada", content: "Recepción y traslado para aclimatación." },
+            { day: 2, title: "Machu Picchu", content: "Visita guiada a la maravilla con tren y almuerzo." },
+            { day: 3, title: "Laguna de Humantay", content: "Salida hacia Soraypampa y caminata a la laguna turquesa con alimentación." },
+            { day: 4, title: "Montaña 7 Colores", content: "Caminata hacia Vinicunca con alimentación completa." },
+            { day: 5, title: "Regreso", content: "Traslado al aeropuerto." }
+        ],
+        includes: [
+            "Traslados completos",
+            "4 noches de alojamiento con desayuno",
+            "Machu Picchu completo",
+            "Laguna de Humantay y Montaña 7 Colores con alimentación",
+            "Guía profesional y asistencia permanente"
+        ],
+        notIncludes: ["Vuelos", "Entradas a parques naturales", "Boleto Turístico", "Gastos personales"]
     }
 ];

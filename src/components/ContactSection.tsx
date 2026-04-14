@@ -1,101 +1,138 @@
-import { Star, MessageSquareQuote } from "lucide-react";
-
-const reviews = [
-  {
-    author: "María Fernández",
-    date: "marzo 2026",
-    title: "¡Experiencia inolvidable en Machu Picchu!",
-    text: "Inkateam organizó todo a la perfección. Desde los traslados hasta los hoteles, cada detalle fue cuidado con mucho profesionalismo. Los guías sabían muchísimo y nos hicieron sentir seguros siempre.",
-  },
-  {
-    author: "Carlos Ruiz",
-    date: "febrero 2026",
-    title: "Superaron todas nuestras expectativas",
-    text: "La atención al detalle de esta agencia es increíble. Sentimos que éramos los únicos clientes. El trato personalizado y el conocimiento local marcaron por completo la diferencia de nuestro viaje.",
-  },
-  {
-    author: "Laura y Diego",
-    date: "enero 2026",
-    title: "El mejor viaje de nuestras vidas",
-    text: "Hicimos el recorrido por el Valle Sagrado y Cusco. Todo el equipo fue extremadamente puntual, amable y profesional. Sin duda volveremos a viajar con ellos para visitar el sur de Perú.",
-  },
-  {
-    author: "Familia Gómez",
-    date: "diciembre 2025",
-    title: "Excelente trato y organización",
-    text: "Viajar en familia siempre es un reto, pero ellos lo hicieron muy fácil e inolvidable. Nos sentimos seguros y súper bien atendidos en todo momento. 100% recomendados si viajan con niños.",
-  }
-];
+import React, { useState } from "react";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Label } from "./ui/label";
+import { Mail, Phone, MapPin, Send, MessageCircle, Clock } from "lucide-react";
 
 const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    nombre: "",
+    pais: "",
+    fechas: "",
+    destino: "",
+    personas: "",
+    mensaje: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const message = `👋 *Hola Inkateam, quiero diseñar mi viaje.*%0A%0A*Mis Datos:*%0A👤 Nombre: ${formData.nombre}%0A🌍 País: ${formData.pais}%0A📅 Fechas: ${formData.fechas}%0A📍 Destino: ${formData.destino}%0A👥 Personas: ${formData.personas}%0A%0A💬 *Mensaje:*%0A${formData.mensaje}`;
+    window.open(`https://wa.me/51942293293?text=${message}`, '_blank');
+  };
+
   return (
-    <section id="testimonios" className="py-24 bg-muted/20">
-      <div className="container-narrow px-4 mx-auto leading-relaxed">
-        {/* Header */}
-        <div className="mb-16 text-center max-w-3xl mx-auto">
-          <h2 className="mb-6 font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-foreground tracking-tight">
-            Lo que dicen nuestros <span className="text-primary">viajeros</span>
-          </h2>
-          <p className="font-body text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed">
-            Nuestra mayor recompensa es leer sobre las experiencias inolvidables que ayudamos a crear día a día.
-          </p>
-
-          <a 
-            href="https://www.tripadvisor.com.pe/Attraction_Review-g15221445-d27953529-Reviews-Inkateam_Travel-Magdalena_del_Mar_Lima_Region.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-4 py-3 px-6 sm:px-8 bg-white rounded-full border border-border shadow-sm hover:shadow-md hover:border-[#00AF87]/50 hover:-translate-y-1 transition-all duration-300 group"
-          >
-            <span className="text-sm sm:text-base font-body font-medium text-foreground">
-              Calificado con un <span className="font-bold">96% de "Excelente"</span> en
-            </span>
-            <div className="flex items-center gap-1.5 py-1 px-3 bg-[#00AF87] rounded text-white font-bold text-xs">
-              <span className="text-[11px] uppercase tracking-wide">Tripadvisor</span>
-              <div className="flex gap-0.5">
-                {[1, 2, 3, 4, 5].map(i => (
-                  <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />
-                ))}
-              </div>
-            </div>
-          </a>
-        </div>
-
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {reviews.map((r, i) => (
-            <a
-              key={i}
-              href="https://www.tripadvisor.com.pe/Attraction_Review-g15221445-d27953529-Reviews-Inkateam_Travel-Magdalena_del_Mar_Lima_Region.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-border hover:border-[#00AF87]/40 flex flex-col h-full hover:-translate-y-2 cursor-pointer relative overflow-hidden"
-            >
-              {/* Subtle top border accent on hover */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AF87] to-[#00AF87]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              <div className="flex justify-between items-start mb-6">
-                <div className="flex gap-1">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} className="w-4 h-4 fill-[#00AF87] text-[#00AF87]" />
-                  ))}
-                </div>
-                <MessageSquareQuote className="w-8 h-8 text-muted/30 group-hover:text-[#00AF87]/20 transition-colors duration-300" />
-              </div>
-              
-              <h3 className="font-display font-bold text-lg text-foreground mb-4 leading-snug group-hover:text-[#00AF87] transition-colors duration-300">
-                "{r.title}"
-              </h3>
-              
-              <p className="font-body text-muted-foreground mb-8 flex-grow text-sm leading-relaxed">
-                {r.text}
+    <section id="contacto" className="py-24 bg-background overflow-hidden relative">
+      <div className="container-narrow px-4 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          
+          <div className="space-y-10">
+            <div>
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Contacto</Badge>
+              <h2 className="font-display text-4xl md:text-6xl font-black text-foreground mb-6 leading-tight tracking-tight">
+                Estamos aquí para <br /><span className="text-primary italic">ayudarte a planificar</span>
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Si tienes dudas o quieres asesoría personalizada, puedes contactarnos directamente por nuestros canales oficiales.
               </p>
-              
-              <div className="mt-auto pt-5 border-t border-border flex flex-col">
-                <span className="font-bold text-foreground text-sm">{r.author}</span>
-                <span className="text-xs text-muted-foreground mt-1">{r.date}</span>
-              </div>
-            </a>
-          ))}
+            </div>
+
+            <div className="space-y-6">
+               <div className="flex items-start gap-6 p-6 rounded-3xl bg-muted/30 border border-border/50 hover:border-primary/30 transition-all">
+                  <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary shrink-0">
+                    <MessageCircle size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm uppercase tracking-widest text-muted-foreground mb-1">WhatsApp</h4>
+                    <a href="https://wa.me/51942293293" target="_blank" rel="noopener noreferrer" className="text-xl font-black hover:text-primary transition-colors">
+                      +51 942 293 293
+                    </a>
+                  </div>
+               </div>
+
+               <div className="flex items-start gap-6 p-6 rounded-3xl bg-muted/30 border border-border/50 hover:border-primary/30 transition-all">
+                  <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary shrink-0">
+                    <Mail size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm uppercase tracking-widest text-muted-foreground mb-1">Email</h4>
+                    <a href="mailto:reservas@inkateamtravel.com" className="text-xl font-black hover:text-primary transition-colors">
+                      reservas@inkateamtravel.com
+                    </a>
+                  </div>
+               </div>
+
+               <div className="flex items-start gap-6 p-6 rounded-3xl bg-muted/30 border border-border/50 hover:border-primary/30 transition-all">
+                  <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary shrink-0">
+                    <MapPin size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm uppercase tracking-widest text-muted-foreground mb-1">Ubicación</h4>
+                    <p className="text-xl font-black">Lima, Perú</p>
+                  </div>
+               </div>
+            </div>
+
+            <div className="p-8 rounded-[2rem] bg-primary/5 border border-primary/10 flex items-center gap-4">
+               <Clock className="text-primary shrink-0" size={24} />
+               <p className="text-sm font-bold text-foreground">
+                 <span className="text-primary italic">Tiempo de respuesta:</span> Respondemos en el menor tiempo posible para ayudarte a organizar tu viaje sin demoras.
+               </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-[3rem] shadow-2xl border border-border p-10 relative overflow-hidden">
+             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16" />
+             <div className="relative z-10">
+                <h3 className="font-display text-2xl font-bold mb-8 flex items-center gap-2">
+                  <Send className="text-primary" size={20} /> Formulario de contacto
+                </h3>
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                         <Label className="text-xs font-bold uppercase tracking-widest ml-1">Nombre</Label>
+                         <Input name="nombre" onChange={handleChange} required className="rounded-xl h-12 bg-muted/20 border-border/60" placeholder="Tu nombre" />
+                      </div>
+                      <div className="space-y-2">
+                         <Label className="text-xs font-bold uppercase tracking-widest ml-1">País</Label>
+                         <Input name="pais" onChange={handleChange} required className="rounded-xl h-12 bg-muted/20 border-border/60" placeholder="Tu país" />
+                      </div>
+                   </div>
+
+                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                         <Label className="text-xs font-bold uppercase tracking-widest ml-1">Fechas de viaje</Label>
+                         <Input name="fechas" onChange={handleChange} required className="rounded-xl h-12 bg-muted/20 border-border/60" placeholder="Ej. Mayo 2026" />
+                      </div>
+                      <div className="space-y-2">
+                         <Label className="text-xs font-bold uppercase tracking-widest ml-1">Destino de interés</Label>
+                         <Input name="destino" onChange={handleChange} required className="rounded-xl h-12 bg-muted/20 border-border/60" placeholder="Ej. Machu Picchu" />
+                      </div>
+                   </div>
+
+                   <div className="space-y-2">
+                      <Label className="text-xs font-bold uppercase tracking-widest ml-1">Número de personas</Label>
+                      <Input name="personas" onChange={handleChange} required className="rounded-xl h-12 bg-muted/20 border-border/60" placeholder="¿Cuántos viajan?" />
+                   </div>
+
+                   <div className="space-y-2">
+                      <Label className="text-xs font-bold uppercase tracking-widest ml-1">Mensaje</Label>
+                      <Textarea name="mensaje" onChange={handleChange} required className="rounded-2xl min-h-[120px] bg-muted/20 border-border/60 resize-none p-4" placeholder="Cuéntanos más detalles..." />
+                   </div>
+
+                   <Button type="submit" className="w-full h-14 rounded-2xl bg-black hover:bg-black/90 text-white font-bold text-base shadow-xl transition-all hover:scale-[1.02]">
+                     Empieza ahora a diseñar tu viaje
+                   </Button>
+                </form>
+             </div>
+          </div>
+
         </div>
       </div>
     </section>

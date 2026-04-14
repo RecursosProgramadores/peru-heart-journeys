@@ -5,6 +5,14 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Calendar, Compass, ArrowRight, Camera } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// Institutional Components
+import WhyUsSection from "@/components/WhyUsSection";
+import AboutSection from "@/components/AboutSection";
+import BlogSection from "@/components/BlogSection";
+import FAQSection from "@/components/FAQSection";
+import ContactSection from "@/components/ContactSection";
+import LegalInfoSection from "@/components/LegalInfoSection";
+
 import imgCusco from "@/assets/tour-cusco.jpg";
 import imgMachuPicchu from "@/assets/hero-machu-picchu.jpg";
 import imgLima from "@/assets/act-city-tour-lima.jpg";
@@ -94,9 +102,9 @@ const Destinos = () => {
         
         <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl">
           <h1 className="font-display text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight drop-shadow-2xl">
-            Destinos <span className="text-primary">Mágicos</span>
+            Destinos <span className="text-primary italic">Mágicos</span>
           </h1>
-          <p className="font-body text-xl md:text-2xl text-white/90 leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+          <p className="font-body text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl mx-auto drop-shadow-md">
             Descubre los rincones más fascinantes del Perú. Cada lugar cuenta una historia milenaria esperando ser vivida.
           </p>
         </div>
@@ -182,14 +190,24 @@ const Destinos = () => {
         </div>
       </section>
 
-      {/* CTA Final */}
-      <section className="py-24 bg-primary/5">
+      {/* Institutional Sections */}
+      <div className="space-y-0">
+        <WhyUsSection />
+        <AboutSection />
+        <BlogSection />
+        <FAQSection />
+        <ContactSection />
+        <LegalInfoSection />
+      </div>
+
+      {/* CTA Final (Customized for Destinos or reused from Index if needed) */}
+      <section className="py-24 bg-primary/5 border-t border-border/40">
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 text-foreground">
             ¿No sabes por dónde empezar?
           </h2>
           <p className="font-body text-xl text-muted-foreground mb-10">
-            Nuestros expertos en viajes pueden combinar cualquiera de estos destinos en un itinerario perfectamente equilibrado.
+            Nuestros expertos en viajes pueden combinar cualquiera de estos destinos en un itinerario perfectamente equilibrado y a tu medida.
           </p>
           <Button size="xl" className="font-bold text-lg px-8 py-6 rounded-full shadow-lg" asChild>
             <Link to="/disena-tu-viaje">

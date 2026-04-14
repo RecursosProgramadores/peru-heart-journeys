@@ -4,127 +4,168 @@ export const limaTours: Tour[] = [
     {
         slug: "lima-2d-1n",
         category: "lima",
-        title: "Lima 2D-1N: La Ciudad de los Reyes",
+        title: "Lima 2D / 1N: Escapada Urbana 2026",
         shortTitle: "LIMA 2D-1N",
         duration: "2 Días / 1 Noche",
         price: "199",
         difficulty: "Fácil",
         img: "/assets/act-city-tour-lima.jpg",
         alt: "Lima City Tour",
-        excerpt: "Descubre la capital del Perú en una escapada perfecta de dos días.",
+        excerpt: "Una experiencia breve pero completa en la capital del Perú.",
         description: [
-            "Disfrute de una estancia inolvidable en la capital del Perú. Este paquete está diseñado para quienes disponen de poco tiempo pero desean conocer los atractivos más emblemáticos de Lima, la única capital sudamericana con vista al mar.",
-            "Desde la modernidad de Miraflores hasta la majestuosidad de su centro histórico, Lima le cautivará con su historia y su mundialmente reconocida gastronomía."
+            "Ideal para quienes tienen poco tiempo pero desean conocer lo esencial de Lima con comodidad y buena logística.",
+            "Esta escapada urbana te permite descubrir la única ciudad capital de Sudamérica con vista al mar, desde su centro histórico colonial hasta la modernidad vibrante de sus barrios costeros.",
+            "⭐ Experiencia destacada: El Circuito Mágico del Agua combina tecnología, arte y espectáculo en una de las experiencias nocturnas más sorprendentes de Lima."
         ],
-        highlights: ["Circuito Mágico del Agua", "City Tour Panorámico", "Miraflores", "Centro Histórico"],
+        highlights: ["Circuito Mágico del Agua", "City Tour Lima", "Traslados Privados", "Cultura Urbana"],
         itinerary: [
-            { day: 1, title: "Recepción y Circuito Mágico del Agua", content: "Recepción en el aeropuerto y traslado al hotel. Por la noche, visita al Circuito Mágico del Agua, un espectáculo impresionante de fuentes ornamentales iluminadas con tecnología de punta." },
-            { day: 2, title: "City Tour Lima y Traslado", content: "City Tour Lima Panorámico recorriendo los distritos modernos y el centro colonial. A la hora coordinada, traslado al aeropuerto para su vuelo de retorno." }
+            { day: 1, title: "Llegada y Circuito Mágico", content: "Recepción en el aeropuerto y traslado al hotel. Por la noche, visita al Circuito Mágico del Agua para disfrutar de un espectáculo de fuentes único." },
+            { day: 2, title: "City Tour y Despedida", content: "City Tour por Lima (Centro Histórico y Miraflores). A la hora coordinada, traslado al aeropuerto para tu vuelo de retorno." }
         ],
         includes: [
-            "Traslados aeropuerto/hotel/aeropuerto en privado",
-            "01 noche de alojamiento con desayuno",
-            "Visita al Circuito Mágico del Agua",
-            "City Tour Lima Panorámico",
-            "Tarjeta de Asistencia"
+            "Traslados privados",
+            "1 noche de hotel con desayuno",
+            "City Tour Lima",
+            "Circuito Mágico del Agua",
+            "Guía profesional"
         ],
-        notIncludes: ["Vuelos", "Almuerzos y cenas", "Gastos personales"],
+        notIncludes: ["Vuelos", "Alimentación no especificada", "Gastos personales"],
         rates: [
             { hotel: "Lima Wasi Miraflores", single: "199", doble: "136", triple: "117" },
             { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "202", doble: "136", triple: "117", isRecommended: true },
-            { hotel: "Ibis Budget Lima Miraflores", single: "206", doble: "136", triple: "115" },
-            { hotel: "Ibis Reducto", single: "210", doble: "138", triple: "-" },
-            { hotel: "Ibis Larco Miraflores", single: "221", doble: "144", triple: "-" },
-            { hotel: "Hotel Señorial", single: "191", doble: "141", triple: "124" },
-            { hotel: "HSA Riviera - Centro de Lima", single: "197", doble: "131", triple: "116" },
-            { hotel: "HSA Exclusive - Miraflores", single: "216", doble: "141", triple: "124" },
-            { hotel: "Radisson Red Miraflores", single: "227", doble: "149", triple: "135" },
-            { hotel: "Ibis Styles Lima San Isidro", single: "225", doble: "146", triple: "125" }
+            { hotel: "Radisson Red Miraflores", single: "227", doble: "149", triple: "135" }
         ]
     },
     {
         slug: "lima-3d-2n",
         category: "lima",
-        title: "Lima 3D-2N: Cultura y Modernidad",
+        title: "Lima 3D / 2N: Cultura y Gastronomía",
         shortTitle: "LIMA 3D-2N",
         duration: "3 Días / 2 Noches",
         price: "264",
         difficulty: "Fácil",
         img: "/assets/act-circuito-agua.jpg",
-        alt: "Circuito Mágico del Agua",
-        excerpt: "Tres días para explorar la historia, el arte y el brillo nocturno de Lima.",
+        alt: "Artesanías y cultura en Lima",
+        excerpt: "Descubre la esencia de Lima con tiempo para disfrutarla.",
         description: [
-            "Explore Lima con más calma. Este itinerario le permite sumergirse en la historia colonial y disfrutar de la vibrante vida moderna de los barrios más exclusivos de la capital.",
-            "Ideal para familias y parejas que buscan un equilibrio entre visitas guiadas y tiempo personal en una de las ciudades más fascinantes del continente."
+            "Una experiencia equilibrada entre historia, modernidad y gastronomía. Descubre por qué Lima es considerada una de las capitales culinarias del mundo.",
+            "Tendrás el tiempo ideal para sumergirte en la riqueza cultural del centro histórico y la sofisticación de distritos como Miraflores y San Isidro.",
+            "⭐ Experiencia: Lima es considerada una de las capitales gastronómicas del mundo. Aprovecha tu tiempo libre para explorar su cocina."
         ],
-        highlights: ["Centro Histórico", "Convento de San Francisco", "Parque de la Reserva", "Gastronomía"],
+        highlights: ["Inmersión Gastronómica", "Centro Histórico", "Modernidad limeña", "Tiempo Libre"],
         itinerary: [
-            { day: 1, title: "Recepción", content: "Bienvenida en el aeropuerto de Lima y traslado directo a su hotel seleccionado en Miraflores o Centro de Lima." },
-            { day: 2, title: "City Tour Lima + Circuito Mágico del Agua", content: "Por la mañana, descubre los secretos de la Lima Colonial y Moderna. Por la noche, déjate sorprender por el color y sonido de las fuentes iluminadas del Circuito Mágico." },
-            { day: 3, title: "Tiempo Libre y Traslado", content: "Disfrute de tiempo libre para compras o visitas opcionales. A la hora indicada, traslado privado al aeropuerto." }
+            { day: 1, title: "Llegada y Traslado", content: "Bienvenida en el aeropuerto y traslado privado a tu hotel seleccionado." },
+            { day: 2, title: "City Tour + Circuito Mágico", content: "Recorrido por la ciudad colonial y moderna. Por la noche, visita guiada al Circuito Mágico del Agua." },
+            { day: 3, title: "Día libre y Salida", content: "Mañana libre para compras o disfrutar de la gastronomía local. Traslado final al aeropuerto." }
         ],
         includes: [
-            "Traslados aeropuerto/hotel/aeropuerto en privado",
-            "02 noches de alojamiento con desayuno",
-            "Visita al Circuito Mágico del Agua",
-            "City Tour Lima Panorámico",
-            "Tarjeta de asistencia"
+            "Traslados privados",
+            "2 noches con desayuno",
+            "Tours mencionados",
+            "Guía profesional"
         ],
-        notIncludes: ["Vuelos", "Actividades no mencionadas", "Seguro de viaje"],
+        notIncludes: ["Alimentación no indicada", "Vuelos", "Gastos personales"],
         rates: [
             { hotel: "Lima Wasi Miraflores", single: "264", doble: "171", triple: "146" },
             { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "270", doble: "172", triple: "146", isRecommended: true },
-            { hotel: "Ibis Budget Lima Miraflores", single: "278", doble: "172", triple: "142" },
-            { hotel: "Ibis Reducto", single: "286", doble: "176", triple: "-" },
-            { hotel: "Ibis Larco Miraflores", single: "309", doble: "187", triple: "-" },
-            { hotel: "Hotel Señorial", single: "247", doble: "182", triple: "160" },
-            { hotel: "HSA Riviera - Centro de Lima", single: "260", doble: "163", triple: "143" },
-            { hotel: "HSA Exclusive - Miraflores", single: "298", doble: "182", triple: "160" },
-            { hotel: "Radisson Red Miraflores", single: "320", doble: "198", triple: "181" },
-            { hotel: "Ibis Styles Lima San Isidro", single: "317", doble: "191", triple: "161" }
+            { hotel: "Ibis Reducto", single: "286", doble: "176", triple: "-" }
         ]
     },
     {
         slug: "lima-4d-3n",
         category: "lima",
-        title: "Lima 4D-3N: Experiencia Total",
+        title: "Lima 4D / 3N: Explora a tu ritmo",
         shortTitle: "LIMA 4D-3N",
         duration: "4 Días / 3 Noches",
         price: "328",
         difficulty: "Fácil",
         img: "/assets/dest-costa.jpg",
-        alt: "Costa de Lima",
-        excerpt: "La inmersión completa en la capital peruana, con tiempo para descubrirla por su cuenta.",
+        alt: "Miraflores y Costa Verde",
+        excerpt: "Más tiempo para descubrir Lima a tu manera.",
         description: [
-            "Cuatro días en Lima es la duración ideal para aquellos que desean no perderse nada. Desde la arqueología local hasta los museos más prestigiosos.",
-            "Este paquete combina visitas guiadas esenciales con un día libre total, dándole la flexibilidad de visitar los famosos restaurantes de Lima, mercados locales o el distrito artístico de Barranco."
+            "Perfecto para viajeros que quieren combinar los tours esenciales con tiempo libre para explorar por su cuenta.",
+            "Disfruta de la libertad de caminar por el malecón, visitar museos específicos o realizar tus propias rutas gastronómicas con la seguridad de tener nuestro soporte constante.",
+            "⭐ Experiencia: El día libre te permite personalizar tu viaje: gastronomía, museos o compras en Larcomar o mercados artesanales."
         ],
-        highlights: ["Exploración Profunda", "Barranco", "Día de Libertad", "Museos"],
+        highlights: ["Personalización", "Seguridad y Confort", "Barranco bohemio", "Vistas al Pacífico"],
         itinerary: [
-            { day: 1, title: "Recepción", content: "Asistencia y recepción a su llegada a Lima, traslado privado hacia el hotel." },
-            { day: 2, title: "City Tour Lima + Circuito Mágico del Agua", content: "Recorrido por la ciudad colonial y moderna durante el día, seguido de la magia de las fuentes iluminadas por la noche." },
-            { day: 3, title: "Día Libre para explorar", content: "Un día entero a su disposición. Recomendamos visitar el Museo Larco o caminar por el romántico distrito de Barranco." },
-            { day: 4, title: "Tiempo libre y Traslado", content: "Últimas compras o paseos. Traslado al aeropuerto para su partida." }
+            { day: 1, title: "Bienvenida en Lima", content: "Recepción y traslado privado a tu hotel." },
+            { day: 2, title: "Descubriendo la Capital", content: "City Tour Lima (Colonial y Moderna) + Visita nocturna al Circuito Mágico del Agua." },
+            { day: 3, title: "Tu día, tu ritmo", content: "Día completamente libre para actividades opcionales, compras o descanso." },
+            { day: 4, title: "Traslado de Salida", content: "A la hora coordinada, traslado al aeropuerto Jorge Chávez." }
         ],
         includes: [
-            "Traslados aeropuerto/hotel/aeropuerto en privado",
-            "03 noches de alojamiento con desayuno",
-            "Visita al Circuito Mágico del Agua",
-            "City Tour Lima Panorámico",
-            "Tarjeta de Asistencia"
+            "Traslados privados",
+            "3 noches con desayuno",
+            "Tours esenciales",
+            "Guía"
         ],
-        notIncludes: ["Tours opcionales día 3", "Alimentación no descrita", "Propinas"],
+        notIncludes: ["Actividades en día libre", "Vuelos", "Consumos extras"],
         rates: [
             { hotel: "Lima Wasi Miraflores", single: "328", doble: "207", triple: "175" },
-            { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "338", doble: "208", triple: "174", isRecommended: true },
-            { hotel: "Ibis Budget Lima Miraflores", single: "350", doble: "208", triple: "169" },
-            { hotel: "Ibis Reducto", single: "363", doble: "214", triple: "-" },
-            { hotel: "Ibis Larco Miraflores", single: "396", doble: "231", triple: "-" },
-            { hotel: "Hotel Señorial", single: "304", doble: "223", triple: "196" },
-            { hotel: "HSA Riviera - Centro de Lima", single: "323", doble: "194", triple: "171" },
-            { hotel: "HSA Exclusive - Miraflores", single: "380", doble: "223", triple: "196" },
-            { hotel: "Radisson Red Miraflores", single: "413", doble: "248", triple: "227" },
-            { hotel: "Ibis Styles Lima San Isidro", single: "408", doble: "237", triple: "197" }
+            { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "338", doble: "208", triple: "174", isRecommended: true }
         ]
+    },
+    {
+        slug: "lima-ica-3d-2n",
+        category: "lima",
+        title: "Lima & Ica 3D / 2N: Aventura en el Desierto",
+        shortTitle: "LIMA & ICA 3D",
+        duration: "3 Días / 2 Noches",
+        price: "Consulte",
+        difficulty: "Moderada",
+        img: "/assets/act-paracas-ica.jpg",
+        alt: "Oasis de Huacachina",
+        excerpt: "Del mar al desierto en una experiencia de contraste único.",
+        description: [
+            "Combina la metrópoli limeña con la aventura inigualable de Paracas e Ica en solo tres días.",
+            "Desde la fauna marina de las Islas Ballestas hasta la adrenalina de los tubulares en el desierto de Huacachina.",
+            "⭐ Experiencia: La Huacachina es el único oasis natural de Sudamérica, rodeado de dunas gigantes que te quitarán el aliento."
+        ],
+        highlights: ["Islas Ballestas", "Oasis Huacachina", "Sandboarding & Tubulares", "Cata de Pisco"],
+        itinerary: [
+            { day: 1, title: "Llegada y City Tour", content: "Bienvenida en Lima y City Tour por los puntos más importantes de la ciudad." },
+            { day: 2, title: "Full Day Paracas e Ica", content: "Viaje a Paracas para ver las Islas Ballestas. Continuación a Ica para visita a bodega de vinos/piscos y aventura en Huacachina (tubulares + sandboarding). Retorno a Lima." },
+            { day: 3, title: "Salida", content: "Traslado al aeropuerto para continuar con tu viaje." }
+        ],
+        includes: [
+            "Traslados privados en Lima",
+            "2 noches de hotel en Lima",
+            "Full Day Paracas e Ica (Grupal)",
+            "Almuerzo en Ica",
+            "Actividades y entradas"
+        ],
+        notIncludes: ["Impuestos locales en Paracas (S/ 22 aprox)", "Vuelos", "Cenas"],
+    },
+    {
+        slug: "lima-ica-4d-3n",
+        category: "lima",
+        title: "Lima & Ica 4D / 3N: Costa y Desierto sin prisas",
+        shortTitle: "LIMA & ICA 4D",
+        duration: "4 Días / 3 Noches",
+        price: "Consulte",
+        difficulty: "Fácil",
+        img: "/assets/act-valle-sagrado.jpg",
+        alt: "Vistas costeras",
+        excerpt: "Una experiencia más completa y relajada en la costa peruana.",
+        description: [
+            "Ideal para aquellos que desean disfrutar del mar y el desierto sin los apuros de un viaje corto.",
+            "Incluye lo mejor de Lima, con su magia nocturna, y la expedición completa hacia el sur en una logística perfectamente coordinada.",
+            "⭐ Experiencia: Desde fauna marina en Paracas hasta adrenalina en el desierto, este viaje ofrece el contraste total del Perú costero."
+        ],
+        highlights: ["Circuito Mágico", "Costa Verde", "Huacachina", "Logística Premium"],
+        itinerary: [
+            { day: 1, title: "Llegada", content: "Recepción en el aeropuerto y traslado a tu hotel." },
+            { day: 2, title: "City Tour + Circuito Mágico", content: "Recorrido por Lima Colonial y Moderna. Show nocturno de fuentes de agua." },
+            { day: 3, title: "Full Day Paracas e Ica", content: "Expedición completa a las Islas Ballestas y el Oasis de Huacachina con almuerzo incluido." },
+            { day: 4, title: "Despedida", content: "Mañana libre y traslado al aeropuerto." }
+        ],
+        includes: [
+            "Traslados privados",
+            "3 noches con desayuno",
+            "Tours mencionados",
+            "Almuerzo en Ica"
+        ],
+        notIncludes: ["Vuelos", "Impuestos locales en muelle", "Gastos no mencionados"],
     }
 ];

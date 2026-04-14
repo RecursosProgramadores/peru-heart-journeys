@@ -27,13 +27,13 @@ const HeroSection = () => {
           className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary-foreground tracking-tight leading-[1.1] mb-6 drop-shadow-lg"
           style={{ animationDelay: "0.2s" }}
         >
-          Descubre Perú con <br className="hidden sm:block" />
+          Inkateam Travel <br className="hidden sm:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-400 drop-shadow-sm">
-            experiencias auténticas
+            ViajaViveMasEmociones
           </span>
         </h1>
         <p className="font-body text-lg sm:text-xl md:text-2xl text-primary-foreground max-w-3xl mx-auto mb-10 leading-relaxed font-medium drop-shadow-md">
-          Viajes a Cusco, Machu Picchu, Lima, Paracas e increíbles aventuras en los Andes.
+          Descubre el Perú auténtico con viajes diseñados a tu medida, desde la historia imperial de Cusco hasta la espiritualidad del Lago Titicaca.
         </p>
 
         {/* CTAs */}
@@ -44,7 +44,7 @@ const HeroSection = () => {
             className="w-full sm:w-auto text-base font-bold shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:-translate-y-1"
             asChild
           >
-            <Link to="/disena-tu-viaje">Diseñar mi viaje</Link>
+            <Link to="/disena-tu-viaje">Diseña tu viaje</Link>
           </Button>
           <Button
             variant="hero-outline"
@@ -53,7 +53,7 @@ const HeroSection = () => {
             asChild
           >
             <a href="#tours" className="flex items-center gap-2">
-              Ver planes de viaje <ChevronDown className="w-5 h-5 animate-bounce-gentle" />
+              Ver planes disponibles <ChevronDown className="w-5 h-5 animate-bounce-gentle" />
             </a>
           </Button>
         </div>

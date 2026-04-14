@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { allTours } from "@/data/tours";
 import Navbar from "@/components/Navbar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import BookingModal from "@/components/BookingModal";
 import {
     Clock,
     MapPin,
@@ -14,26 +16,14 @@ import {
     Hotel,
     ArrowRight,
     ChevronRight,
-    Info
+    Info,
+    Ticket
 } from "lucide-react";
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table";
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion";
 
 const TourDetail = () => {
     const { category, slug } = useParams<{ category: string; slug: string }>();
     const tour = allTours.find((t) => t.slug === slug);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     if (!tour) {
         return (
@@ -109,64 +99,66 @@ const TourDetail = () => {
                                 <h2 className="font-display text-3xl font-bold mb-8 flex items-center gap-3 text-foreground">
                                     <Calendar className="text-primary" /> Itinerario Detallado
                                 </h2>
-                                <Accordion type="single" collapsible className="w-full space-y-4">
+                                <div className="space-y-4">
                                     {tour.itinerary.map((item) => (
-                                        <AccordionItem
+                                        <div
                                             key={item.day}
-                                            value={`day-${item.day}`}
-                                            className="border border-border/50 rounded-2xl px-6 bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                                            className="border border-border/50 rounded-2xl px-6 py-6 bg-white shadow-sm"
                                         >
-                                            <AccordionTrigger className="hover:no-underline py-6 group">
-                                                <div className="flex items-center gap-4 text-left">
-                                                    <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold font-display text-xl group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                                                        {item.day}
-                                                    </div>
-                                                    <span className="text-xl font-bold text-foreground">{item.title}</span>
+                                            <div className="flex items-center gap-4 text-left mb-4">
+                                                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold font-display text-xl">
+                                                    {item.day}
                                                 </div>
-                                            </AccordionTrigger>
-                                            <AccordionContent className="pb-8 text-muted-foreground text-lg leading-relaxed pl-16">
+                                                <span className="text-xl font-bold text-foreground">{item.title}</span>
+                                            </div>
+                                            <div className="text-muted-foreground text-lg leading-relaxed pl-16">
                                                 {item.content}
-                                            </AccordionContent>
-                                        </AccordionItem>
+                                            </div>
+                                        </div>
                                     ))}
-                                </Accordion>
+                                </div>
                             </div>
-                            {/* Rates Table */}
+                            
+                            {/* Rates Info */}
                             {tour.rates && (
                                 <div className="mb-16">
                                     <h2 className="font-display text-3xl font-bold mb-8 flex items-center gap-3">
-                                        <Hotel className="text-primary" /> Tarifas por Hotel
+                                        <Hotel className="text-primary" /> Tarifas del Paquete
                                     </h2>
-                                    <div className="overflow-hidden rounded-3xl border border-border/50 bg-white shadow-xl">
-                                        <Table>
-                                            <TableHeader className="bg-muted/50">
-                                                <TableRow>
-                                                    <TableHead className="py-6 px-6 font-bold text-foreground">Hotel</TableHead>
-                                                    <TableHead className="font-bold text-foreground text-center">SINGLE</TableHead>
-                                                    <TableHead className="font-bold text-foreground text-center">DOBLE</TableHead>
-                                                    <TableHead className="font-bold text-foreground text-center">TRIPLE</TableHead>
-                                                </TableRow>
-                                            </TableHeader>
-                                            <TableBody>
-                                                {tour.rates.map((rate, i) => (
-                                                    <TableRow key={i} className={rate.isRecommended ? "bg-primary/5 hover:bg-primary/10" : ""}>
-                                                        <TableCell className="py-4 px-6 font-medium">
-                                                            {rate.hotel}
-                                                            {rate.isRecommended && (
-                                                                <Badge className="ml-2 bg-primary text-[10px] animate-pulse">Recomendado</Badge>
-                                                            )}
-                                                        </TableCell>
-                                                        <TableCell className="text-center font-bold text-primary">${rate.single}</TableCell>
-                                                        <TableCell className="text-center font-bold text-primary">${rate.doble}</TableCell>
-                                                        <TableCell className="text-center font-bold text-primary">${rate.triple}</TableCell>
-                                                    </TableRow>
-                                                ))}
-                                            </TableBody>
-                                        </Table>
-                                    </div>
-                                    <p className="mt-4 text-sm text-muted-foreground italic">
-                                        * Precios por persona expresados en Dólares Americanos (USD).
-                                    </p>
+                                    {(() => {
+                                        const prices = tour.rates.flatMap(r => [parseInt(r.single), parseInt(r.doble), parseInt(r.triple)]);
+                                        const validPrices = prices.filter(n => !isNaN(n));
+                                        const lowestPrice = validPrices.length > 0 ? Math.min(...validPrices) : null;
+                                        
+                                        return lowestPrice ? (
+                                            <div className="bg-gradient-to-br from-primary/10 via-white to-white border border-primary/20 rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between shadow-xl relative overflow-hidden group">
+                                                <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none transition-transform duration-700 group-hover:scale-150"></div>
+                                                
+                                                <div className="mb-8 md:mb-0 relative z-10 text-center md:text-left">
+                                                    <Badge className="mb-4 bg-primary/10 text-primary hover:bg-primary/20 border-none px-4 py-1.5 text-sm uppercase tracking-widest transition-colors font-bold">
+                                                        Mejor Tarifa Disponible
+                                                    </Badge>
+                                                    <h3 className="text-3xl font-display font-bold text-foreground mb-2">Descubre este destino</h3>
+                                                    <p className="text-muted-foreground text-lg max-w-sm leading-relaxed">
+                                                        Contamos con múltiples opciones de hoteles. Cotiza con nosotros y elige la que mejor se adapte a ti.
+                                                    </p>
+                                                </div>
+                                                
+                                                <div className="relative z-10 text-center flex flex-col items-center justify-center p-8 bg-white rounded-3xl shadow-lg border border-border/50 min-w-[240px] transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                                                    <span className="text-sm font-bold text-muted-foreground uppercase tracking-widest mb-2 flex items-center gap-1">
+                                                        A partir de
+                                                    </span>
+                                                    <div className="flex items-start text-primary">
+                                                        <span className="text-3xl font-bold mt-1 mr-1">$</span>
+                                                        <span className="text-7xl font-display font-bold leading-none tracking-tighter">{lowestPrice}</span>
+                                                    </div>
+                                                    <span className="text-xs font-semibold text-muted-foreground mt-3 uppercase tracking-widest border-t border-border/50 pt-2 w-full">
+                                                        USD por persona
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        ) : null;
+                                    })()}
                                 </div>
                             )}
                         </div>
@@ -205,8 +197,11 @@ const TourDetail = () => {
                                     </ul>
                                 </div>
 
-                                <Button className="w-full py-8 text-lg font-bold rounded-2xl shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
-                                    Personaliza tu viaje <ArrowRight className="ml-2" />
+                                <Button 
+                                    className="w-full py-8 text-lg font-bold rounded-2xl shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform bg-primary text-white"
+                                    onClick={() => setIsModalOpen(true)}
+                                >
+                                    <Ticket size={20} className="mr-2" /> Reserva Aquí
                                 </Button>
 
                                 <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
@@ -219,10 +214,15 @@ const TourDetail = () => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
+
+            <BookingModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+                tour={tour} 
+            />
         </div>
     );
 };

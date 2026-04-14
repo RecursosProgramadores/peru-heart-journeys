@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 
 const navLinks = [
   { label: "Viajes transformacionales", href: "/viajes-transformacionales" },
+  { label: "Full Days", href: "/full-days" },
+  { label: "Turismo Comunitario", href: "/turismo-comunitario" },
   { label: "Diseña tu viaje", href: "/disena-tu-viaje" },
   { label: "Destinos", href: "/destinos" },
   { label: "Blog", href: "/blog" },
@@ -87,14 +89,14 @@ const Navbar = () => {
           </DropdownMenu>
 
           {navLinks.map((l) => (
-            <a
+            <Link
               key={l.href + l.label}
-              href={l.href}
+              to={l.href}
               className={`text-sm font-medium transition-colors ${scrolled ? "text-foreground hover:text-primary" : "text-primary-foreground hover:text-accent"
                 }`}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <Button
             variant="default"
@@ -144,14 +146,14 @@ const Navbar = () => {
           </div>
 
           {navLinks.map((l) => (
-            <a
+            <Link
               key={l.href + l.label}
-              href={l.href}
+              to={l.href}
               className="block py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setOpen(false)}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <Button variant="outline" size="default" className="w-full mt-4" asChild>
             <Link to="/disena-tu-viaje" onClick={() => setOpen(false)}>
