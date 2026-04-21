@@ -4,17 +4,16 @@ import { MapPin, ArrowRight } from "lucide-react";
 import { activities } from "@/data/activities";
 
 const ActivitiesSection = () => {
-  // Selección personalizada de 9 actividades para esta sección
+  // Selección personalizada de 8 actividades para esta sección
   const displayActivities = [
     activities[0], // Machu Picchu
-    { ...activities[8], shortTitle: "Tour Lima" }, // Lima en lugar de Cusco
+    { ...activities[8], shortTitle: "Lima" }, // Lima en lugar de Cusco
     activities[2], // Valle Sagrado
     activities[3], // Montaña 7 Colores
     activities[4], // Laguna Humantay
-    activities[9], // Circuito del Agua en lugar de Valle Sur
+    { ...activities[10], shortTitle: "Ica Paracas & Huacachina" }, // Ica Paracas en lugar de Circuito del Agua
     activities[6], // Ruta del Sol
     activities[7], // Lago Titicaca
-    activities[10], // Paracas en lugar de la posición original de Lima
   ];
 
   return (
@@ -43,20 +42,19 @@ const ActivitiesSection = () => {
               {displayActivities.map((a, index) => {
                 // Determine category based on slug/location for linking
                 let linkTo = `/tours/cusco`;
-                if (a.slug.includes("lima")) linkTo = "/tours/lima";
+                if (a.slug.includes("lima") || a.slug.includes("paracas") || a.slug.includes("ica")) linkTo = "/tours/lima";
                 if (a.slug.includes("puno") || a.slug.includes("ruta-del-sol")) linkTo = "/tours/combinados";
 
-                // Specific spans for a balanced 9-item grid
+                // Specific spans for a balanced 8-item grid
                 const spans = [
                   "md:col-span-2 md:row-span-2", // 0: Machu Picchu (Hero)
-                  "md:col-span-1 md:row-span-1", // 1: City Tour Cusco
+                  "md:col-span-1 md:row-span-1", // 1: Tour Lima
                   "md:col-span-1 md:row-span-1", // 2: Valle Sagrado
                   "md:col-span-1 md:row-span-1", // 3: Montaña 7 Colores
                   "md:col-span-1 md:row-span-1", // 4: Laguna Humantay
-                  "md:col-span-1 md:row-span-2", // 5: Valle Sur
+                  "md:col-span-1 md:row-span-2", // 5: Ica Paracas
                   "md:col-span-1 md:row-span-1", // 6: Ruta del Sol
                   "md:col-span-1 md:row-span-1", // 7: Lago Titicaca
-                  "md:col-span-1 md:row-span-1", // 8: City Tour Lima
                 ];
 
                 const spanClass = spans[index] || "md:col-span-1 md:row-span-1";

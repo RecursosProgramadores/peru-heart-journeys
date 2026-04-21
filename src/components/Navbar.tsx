@@ -24,9 +24,9 @@ const navLinks = [
 ];
 
 const tourCategories = [
-  { label: "Tour Lima", count: 3, href: "/tours/lima" },
-  { label: "Tour Cusco", count: 8, href: "/tours/cusco" },
-  { label: "Tour Combinado", count: 5, href: "/tours/combinados" },
+  { label: "Lima", count: 3, href: "/tours/lima" },
+  { label: "Cusco", count: 8, href: "/tours/cusco" },
+  { label: "Combinados", count: 5, href: "/tours/combinados" },
 ];
 
 const Navbar = () => {

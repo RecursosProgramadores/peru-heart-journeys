@@ -1,7 +1,5 @@
 import { useParams, Link } from "react-router-dom";
 import { activities } from "@/data/activities";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Mountain, ChevronLeft, CheckCircle2 } from "lucide-react";
 
@@ -50,7 +48,6 @@ const ActivityDetail = () => {
       />
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         {/* Hero */}
         <section className="relative h-[50vh] md:h-[60vh] mt-16 md:mt-20">
@@ -203,7 +200,6 @@ const ActivityDetail = () => {
           </div>
         </section>
 
-        <Footer />
       </div>
     </>
   );

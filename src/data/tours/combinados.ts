@@ -1,5 +1,12 @@
 import { Tour } from "../../types/tour";
 
+// Tour Images
+import imgLimaCusco from "@/assets/tours/combinadoslimacusco5dy4n.png";
+import imgPeruCompleto from "@/assets/tours/combinadoperucompleto.png";
+import imgCuscoPuno from "@/assets/tours/combinadocuscopuno.png";
+import imgLimaIca3D from "@/assets/tours/combinadolimayica3d2n.png";
+import imgLimaIca4D from "@/assets/tours/combinadolimaica4dy3n.png";
+
 export const combinadosTours: Tour[] = [
     {
         slug: "lima-cusco-5d-4n",
@@ -9,7 +16,7 @@ export const combinadosTours: Tour[] = [
         duration: "5 Días / 4 Noches",
         price: "769",
         difficulty: "Fácil",
-        img: "/assets/act-city-tour-lima.jpg",
+        img: imgLimaCusco,
         alt: "Lima y Cusco combinado",
         excerpt: "Una combinación perfecta entre la modernidad de Lima y la historia milenaria de Cusco.",
         description: [
@@ -46,7 +53,7 @@ export const combinadosTours: Tour[] = [
         duration: "8 Días / 7 Noches",
         price: "1020",
         difficulty: "Moderada",
-        img: "/assets/hero-machu-picchu.jpg",
+        img: imgPeruCompleto,
         alt: "Triángulo de oro Perú",
         excerpt: "Una experiencia integral que combina ciudad, desierto y las montañas de los Andes.",
         description: [
@@ -88,7 +95,7 @@ export const combinadosTours: Tour[] = [
         duration: "8 Días / 7 Noches",
         price: "1040",
         difficulty: "Moderada",
-        img: "/assets/act-lago-titicaca.jpg",
+        img: imgCuscoPuno,
         alt: "Lago Titicaca vivencial",
         excerpt: "Ruta del Sol y Lago Titicaca vivencial: cultura auténtica y paisajes del altiplano.",
         description: [
@@ -121,101 +128,65 @@ export const combinadosTours: Tour[] = [
         ]
     },
     {
-        slug: "cusco-trekking-4d-3n",
+        slug: "lima-ica-3d-2n",
         category: "combinados",
-        title: "Cusco Machu Picchu & Trekking 4D / 3N",
-        shortTitle: "CUSCO TREKKING 4D-3N",
-        duration: "4 Días / 3 Noches",
-        price: "Consulte",
-        difficulty: "Exigente",
-        img: "/assets/act-montana-colores.jpg",
-        alt: "Aventura en Vinicunca",
-        excerpt: "Aventura en los Andes: Machu Picchu y Montaña 7 Colores en 4 días intensos.",
-        description: [
-            "Este itinerario combina dos extremos: la historia de Machu Picchu y la exigencia física de la alta montaña.",
-            "Una experiencia completa diseñada para viajeros activos que buscan paisajes inolvidables y retos personales.",
-            "⭐ Experiencia destacada: Este itinerario combina dos extremos: la historia de Machu Picchu y la exigencia física de la alta montaña."
-        ],
-        highlights: ["Desafío Vinicunca", "Machu Picchu", "Alta Montaña", "Experiencia Activa"],
-        itinerary: [
-            { day: 1, title: "Llegada a Cusco", content: "Recepción y traslado. Descanso para aclimatación." },
-            { day: 2, title: "Machu Picchu", content: "Visita guiada a la ciudadela con tren y almuerzo incluidos." },
-            { day: 3, title: "Montaña 7 Colores", content: "Trekking hacia la cumbre de Vinicunca (5,000 msnm) con alimentación completa." },
-            { day: 4, title: "Traslado de Salida", content: "Traslado final al aeropuerto." }
-        ],
-        includes: [
-            "Traslados completos",
-            "3 noches de alojamiento con desayuno",
-            "Full Day Machu Picchu completo",
-            "Tour Montaña 7 Colores con alimentación",
-            "Guía profesional y asistencia permanente"
-        ],
-        notIncludes: ["Vuelos", "Entrada a Montaña 7 Colores", "Boleto Turístico Cusco", "Gastos personales"]
-    },
-    {
-        slug: "cusco-valle-trekking-5d-4n",
-        category: "combinados",
-        title: "Cusco Valle Sagrado & Trekking 5D / 4N",
-        shortTitle: "CUSCO VALLE TREKKING 5D-4N",
-        duration: "5 Días / 4 Noches",
+        title: "Lima & Ica 3D / 2N: Aventura en el Desierto",
+        shortTitle: "LIMA & ICA 3D",
+        duration: "3 Días / 2 Noches",
         price: "Consulte",
         difficulty: "Moderada",
-        img: "/assets/act-valle-sagrado.jpg",
-        alt: "Valle y montaña",
-        excerpt: "Historia Inca y aventura en altura: una combinación equilibrada y completa.",
+        img: imgLimaIca3D,
+        alt: "Oasis de Huacachina",
+        excerpt: "Del mar al desierto en una experiencia de contraste único.",
         description: [
-            "Un viaje que combina el legado Inca con el reto físico de la montaña, ideal para quienes buscan una experiencia completa.",
-            "Disfruta de la arqueología del Valle Sagrado antes de coronar tu viaje con una visita a Machu Picchu y un trekking panorámico.",
-            "⭐ Experiencia destacada: Un viaje que combina el legado Inca con el reto físico de la montaña, ideal para quienes buscan una experiencia completa."
+            "Combina la metrópoli limeña con la aventura inigualable de Paracas e Ica en solo tres días.",
+            "Desde la fauna marina de las Islas Ballestas hasta la adrenalina de los tubulares en el desierto de Huacachina.",
+            "⭐ Experiencia: La Huacachina es el único oasis natural de Sudamérica, rodeado de dunas gigantes que te quitarán el aliento."
         ],
-        highlights: ["Valle Sagrado", "Vinicunca", "Machu Picchu", "Cusco Imperial"],
+        highlights: ["Islas Ballestas", "Oasis Huacachina", "Sandboarding & Tubulares", "Cata de Pisco"],
         itinerary: [
-            { day: 1, title: "Bienvenida", content: "Llegada y traslado al hotel seleccionado." },
-            { day: 2, title: "Cusco Arqueológico", content: "City Tour visitando Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay." },
-            { day: 3, title: "Valle Sagrado", content: "Recorrido por Chinchero, Moray, Maras y Ollantaytambo con almuerzo." },
-            { day: 4, title: "Machu Picchu", content: "Tour guiado a la ciudadela con tren y almuerzo incluidos." },
-            { day: 5, title: "Montaña 7 Colores", content: "Caminata de alta montaña y traslado final al aeropuerto por la noche." }
+            { day: 1, title: "Llegada y City Tour", content: "Bienvenida en Lima y City Tour por los puntos más importantes de la ciudad." },
+            { day: 2, title: "Full Day Paracas e Ica", content: "Viaje a Paracas para ver las Islas Ballestas. Continuación a Ica para visita a bodega de vinos/piscos y aventura en Huacachina (tubulares + sandboarding). Retorno a Lima." },
+            { day: 3, title: "Salida", content: "Traslado al aeropuerto para continuar con tu viaje." }
         ],
         includes: [
-            "Traslados completos",
-            "4 noches de alojamiento con desayuno",
-            "Tours mencionados (Cusco, Valle, Machu Picchu, 7 Colores)",
-            "Alimentación según itinerario",
-            "Guía profesional y asistencia permanente"
+            "Traslados privados en Lima",
+            "2 noches de hotel en Lima",
+            "Full Day Paracas e Ica (Grupal)",
+            "Almuerzo en Ica",
+            "Actividades y entradas"
         ],
-        notIncludes: ["Vuelos", "Entradas específicas", "Boleto Turístico", "Gastos personales"]
+        notIncludes: ["Impuestos locales en Paracas (S/ 22 aprox)", "Vuelos", "Cenas"]
     },
     {
-        slug: "cusco-cultural-adventure-5d-4n",
+        slug: "lima-ica-4d-3n",
         category: "combinados",
-        title: "Cusco Cultural & Trekking 5D / 4N",
-        shortTitle: "CUSCO CULTURAL ADVENTURE 5D-4N",
-        duration: "5 Días / 4 Noches",
+        title: "Lima & Ica 4D / 3N: Costa y Desierto sin prisas",
+        shortTitle: "LIMA & ICA 4D",
+        duration: "4 Días / 3 Noches",
         price: "Consulte",
-        difficulty: "Exigente",
-        img: "/assets/act-laguna-humantay.jpg",
-        alt: "Laguna y Montaña",
-        excerpt: "El itinerario más completo en trekking para viajeros activos: Machu Picchu, Humantay y 7 Colores.",
+        difficulty: "Fácil",
+        img: imgLimaIca4D,
+        alt: "Vistas costeras",
+        excerpt: "Una experiencia más completa y relajada en la costa peruana.",
         description: [
-            "Dos de los trekkings más impresionantes del Perú en un solo viaje, combinados con la visita a Machu Picchu.",
-            "Diseñado para quienes no quieren perderse nada de los paisajes de alta montaña y buscan una experiencia de trekking real.",
-            "⭐ Experiencia destacada: Dos de los trekkings más impresionantes del Perú en un solo viaje, combinados con la visita a Machu Picchu."
+            "Ideal para aquellos que desean disfrutar del mar y el desierto sin los apuros de un viaje corto.",
+            "Incluye lo mejor de Lima, con su magia nocturna, y la expedición completa hacia el sur en una logística perfectamente coordinada.",
+            "⭐ Experiencia: Desde fauna marina en Paracas hasta adrenalina en el desierto, este viaje ofrece el contraste total del Perú costero."
         ],
-        highlights: ["Laguna Humantay", "Montaña 7 Colores", "Machu Picchu", "Trekkings icónicos"],
+        highlights: ["Circuito Mágico", "Costa Verde", "Huacachina", "Logística Premium"],
         itinerary: [
-            { day: 1, title: "Llegada", content: "Recepción y traslado para aclimatación." },
-            { day: 2, title: "Machu Picchu", content: "Visita guiada a la maravilla con tren y almuerzo." },
-            { day: 3, title: "Laguna de Humantay", content: "Salida hacia Soraypampa y caminata a la laguna turquesa con alimentación." },
-            { day: 4, title: "Montaña 7 Colores", content: "Caminata hacia Vinicunca con alimentación completa." },
-            { day: 5, title: "Regreso", content: "Traslado al aeropuerto." }
+            { day: 1, title: "Llegada", content: "Recepción en el aeropuerto y traslado a tu hotel." },
+            { day: 2, title: "City Tour + Circuito Mágico", content: "Recorrido por Lima Colonial y Moderna. Show nocturno de fuentes de agua." },
+            { day: 3, title: "Full Day Paracas e Ica", content: "Expedición completa a las Islas Ballestas y el Oasis de Huacachina con almuerzo incluido." },
+            { day: 4, title: "Despedida", content: "Mañana libre y traslado al aeropuerto." }
         ],
         includes: [
-            "Traslados completos",
-            "4 noches de alojamiento con desayuno",
-            "Machu Picchu completo",
-            "Laguna de Humantay y Montaña 7 Colores con alimentación",
-            "Guía profesional y asistencia permanente"
+            "Traslados privados",
+            "3 noches con desayuno",
+            "Tours mencionados",
+            "Almuerzo en Ica"
         ],
-        notIncludes: ["Vuelos", "Entradas a parques naturales", "Boleto Turístico", "Gastos personales"]
+        notIncludes: ["Vuelos", "Impuestos locales en muelle", "Gastos no mencionados"]
     }
 ];

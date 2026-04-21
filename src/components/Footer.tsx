@@ -1,4 +1,4 @@
-import { MapPin, ShieldCheck, Award, Facebook, Instagram, Twitter, Mail, Phone, Clock } from "lucide-react";
+import { MapPin, Facebook, Instagram, Twitter, Mail, Phone, Clock, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logos/logoinkateam.png";
 import minceturImg from "@/assets/Mincetur.png";
@@ -33,151 +33,169 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#fcfcfc] border-t border-border mt-20">
-      <div className="container px-4 mx-auto pt-20 pb-10">
+    <footer className="relative bg-white pt-24 overflow-hidden border-t border-border mt-20">
+      {/* Decorative Top Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-md h-40 bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
 
-        {/* Top Section: Logo, Slogan & Socials */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-12 border-b border-border/60">
-          <div className="flex flex-col items-center md:items-start gap-4">
-            <Link to="/" className="inline-block hover:opacity-90 transition-opacity">
-              <img src={logo} alt="Inka Team Travel Logo" className="h-16 md:h-20 w-auto object-contain drop-shadow-sm" />
-            </Link>
-          </div>
+      <div className="container px-4 mx-auto pb-16 relative z-10">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-16">
           
-          <div className="flex items-center gap-4">
-            {socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.path}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-white border border-border shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-primary hover:text-primary transition-all duration-300 flex items-center justify-center text-muted-foreground"
-                aria-label={social.label}
-              >
-                {social.icon}
-              </a>
+          {/* Brand Column */}
+          <div className="lg:col-span-4 space-y-8">
+            <Link to="/" className="inline-block group">
+              <div className="bg-white p-5 rounded-3xl shadow-xl shadow-primary/5 border border-border transition-transform duration-500 group-hover:scale-105 group-hover:shadow-primary/10 group-hover:border-primary/20">
+                <img src={logo} alt="Inka Team Travel Logo" className="h-16 md:h-20 w-auto object-contain" />
+              </div>
+            </Link>
+            
+            <p className="text-muted-foreground leading-relaxed font-medium">
+              Especialistas en crear experiencias de viaje inolvidables. Conectamos tu espíritu con la magia, historia y naturaleza viva del Perú.
+            </p>
+
+            <div className="flex gap-4">
+              {socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-2xl bg-muted/30 border border-border/50 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 flex items-center justify-center text-foreground hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20"
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Details */}
+          <div className="lg:col-span-4 space-y-8">
+            <div>
+               <h4 className="font-display font-bold text-xl text-foreground mb-6 flex items-center gap-2">
+                 Contáctanos
+               </h4>
+               <ul className="space-y-5">
+                 <li>
+                   <a href="mailto:reservas@inkateamtravel.com" className="group flex items-start gap-4 p-4 rounded-2xl border border-border/40 bg-muted/10 hover:bg-white hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all">
+                     <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                       <Mail className="w-5 h-5" />
+                     </div>
+                     <div>
+                       <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Email Oficial</p>
+                       <p className="text-foreground font-medium group-hover:text-primary transition-colors">reservas@inkateamtravel.com</p>
+                     </div>
+                   </a>
+                 </li>
+                 <li>
+                   <a href="https://wa.me/51942293293" target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4 p-4 rounded-2xl border border-border/40 bg-muted/10 hover:bg-white hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all">
+                     <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                       <Phone className="w-5 h-5" />
+                     </div>
+                     <div>
+                       <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">WhatsApp Directo</p>
+                       <p className="text-foreground font-medium group-hover:text-primary transition-colors">+51 942 293 293</p>
+                     </div>
+                   </a>
+                 </li>
+                 <li className="flex items-start gap-4 px-4">
+                    <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
+                    <p className="text-muted-foreground leading-relaxed">
+                      Lima, Perú.<br/>
+                      Jose Gregorio Paredes 273, Pueblo Libre
+                    </p>
+                 </li>
+               </ul>
+            </div>
+          </div>
+
+          {/* Nav Links & Mincetur */}
+          <div className="lg:col-span-4 flex flex-col md:flex-row lg:flex-col xl:flex-row gap-10">
+            {Object.entries(footerLinks).map(([category, links]) => (
+              <div key={category} className="flex-1">
+                <h4 className="font-display font-bold text-xl text-foreground mb-6">{category}</h4>
+                
+                {links.length > 0 && (
+                  <ul className="space-y-4">
+                    {links.map((link) => (
+                      <li key={link.name}>
+                        <Link
+                          to={link.path}
+                          className="group flex items-center text-muted-foreground hover:text-primary transition-colors font-medium"
+                        >
+                          <span className="w-0 h-0.5 bg-primary mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300" />
+                          {link.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                
+                {/* Mincetur Certification */}
+                {category === "Acerca de Nosotros" && (
+                  <div className="mt-4">
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <button className="group relative overflow-hidden rounded-3xl p-1 transition-all hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 w-fit cursor-pointer text-left focus:outline-none">
+                          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/50 to-primary opacity-20 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-x" />
+                          <div className="relative bg-white rounded-[1.35rem] p-4 flex flex-col items-center gap-3">
+                            <span className="text-[10px] font-black uppercase tracking-widest text-primary flex items-center gap-1">
+                              CERTIFICACIÓN OFICIAL <ArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            </span>
+                            <img 
+                              src={minceturImg} 
+                              alt="Certificación Mincetur" 
+                              className="h-16 w-auto object-contain"
+                            />
+                          </div>
+                        </button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl bg-transparent border-none shadow-none p-0 flex justify-center items-center">
+                        <DialogTitle className="sr-only">Documento de Certificación Mincetur</DialogTitle>
+                        <img 
+                          src={minceturImg} 
+                          alt="Mincetur Certificación" 
+                          className="w-full h-auto max-h-[90vh] object-contain rounded-2xl shadow-2xl"
+                        />
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
+
         </div>
+      </div>
 
-        {/* Middle Section: Info & Links */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-16 border-b border-border/60">
+      {/* Dark Luxury Bottom Bar */}
+      <div className="bg-[#0A0F1C] relative border-t border-white/10 rounded-t-[2rem] sm:rounded-t-[3rem] px-4 pt-10 pb-8">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+        
+        <div className="container mx-auto flex flex-col items-center gap-8">
           
-          {/* Contact Info */}
-          <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-10">
-            <div className="space-y-4">
-              <h4 className="font-bold text-base uppercase tracking-wider text-foreground">Contactanos </h4>
-              <ul className="space-y-4 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-primary shrink-0" />
-                  <a href="mailto:reservas@inkateamtravel.com" className="hover:text-primary transition-colors hover:underline">
-                    reservas@inkateamtravel.com
-                  </a>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-primary shrink-0" />
-                  <a href="https://wa.me/51942293293" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors hover:underline">
-                    +51 942 293 293
-                  </a>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-primary shrink-0" />
-                  <span>Lunes a Domingo</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="space-y-4">
-              <h4 className="font-bold text-base uppercase tracking-wider text-foreground">Ubicación</h4>
-              <ul className="space-y-4 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-primary shrink-0" />
-                  <p className="leading-relaxed">
-                    Lima, Perú.<br/>
-                    Jose Gregorio Paredes 273, Pueblo Libre
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Links Columns */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h4 className="font-bold text-base uppercase tracking-wider text-foreground mb-6">{category}</h4>
-              
-              {links.length > 0 && (
-                <ul className="space-y-3 mb-8">
-                  {links.map((link) => (
-                    <li key={link.name}>
-                      <Link
-                        to={link.path}
-                        className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2 group text-sm md:text-base font-medium"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
-                        {link.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              
-              {/* Certificación Mincetur */}
-              {category === "Acerca de Nosotros" && (
-                <div className="mt-2">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <button className="transition-transform hover:scale-105 active:scale-95 group flex flex-col items-start gap-2">
-                        <div className="bg-white p-2 rounded-md shadow-sm border border-border/50 group-hover:border-primary/50 inline-block">
-                          <img 
-                            src={minceturImg} 
-                            alt="Certificación Mincetur" 
-                            className="h-16 w-auto object-contain"
-                          />
-                        </div>
-                        <span className="text-xs font-medium text-muted-foreground group-hover:text-primary">
-                          Ver Certificación Mincetur
-                        </span>
-                      </button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-4xl bg-transparent border-none shadow-none p-0 flex justify-center items-center">
-                      <DialogTitle className="sr-only">Documento de Certificación Mincetur</DialogTitle>
-                      <img 
-                        src={minceturImg} 
-                        alt="Mincetur Certificación" 
-                        className="w-full h-auto max-h-[90vh] object-contain rounded-xl"
-                      />
-                    </DialogContent>
-                  </Dialog>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-
-
-        {/* Legal Bottom Bar */}
-        <div className="pt-10 text-center space-y-8">
-          
-          <ul className="flex flex-wrap justify-center gap-6 sm:gap-10 text-sm font-medium text-muted-foreground">
+          <ul className="flex flex-wrap justify-center gap-6 sm:gap-10 text-sm font-semibold text-white/60">
             {legalLinks.map((link) => (
                <li key={link.name}>
-                 <Link to={link.path} className="hover:text-primary transition-colors hover:underline">
+                 <Link to={link.path} className="hover:text-white transition-colors hover:underline decoration-primary/50 underline-offset-4">
                    {link.name}
                  </Link>
                </li>
             ))}
           </ul>
           
-          <p className="text-xs md:text-sm font-bold text-foreground/70 uppercase tracking-widest max-w-4xl mx-auto leading-relaxed border border-border/60 bg-white inline-block px-6 py-3 rounded-full shadow-sm">
-            INKATEAM TRAVEL SAC - RUC 20565445261 - INSCRITO EN EL DIRECTORIO NACIONAL DE PRESTADORES DE SERVICIOS TURÍSTICOS CALIFICADOS
-          </p>
-          <p className="text-xs text-muted-foreground bg-clip-text">
-            © {currentYear} InkaTeam Travel. Orgullosamente peruanos 🇵🇪. Construyendo sueños. Todos los derechos reservados.
-          </p>
-        </div>
+          <div className="w-full max-w-4xl mx-auto py-4 px-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+            <p className="text-[10px] sm:text-xs font-black text-white/90 uppercase tracking-[0.2em] text-center leading-relaxed">
+              INKATEAM TRAVEL SAC <span className="text-primary mx-2">•</span> RUC 20565445261 <span className="text-primary mx-2 hidden sm:inline">•</span><br className="sm:hidden"/> INSCRITO EN EL DIRECTORIO NACIONAL DE PRESTADORES DE SERVICIOS TURÍSTICOS CALIFICADOS
+            </p>
+          </div>
 
+          <p className="text-xs text-white/50 text-center font-medium">
+            © {currentYear} InkaTeam Travel. Orgullosamente peruanos 🇵🇪. Todos los derechos reservados.
+          </p>
+
+        </div>
       </div>
     </footer>
   );

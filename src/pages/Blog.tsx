@@ -1,64 +1,9 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+
 import { Button } from "@/components/ui/button";
 import { Clock, ArrowRight, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
-
-import imgMachuPicchu from "@/assets/hero-machu-picchu.jpg";
-import imgCusco from "@/assets/tour-cusco.jpg";
-import imgAndes from "@/assets/dest-andes.jpg";
-import imgHumantay from "@/assets/act-laguna-humantay.jpg";
-import imgValleSagrado from "@/assets/act-valle-sagrado.jpg";
 import bgHero from "@/assets/dest-amazonia.jpg";
-
-const blogPosts = [
-  {
-    id: "como-viajar-a-machu-picchu",
-    title: "Cómo viajar a Machu Picchu: Guía Definitiva 2026",
-    excerpt: "Paso a paso para planificar tu visita a la Ciudadela Inca, desde la compra de boletos hasta cómo llegar en tren desde Cusco.",
-    category: "Guías de Viaje",
-    readTime: "8 min",
-    image: imgMachuPicchu,
-    featured: true
-  },
-  {
-    id: "dias-para-cusco",
-    title: "¿Cuántos días necesitas realmente para visitar Cusco?",
-    excerpt: "Descubre el tiempo ideal para aclimatarte, recorrer la ciudad, visitar el Valle Sagrado y experimentar la magia inca sin apuros.",
-    category: "Planificación",
-    readTime: "5 min",
-    image: imgCusco,
-    featured: false
-  },
-  {
-    id: "mejor-epoca-peru",
-    title: "La mejor época para viajar a Perú",
-    excerpt: "Analizamos el clima mes a mes. Ya sea que busques el sol en la costa o los cielos azules despejados para hacer trekking en los Andes.",
-    category: "Consejos",
-    readTime: "6 min",
-    image: imgAndes,
-    featured: false
-  },
-  {
-    id: "aclimatarse-altura",
-    title: "Soroche: Cómo evitar el mal de altura en los Andes",
-    excerpt: "Remedios prácticos, desde el milenario mate de coca hasta los medicamentos recomendados, para que la altura no interrumpa tu aventura.",
-    category: "Salud e Higiene",
-    readTime: "4 min",
-    image: imgHumantay,
-    featured: false
-  },
-  {
-    id: "que-llevar-machu-picchu",
-    title: "Qué empacar en tu mochila para Machu Picchu",
-    excerpt: "La lista de equipaje definitiva para la selva alta. Entérate qué está permitido ingresar y qué cosas esenciales te salvarán el día.",
-    category: "Equipaje",
-    readTime: "5 min",
-    image: imgValleSagrado,
-    featured: false
-  }
-];
+import { blogPosts } from "@/data/blog";
 
 const Blog = () => {
   const featuredPost = blogPosts.find(post => post.featured);
@@ -66,27 +11,24 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background font-body text-foreground">
-      <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-black">
-        <div className="absolute inset-0 z-0">
-          <img
-            src={bgHero}
-            alt="Inkateam Travel Blog"
-            className="w-full h-full object-cover opacity-40 grayscale-[20%]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-        </div>
+      <section className="relative h-[70vh] min-h-[500px] flex flex-col items-center justify-center overflow-hidden">
+        <img
+          src={bgHero}
+          alt="Inkateam Travel Blog"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
         
-        <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl">
-          <div className="inline-flex items-center gap-2 bg-primary/20 text-primary font-bold px-4 py-1.5 rounded-full mb-6 text-sm uppercase tracking-wider backdrop-blur-md">
-            <BookOpen className="w-4 h-4" /> Historias y Consejos
+        <div className="container-narrow relative z-10 px-4 text-center text-white mt-16">
+          <div className="inline-flex items-center gap-2 bg-primary text-white font-bold px-4 py-1.5 rounded-full mb-6 text-sm uppercase tracking-widest shadow-xl">
+            <BookOpen size={14} className="mr-2" /> Historias y Consejos
           </div>
-          <h1 className="font-display text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight drop-shadow-2xl">
+          <h1 className="font-display text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">
             Blog de <span className="text-primary italic">Viajes</span>
           </h1>
-          <p className="font-body text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/90 leading-relaxed mb-10 font-medium">
             Inspiración, consejos expertos y guías detalladas para que tu próxima aventura en Perú sea simplemente perfecta.
           </p>
         </div>
@@ -116,7 +58,7 @@ const Blog = () => {
                     <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> {featuredPost.readTime} de lectura</span>
                   </div>
                   <h2 className="font-display text-4xl lg:text-5xl font-extrabold mb-6 text-foreground leading-tight group-hover:text-primary transition-colors">
-                    <Link to={`#${featuredPost.id}`}>
+                    <Link to={`/blog/${featuredPost.slug}`}>
                       {featuredPost.title}
                     </Link>
                   </h2>
@@ -124,7 +66,7 @@ const Blog = () => {
                     {featuredPost.excerpt}
                   </p>
                   <Button size="xl" className="w-fit text-base font-bold px-8 shadow-xl bg-black hover:bg-black/80 text-white rounded-2xl" asChild>
-                    <Link to={`#${featuredPost.id}`}>
+                    <Link to={`/blog/${featuredPost.slug}`}>
                       Leer Artículo <ArrowRight className="w-5 h-5 ml-2" />
                     </Link>
                   </Button>
@@ -154,7 +96,7 @@ const Blog = () => {
                       <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {post.readTime} lectura</span>
                     </div>
                     <h3 className="font-display text-2xl font-bold mb-4 text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-2">
-                      <Link to={`#${post.id}`}>
+                      <Link to={`/blog/${post.slug}`}>
                         {post.title}
                       </Link>
                     </h3>
@@ -162,7 +104,7 @@ const Blog = () => {
                       {post.excerpt}
                     </p>
                     <Link 
-                      to={`#${post.id}`} 
+                      to={`/blog/${post.slug}`} 
                       className="font-bold text-primary flex items-center hover:text-primary/70 transition-colors uppercase tracking-widest text-sm"
                     >
                       Seguir Leyendo <ArrowRight className="w-4 h-4 ml-2" />
@@ -198,8 +140,6 @@ const Blog = () => {
         </div>
       </section>
 
-      <Footer />
-      <WhatsAppButton />
     </div>
   );
 };

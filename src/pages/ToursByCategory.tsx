@@ -1,12 +1,26 @@
 import { useParams, Link } from "react-router-dom";
+import { useEffect } from "react";
 import { toursByCategory } from "@/data/tours";
-import Navbar from "@/components/Navbar";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Clock, Mountain, Info } from "lucide-react";
+import { MapPin, Clock, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+import cuscoImg from "@/assets/act-valle-sagrado.jpg";
+import limaImg from "@/assets/act-city-tour-lima.jpg";
+import combinadosImg from "@/assets/act-lago-titicaca.jpg";
+
+const categoryImages = {
+    cusco: cuscoImg,
+    lima: limaImg,
+    combinados: combinadosImg
+};
 
 const ToursByCategory = () => {
     const { category } = useParams<{ category: "cusco" | "lima" | "combinados" }>();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [category]);
 
     if (!category || !toursByCategory[category as keyof typeof toursByCategory]) {
         return <div>Categoría no encontrada</div>;
@@ -14,38 +28,43 @@ const ToursByCategory = () => {
 
     const tours = toursByCategory[category as keyof typeof toursByCategory];
     const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
+    const heroImg = categoryImages[category] || cuscoImg;
 
     return (
-        <div className="min-h-screen bg-background">
-            <Navbar />
+        <div className="min-h-screen bg-[#FDFCFB]">
 
             {/* Hero Header */}
-            <div className="pt-32 pb-16 bg-muted/30">
-                <div className="container-narrow px-4">
+            <section className="relative h-[65vh] min-h-[450px] flex flex-col items-center justify-center overflow-hidden">
+                <img
+                    src={heroImg}
+                    alt={`Tours ${categoryTitle}`}
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
+
+                <div className="container-narrow relative z-10 px-4 mt-16">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                        <div>
-                            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors px-3 py-1">
+                        <div className="text-white">
+                            <Badge className="mb-4 bg-primary text-white border-none hover:bg-primary px-3 py-1 font-bold uppercase tracking-widest shadow-xl">
                                 Explora {categoryTitle}
                             </Badge>
-                            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+                            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
                                 Tours {category === 'combinados' ? 'Combinados' : `en ${categoryTitle}`}
                             </h1>
-                            <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
+                            <p className="mt-4 text-lg text-white/90 max-w-2xl font-medium">
                                 Descubre los mejores paquetes turísticos diseñados para ofrecerte una experiencia inolvidable.
                             </p>
                         </div>
-                        <div className="bg-white p-4 rounded-2xl shadow-sm border border-border/50 flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl">
+                        <div className="bg-white/10 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/20 flex flex-col items-center justify-center min-w-[160px] text-center">
+                            <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white font-black text-2xl mb-2 shadow-lg shadow-primary/30">
                                 {tours.length}
                             </div>
-                            <div>
-                                <p className="text-sm font-bold text-foreground">Paquetes disponibles</p>
-                                <p className="text-xs text-muted-foreground">Listos para reservar</p>
-                            </div>
+                            <p className="text-sm font-bold text-white mb-0.5">Paquetes disponibles</p>
+                            <p className="text-[10px] uppercase tracking-widest text-white/70">Listos para reservar</p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             {/* Grid */}
             <div className="py-20 container-narrow px-4">

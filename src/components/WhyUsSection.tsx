@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import expertosImg from "@/assets/principal/expertos.jpg";
+import expertosImg from "@/assets/principal/filosofi.png";
 import { Badge } from "./ui/badge";
 
 const WhyUsSection = () => {

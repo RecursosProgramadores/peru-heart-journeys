@@ -7,7 +7,7 @@ import { toursByCategory } from "@/data/tours";
 const categories = [
   {
     id: "cusco",
-    name: "Tours en Cusco",
+    name: "Cusco",
     img: destCusco,
     alt: "Ciudad del Cusco",
     count: toursByCategory.cusco.length,
@@ -15,7 +15,7 @@ const categories = [
   },
   {
     id: "combinados",
-    name: "Tours Combinados",
+    name: "Combinados",
     img: destCombinados,
     alt: "Combinados Perú",
     count: toursByCategory.combinados.length,
@@ -23,7 +23,7 @@ const categories = [
   },
   {
     id: "lima",
-    name: "Tours en Lima",
+    name: "Lima",
     img: destLima,
     alt: "Ciudad de Lima",
     count: toursByCategory.lima.length,

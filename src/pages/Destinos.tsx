@@ -1,6 +1,3 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { MapPin, Calendar, Compass, ArrowRight, Camera, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -80,24 +77,24 @@ const destinosData = [
 const Destinos = () => {
   return (
     <div className="min-h-screen bg-background font-body text-foreground">
-      <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-black">
-        <div className="absolute inset-0 z-0">
-          <img
-            src={bgHero}
-            alt="Destinos en Perú"
-            className="w-full h-full object-cover opacity-60"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-        </div>
+      <section className="relative h-[70vh] min-h-[500px] flex flex-col items-center justify-center overflow-hidden">
+        <img
+          src={bgHero}
+          alt="Destinos en Perú"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
         
-        <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl">
-          <h1 className="font-display text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight drop-shadow-2xl">
+        <div className="container-narrow relative z-10 px-4 text-center text-white mt-16">
+          <div className="inline-flex items-center gap-2 bg-primary text-white font-bold px-4 py-1.5 rounded-full mb-6 text-sm uppercase tracking-widest shadow-xl">
+            <Compass size={14} className="mr-2" /> Explora el Perú
+          </div>
+          <h1 className="font-display text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">
             Destinos <span className="text-primary italic">Mágicos</span>
           </h1>
-          <p className="font-body text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/90 leading-relaxed mb-10 font-medium">
             Descubre los rincones más fascinantes del Perú. Cada lugar cuenta una historia milenaria esperando ser vivida.
           </p>
         </div>
@@ -200,8 +197,6 @@ const Destinos = () => {
         </div>
       </section>
 
-      <Footer />
-      <WhatsAppButton />
     </div>
   );
 };

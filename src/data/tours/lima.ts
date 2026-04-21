@@ -1,5 +1,10 @@
 import { Tour } from "../../types/tour";
 
+// Tour Images
+import imgLima2D from "@/assets/tours/LIMA2D1N.png";
+import imgLima3D from "@/assets/tours/LIMA3D2N.jpg";
+import imgLima4D from "@/assets/tours/LIMA4D3N.jpg";
+
 export const limaTours: Tour[] = [
     {
         slug: "lima-2d-1n",
@@ -9,7 +14,7 @@ export const limaTours: Tour[] = [
         duration: "2 Días / 1 Noche",
         price: "199",
         difficulty: "Fácil",
-        img: "/assets/act-city-tour-lima.jpg",
+        img: imgLima2D,
         alt: "Lima City Tour",
         excerpt: "Una experiencia breve pero completa en la capital del Perú.",
         description: [
@@ -44,7 +49,7 @@ export const limaTours: Tour[] = [
         duration: "3 Días / 2 Noches",
         price: "264",
         difficulty: "Fácil",
-        img: "/assets/act-circuito-agua.jpg",
+        img: imgLima3D,
         alt: "Artesanías y cultura en Lima",
         excerpt: "Descubre la esencia de Lima con tiempo para disfrutarla.",
         description: [
@@ -79,7 +84,7 @@ export const limaTours: Tour[] = [
         duration: "4 Días / 3 Noches",
         price: "328",
         difficulty: "Fácil",
-        img: "/assets/dest-costa.jpg",
+        img: imgLima4D,
         alt: "Miraflores y Costa Verde",
         excerpt: "Más tiempo para descubrir Lima a tu manera.",
         description: [
@@ -105,67 +110,5 @@ export const limaTours: Tour[] = [
             { hotel: "Lima Wasi Miraflores", single: "328", doble: "207", triple: "175" },
             { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "338", doble: "208", triple: "174", isRecommended: true }
         ]
-    },
-    {
-        slug: "lima-ica-3d-2n",
-        category: "lima",
-        title: "Lima & Ica 3D / 2N: Aventura en el Desierto",
-        shortTitle: "LIMA & ICA 3D",
-        duration: "3 Días / 2 Noches",
-        price: "Consulte",
-        difficulty: "Moderada",
-        img: "/assets/act-paracas-ica.jpg",
-        alt: "Oasis de Huacachina",
-        excerpt: "Del mar al desierto en una experiencia de contraste único.",
-        description: [
-            "Combina la metrópoli limeña con la aventura inigualable de Paracas e Ica en solo tres días.",
-            "Desde la fauna marina de las Islas Ballestas hasta la adrenalina de los tubulares en el desierto de Huacachina.",
-            "⭐ Experiencia: La Huacachina es el único oasis natural de Sudamérica, rodeado de dunas gigantes que te quitarán el aliento."
-        ],
-        highlights: ["Islas Ballestas", "Oasis Huacachina", "Sandboarding & Tubulares", "Cata de Pisco"],
-        itinerary: [
-            { day: 1, title: "Llegada y City Tour", content: "Bienvenida en Lima y City Tour por los puntos más importantes de la ciudad." },
-            { day: 2, title: "Full Day Paracas e Ica", content: "Viaje a Paracas para ver las Islas Ballestas. Continuación a Ica para visita a bodega de vinos/piscos y aventura en Huacachina (tubulares + sandboarding). Retorno a Lima." },
-            { day: 3, title: "Salida", content: "Traslado al aeropuerto para continuar con tu viaje." }
-        ],
-        includes: [
-            "Traslados privados en Lima",
-            "2 noches de hotel en Lima",
-            "Full Day Paracas e Ica (Grupal)",
-            "Almuerzo en Ica",
-            "Actividades y entradas"
-        ],
-        notIncludes: ["Impuestos locales en Paracas (S/ 22 aprox)", "Vuelos", "Cenas"],
-    },
-    {
-        slug: "lima-ica-4d-3n",
-        category: "lima",
-        title: "Lima & Ica 4D / 3N: Costa y Desierto sin prisas",
-        shortTitle: "LIMA & ICA 4D",
-        duration: "4 Días / 3 Noches",
-        price: "Consulte",
-        difficulty: "Fácil",
-        img: "/assets/act-valle-sagrado.jpg",
-        alt: "Vistas costeras",
-        excerpt: "Una experiencia más completa y relajada en la costa peruana.",
-        description: [
-            "Ideal para aquellos que desean disfrutar del mar y el desierto sin los apuros de un viaje corto.",
-            "Incluye lo mejor de Lima, con su magia nocturna, y la expedición completa hacia el sur en una logística perfectamente coordinada.",
-            "⭐ Experiencia: Desde fauna marina en Paracas hasta adrenalina en el desierto, este viaje ofrece el contraste total del Perú costero."
-        ],
-        highlights: ["Circuito Mágico", "Costa Verde", "Huacachina", "Logística Premium"],
-        itinerary: [
-            { day: 1, title: "Llegada", content: "Recepción en el aeropuerto y traslado a tu hotel." },
-            { day: 2, title: "City Tour + Circuito Mágico", content: "Recorrido por Lima Colonial y Moderna. Show nocturno de fuentes de agua." },
-            { day: 3, title: "Full Day Paracas e Ica", content: "Expedición completa a las Islas Ballestas y el Oasis de Huacachina con almuerzo incluido." },
-            { day: 4, title: "Despedida", content: "Mañana libre y traslado al aeropuerto." }
-        ],
-        includes: [
-            "Traslados privados",
-            "3 noches con desayuno",
-            "Tours mencionados",
-            "Almuerzo en Ica"
-        ],
-        notIncludes: ["Vuelos", "Impuestos locales en muelle", "Gastos no mencionados"],
     }
 ];

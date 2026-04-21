@@ -1,41 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { allTours } from "@/data/tours";
+import { fullDayTours } from "@/data/fullDayTours";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import BookingModal from "@/components/BookingModal";
 import {
     Clock,
     MapPin,
-    Mountain,
     CheckCircle2,
     XCircle,
     Calendar,
-    Utensils,
     Hotel,
-    ArrowRight,
-    ChevronRight,
     Info,
     Ticket
 } from "lucide-react";
 
-const TourDetail = () => {
-    const { category, slug } = useParams<{ category: string; slug: string }>();
-    const tour = allTours.find((t) => t.slug === slug);
+const FullDayDetail = () => {
+    const { id } = useParams<{ id: string }>();
+    const tour = fullDayTours.find((t) => t.id === id);
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [id]);
 
     if (!tour) {
         return (
             <div className="min-h-screen flex items-center justify-center">
                 <div className="text-center">
-                    <h2 className="text-2xl font-bold mb-4">Tour no encontrado</h2>
+                    <h2 className="text-2xl font-bold mb-4">Full Day no encontrado</h2>
                     <Button asChild>
-                        <Link to="/">Volver al inicio</Link>
+                        <Link to="/full-days">Volver a Full Days</Link>
                     </Button>
                 </div>
             </div>
         );
     }
+
+    const descriptionToRender = tour.descriptionDetailed || [tour.description];
 
     return (
         <div className="min-h-screen bg-background">
@@ -43,15 +45,15 @@ const TourDetail = () => {
             {/* Hero Section */}
             <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
                 <img
-                    src={tour.img}
-                    alt={tour.alt}
+                    src={tour.image}
+                    alt={tour.title}
                     className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
                 <div className="container-narrow relative z-10 px-4 text-center text-white">
                     <Badge className="mb-6 bg-primary text-white border-none py-1.5 px-4 text-sm font-bold uppercase tracking-widest">
-                        {tour.category === 'combinados' ? 'Tour Combinado' : `Tour ${tour.category}`}
+                        Tour {tour.category}
                     </Badge>
                     <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
                         {tour.title}
@@ -63,11 +65,11 @@ const TourDetail = () => {
                         </div>
                         <div className="flex items-center gap-2">
                             <MapPin className="text-primary" size={20} />
-                            <span className="capitalize">{tour.category}</span>
+                            <span className="capitalize">{tour.location}</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <Info className="text-primary" size={20} />
-                            <span>Dificultad: {tour.difficulty}</span>
+                            <span>Dificultad: {tour.difficulty || "No especificada"}</span>
                         </div>
                     </div>
                 </div>
@@ -86,28 +88,29 @@ const TourDetail = () => {
                                     <span className="w-8 h-1 bg-primary rounded-full" /> Resumen del Viaje
                                 </h2>
                                 <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-                                    {tour.description.map((p, i) => (
+                                    {descriptionToRender.map((p, i) => (
                                         <p key={i}>{p}</p>
                                     ))}
                                 </div>
                             </div>
 
                             {/* Itinerary */}
+                            {tour.itinerary && tour.itinerary.length > 0 && (
                             <div className="mb-16">
                                 <h2 className="font-display text-3xl font-bold mb-8 flex items-center gap-3 text-foreground">
                                     <Calendar className="text-primary" /> Itinerario Detallado
                                 </h2>
                                 <div className="space-y-4">
-                                    {tour.itinerary.map((item) => (
+                                    {tour.itinerary.map((item, idx) => (
                                         <div
-                                            key={item.day}
+                                            key={idx}
                                             className="border border-border/50 rounded-2xl px-6 py-6 bg-white shadow-sm"
                                         >
                                             <div className="flex items-center gap-4 text-left mb-4">
-                                                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold font-display text-xl">
+                                                <div className="min-w-12 h-12 px-3 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold font-display text-lg whitespace-nowrap">
                                                     {item.day}
                                                 </div>
-                                                <span className="text-xl font-bold text-foreground">{item.title}</span>
+                                                <span className="text-xl font-bold text-foreground leading-tight">{item.title}</span>
                                             </div>
                                             <div className="text-muted-foreground text-lg leading-relaxed pl-16">
                                                 {item.content}
@@ -116,15 +119,16 @@ const TourDetail = () => {
                                     ))}
                                 </div>
                             </div>
+                            )}
                             
                             {/* Rates Info */}
-                            {tour.rates && (
+                            {tour.packages && tour.packages.length > 0 && (
                                 <div className="mb-16">
                                     <h2 className="font-display text-3xl font-bold mb-8 flex items-center gap-3">
                                         <Hotel className="text-primary" /> Tarifas del Paquete
                                     </h2>
                                     {(() => {
-                                        const prices = tour.rates.flatMap(r => [parseInt(r.single), parseInt(r.doble), parseInt(r.triple)]);
+                                        const prices = tour.packages!.map(r => r.price);
                                         const validPrices = prices.filter(n => !isNaN(n));
                                         const lowestPrice = validPrices.length > 0 ? Math.min(...validPrices) : null;
                                         
@@ -136,9 +140,9 @@ const TourDetail = () => {
                                                     <Badge className="mb-4 bg-primary/10 text-primary hover:bg-primary/20 border-none px-4 py-1.5 text-sm uppercase tracking-widest transition-colors font-bold">
                                                         Mejor Tarifa Disponible
                                                     </Badge>
-                                                    <h3 className="text-3xl font-display font-bold text-foreground mb-2">Descubre este destino</h3>
+                                                    <h3 className="text-3xl font-display font-bold text-foreground mb-2">Reserva tu aventura</h3>
                                                     <p className="text-muted-foreground text-lg max-w-sm leading-relaxed">
-                                                        Contamos con múltiples opciones de hoteles. Cotiza con nosotros y elige la que mejor se adapte a ti.
+                                                        Contamos con diferentes opciones para este destino. Reserva ahora y asegura tu lugar.
                                                     </p>
                                                 </div>
                                                 
@@ -167,6 +171,7 @@ const TourDetail = () => {
                             <div className="bg-white p-8 rounded-3xl border border-border/50 shadow-lg sticky top-32">
                                 <h3 className="font-display text-2xl font-bold mb-6 text-foreground">Información Útil</h3>
 
+                                {tour.includes && tour.includes.length > 0 && (
                                 <div className="mb-8">
                                     <h4 className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-tighter mb-4">
                                         <CheckCircle2 size={16} /> Lo que incluye
@@ -180,7 +185,9 @@ const TourDetail = () => {
                                         ))}
                                     </ul>
                                 </div>
+                                )}
 
+                                {tour.notIncludes && tour.notIncludes.length > 0 && (
                                 <div className="mb-10">
                                     <h4 className="flex items-center gap-2 text-sm font-bold text-red-500 uppercase tracking-tighter mb-4">
                                         <XCircle size={16} /> No incluye
@@ -194,6 +201,7 @@ const TourDetail = () => {
                                         ))}
                                     </ul>
                                 </div>
+                                )}
 
                                 <Button 
                                     className="w-full py-8 text-lg font-bold rounded-2xl shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform bg-primary text-white"
@@ -208,7 +216,7 @@ const TourDetail = () => {
                                             <div key={i} className="w-6 h-6 rounded-full border-2 border-white bg-muted" />
                                         ))}
                                     </div>
-                                    <span>+21k viajeros felices</span>
+                                    <span>+15k viajeros felices</span>
                                 </div>
                             </div>
                         </div>
@@ -225,4 +233,4 @@ const TourDetail = () => {
     );
 };
 
-export default TourDetail;
+export default FullDayDetail;

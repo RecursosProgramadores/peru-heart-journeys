@@ -1,5 +1,15 @@
 import { Tour } from "../../types/tour";
 
+// Tour Images
+import imgEsencial from "@/assets/tours/CUSCOESECNCIAL.jpg";
+import imgTradicional from "@/assets/tours/CUSCOTRADICIONAL.png";
+import imgInolvidable from "@/assets/tours/cuscoinolvidable.png";
+import imgColorido from "@/assets/tours/cuscocolorido.png";
+import imgCompleto from "@/assets/tours/cuscocompleto.png";
+import imgMapiTrekking from "@/assets/tours/CUSCOMAPIYTREKKING4D3N.jpg";
+import imgValleTrekking from "@/assets/tours/CUSCOVALLEYTREKKING5D4N.png";
+import imgCulturalTrekking from "@/assets/tours/CUSCOCULTURALYTREKKING5D4N.png";
+
 export const cuscoTours: Tour[] = [
     {
         slug: "cusco-machupicchu-3d-2n",
@@ -9,7 +19,7 @@ export const cuscoTours: Tour[] = [
         duration: "3 Días / 2 Noches",
         price: "452",
         difficulty: "Fácil",
-        img: "/assets/act-machu-picchu.jpg",
+        img: imgEsencial,
         alt: "Machu Picchu vista clásica",
         excerpt: "Machu Picchu en 3 días: experiencia rápida y completa para conocer lo esencial.",
         description: [
@@ -47,7 +57,7 @@ export const cuscoTours: Tour[] = [
         duration: "5 Días / 4 Noches",
         price: "567",
         difficulty: "Fácil",
-        img: "/assets/tour-adventure.jpg",
+        img: imgTradicional,
         alt: "Cusco tradicional colonial",
         excerpt: "Valle Sagrado y Machu Picchu en una experiencia completa e histórica.",
         description: [
@@ -86,7 +96,7 @@ export const cuscoTours: Tour[] = [
         duration: "6 Días / 5 Noches",
         price: "636",
         difficulty: "Moderada",
-        img: "/assets/tour-sacred-valley.jpg",
+        img: imgInolvidable,
         alt: "Paisaje inolvidable de Cusco",
         excerpt: "Cultura + naturaleza: elige tu propia aventura final en los Andes.",
         description: [
@@ -126,7 +136,7 @@ export const cuscoTours: Tour[] = [
         duration: "7 Días / 6 Noches",
         price: "702",
         difficulty: "Moderada",
-        img: "/assets/tour-cusco.jpg",
+        img: imgColorido,
         alt: "Colores de los Andes",
         excerpt: "Machu Picchu, Montaña 7 Colores y Laguna de Humantay en una semana total.",
         description: [
@@ -166,7 +176,7 @@ export const cuscoTours: Tour[] = [
         duration: "8 Días / 7 Noches",
         price: "767",
         difficulty: "Moderada",
-        img: "/assets/act-valle-sur.jpg",
+        img: imgCompleto,
         alt: "Valle Sur de Cusco",
         excerpt: "Experiencia total con Valle Sur, naturaleza y cultura profunda.",
         description: [
@@ -197,5 +207,103 @@ export const cuscoTours: Tour[] = [
             { hotel: "Polo Corporativo Infancia", single: "767", doble: "663", triple: "628" },
             { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "805", doble: "682", triple: "668", isRecommended: true }
         ]
+    },
+    {
+        slug: "cusco-trekking-4d-3n",
+        category: "cusco",
+        title: "Cusco Machu Picchu & Trekking 4D / 3N",
+        shortTitle: "CUSCO TREKKING 4D-3N",
+        duration: "4 Días / 3 Noches",
+        price: "Consulte",
+        difficulty: "Exigente",
+        img: imgMapiTrekking,
+        alt: "Aventura en Vinicunca",
+        excerpt: "Aventura en los Andes: Machu Picchu y Montaña 7 Colores en 4 días intensos.",
+        description: [
+            "Este itinerario combina dos extremos: la historia de Machu Picchu y la exigencia física de la alta montaña.",
+            "Una experiencia completa diseñada para viajeros activos que buscan paisajes inolvidables y retos personales.",
+            "⭐ Experiencia destacada: Este itinerario combina dos extremos: la historia de Machu Picchu y la exigencia física de la alta montaña."
+        ],
+        highlights: ["Desafío Vinicunca", "Machu Picchu", "Alta Montaña", "Experiencia Activa"],
+        itinerary: [
+            { day: 1, title: "Llegada a Cusco", content: "Recepción y traslado. Descanso para aclimatación." },
+            { day: 2, title: "Machu Picchu", content: "Visita guiada a la ciudadela con tren y almuerzo incluidos." },
+            { day: 3, title: "Montaña 7 Colores", content: "Trekking hacia la cumbre de Vinicunca (5,000 msnm) con alimentación completa." },
+            { day: 4, title: "Traslado de Salida", content: "Traslado final al aeropuerto." }
+        ],
+        includes: [
+            "Traslados completos",
+            "3 noches de alojamiento con desayuno",
+            "Full Day Machu Picchu completo",
+            "Tour Montaña 7 Colores con alimentación",
+            "Guía profesional y asistencia permanente"
+        ],
+        notIncludes: ["Vuelos", "Entrada a Montaña 7 Colores", "Boleto Turístico Cusco", "Gastos personales"]
+    },
+    {
+        slug: "cusco-valle-trekking-5d-4n",
+        category: "cusco",
+        title: "Cusco Valle Sagrado & Trekking 5D / 4N",
+        shortTitle: "CUSCO VALLE TREKKING 5D-4N",
+        duration: "5 Días / 4 Noches",
+        price: "Consulte",
+        difficulty: "Moderada",
+        img: imgValleTrekking,
+        alt: "Valle y montaña",
+        excerpt: "Historia Inca y aventura en altura: una combinación equilibrada y completa.",
+        description: [
+            "Un viaje que combina el legado Inca con el reto físico de la montaña, ideal para quienes buscan una experiencia completa.",
+            "Disfruta de la arqueología del Valle Sagrado antes de coronar tu viaje con una visita a Machu Picchu y un trekking panorámico.",
+            "⭐ Experiencia destacada: Un viaje que combina el legado Inca con el reto físico de la montaña, ideal para quienes buscan una experiencia completa."
+        ],
+        highlights: ["Valle Sagrado", "Vinicunca", "Machu Picchu", "Cusco Imperial"],
+        itinerary: [
+            { day: 1, title: "Bienvenida", content: "Llegada y traslado al hotel seleccionado." },
+            { day: 2, title: "Cusco Arqueológico", content: "City Tour visitando Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay." },
+            { day: 3, title: "Valle Sagrado", content: "Recorrido por Chinchero, Moray, Maras y Ollantaytambo con almuerzo." },
+            { day: 4, title: "Machu Picchu", content: "Tour guiado a la ciudadela con tren y almuerzo incluidos." },
+            { day: 5, title: "Montaña 7 Colores", content: "Caminata de alta montaña y traslado final al aeropuerto por la noche." }
+        ],
+        includes: [
+            "Traslados completos",
+            "4 noches de alojamiento con desayuno",
+            "Tours mencionados (Cusco, Valle, Machu Picchu, 7 Colores)",
+            "Alimentación según itinerario",
+            "Guía profesional y asistencia permanente"
+        ],
+        notIncludes: ["Vuelos", "Entradas específicas", "Boleto Turístico", "Gastos personales"]
+    },
+    {
+        slug: "cusco-cultural-adventure-5d-4n",
+        category: "cusco",
+        title: "Cusco Cultural & Trekking 5D / 4N",
+        shortTitle: "CUSCO CULTURAL ADVENTURE 5D-4N",
+        duration: "5 Días / 4 Noches",
+        price: "Consulte",
+        difficulty: "Exigente",
+        img: imgCulturalTrekking,
+        alt: "Laguna y Montaña",
+        excerpt: "El itinerario más completo en trekking para viajeros activos: Machu Picchu, Humantay y 7 Colores.",
+        description: [
+            "Dos de los trekkings más impresionantes del Perú en un solo viaje, combinados con la visita a Machu Picchu.",
+            "Diseñado para quienes no quieren perderse nada de los paisajes de alta montaña y buscan una experiencia de trekking real.",
+            "⭐ Experiencia destacada: Dos de los trekkings más impresionantes del Perú en un solo viaje, combinados con la visita a Machu Picchu."
+        ],
+        highlights: ["Laguna Humantay", "Montaña 7 Colores", "Machu Picchu", "Trekkings icónicos"],
+        itinerary: [
+            { day: 1, title: "Llegada", content: "Recepción y traslado para aclimatación." },
+            { day: 2, title: "Machu Picchu", content: "Visita guiada a la maravilla con tren y almuerzo." },
+            { day: 3, title: "Laguna de Humantay", content: "Salida hacia Soraypampa y caminata a la laguna turquesa con alimentación." },
+            { day: 4, title: "Montaña 7 Colores", content: "Caminata hacia Vinicunca con alimentación completa." },
+            { day: 5, title: "Regreso", content: "Traslado al aeropuerto." }
+        ],
+        includes: [
+            "Traslados completos",
+            "4 noches de alojamiento con desayuno",
+            "Machu Picchu completo",
+            "Laguna de Humantay y Montaña 7 Colores con alimentación",
+            "Guía profesional y asistencia permanente"
+        ],
+        notIncludes: ["Vuelos", "Entradas a parques naturales", "Boleto Turístico", "Gastos personales"]
     }
 ];

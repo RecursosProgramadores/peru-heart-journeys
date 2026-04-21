@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
@@ -72,7 +70,6 @@ const TurismoComunitario = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
@@ -290,7 +287,6 @@ const TurismoComunitario = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };
