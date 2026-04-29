@@ -5,9 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import cuscoImg from "@/assets/act-valle-sagrado.jpg";
-import limaImg from "@/assets/act-city-tour-lima.jpg";
-import combinadosImg from "@/assets/act-lago-titicaca.jpg";
+import cuscoImg from "@/assets/optimized/HOMEDESTTUMEDIDACUSCO.webp";
+import limaImg from "@/assets/optimized/HOMEDESTMEDIALIMA.webp";
+import combinadosImg from "@/assets/optimized/HOMEDESTINOSAMEDIDACOMBINADO.webp";
 
 const categoryImages = {
     cusco: cuscoImg,
@@ -42,7 +42,7 @@ const ToursByCategory = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
 
-                <div className="container-narrow relative z-10 px-4 mt-16">
+                <div className="container-narrow relative z-10 px-4 mt-24">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                         <div className="text-white">
                             <Badge className="mb-4 bg-primary text-white border-none hover:bg-primary px-3 py-1 font-bold uppercase tracking-widest shadow-xl">

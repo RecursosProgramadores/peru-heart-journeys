@@ -3,7 +3,7 @@ import { fullDayTours } from "@/data/fullDayTours";
 import FullDayCard from "@/components/FullDayCard";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, MapPin } from "lucide-react";
-import heroImg from "@/assets/hero-machu-picchu.jpg";
+import heroImg from "@/assets/optimized/FULLDAYPRINCIPAL.webp";
 
 const FullDays = () => {
   useEffect(() => {
@@ -14,21 +14,22 @@ const FullDays = () => {
     <div className="min-h-screen bg-[#FDFCFB]">
 
       {/* Modern Hero Section */}
-      <section className="relative h-[70vh] min-h-[500px] flex flex-col items-center justify-center overflow-hidden">
-        <img
-          src={heroImg}
-          alt="Full Days y Actividades en Perú"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
-
-        <div className="container-narrow relative z-10 px-4 text-center text-white mt-16">
-          <Badge className="mb-6 bg-primary text-white border-none px-4 py-1.5 rounded-full font-bold uppercase tracking-widest shadow-xl">
-            <Sparkles size={14} className="mr-2 fill-current" /> Experiencias de un día
+      <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={heroImg}
+            alt="Experiencias Full Day en Perú"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]" />
+        </div>
+        
+        <div className="container-narrow relative z-10 px-4 text-center text-white mt-24">
+          <Badge className="mb-6 bg-primary/20 hover:bg-primary/30 text-white border-white/20 px-4 py-1.5 rounded-full uppercase tracking-widest text-xs font-bold animate-fade-in">
+            <Sparkles size={14} className="mr-2 text-primary" /> Experiencias de un día
           </Badge>
-          
           <h1 className="font-display text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">
-            Full Days <span className="text-primary italic">&</span> <br /> Actividades
+            Nuestros <span className="text-primary italic">Full Days</span>
           </h1>
           
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/90 leading-relaxed mb-10 font-medium">
@@ -52,7 +53,7 @@ const FullDays = () => {
       </section>
 
       {/* Tours Grid */}
-      <section className="pb-32 container-narrow px-4">
+      <section className="py-24 container-narrow px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {fullDayTours.map((tour) => (
             <div key={tour.id} className="h-full">

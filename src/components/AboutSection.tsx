@@ -1,5 +1,6 @@
 import { Search, CheckCircle2, ShieldCheck, Heart, UserCheck } from "lucide-react";
 import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
 
 
 const workCriteria = [
@@ -45,11 +46,18 @@ const AboutSection = () => {
             </div>
 
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button className="rounded-full px-8" asChild>
-                <a href="#tours">Descubre nuestros planes</a>
+              <Button 
+                className="rounded-full px-8"
+                onClick={() => document.getElementById('tours')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Descubre nuestros planes
               </Button>
-              <Button variant="outline" className="rounded-full px-8" asChild>
-                <a href="#contacto">Diseña tu viaje</a>
+              <Button 
+                variant="outline" 
+                className="rounded-full px-8"
+                onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Diseña tu viaje
               </Button>
             </div>
           </div>
@@ -89,21 +97,6 @@ const AboutSection = () => {
 
       </div>
     </section>
-  );
-};
-
-// Internal Button component shim if not imported globally correctly
-const Button = ({ children, className, variant, asChild }: any) => {
-  const Comp = asChild ? 'span' : 'button';
-  const variants = {
-    default: "bg-primary text-white hover:bg-primary/90",
-    outline: "border-2 border-primary text-primary hover:bg-primary/5"
-  };
-  const v = variant === 'outline' ? variants.outline : variants.default;
-  return (
-    <Comp className={`inline-flex items-center justify-center font-bold transition-all duration-300 h-12 shadow-sm ${v} ${className}`}>
-      {children}
-    </Comp>
   );
 };
 

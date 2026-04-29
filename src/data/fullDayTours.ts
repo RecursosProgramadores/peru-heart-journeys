@@ -1,12 +1,12 @@
-import imgMorada from "@/assets/fullday/moradadioses.jpg";
-import imgCityPanoramico from "@/assets/fullday/CityTourCuscoPanoramico.jpg";
-import imgCityQoricancha from "@/assets/fullday/CityTourQoricancha.webp";
-import imgValleSagrado from "@/assets/fullday/ValleSagradoCompleto.jpg";
-import imgValleSur from "@/assets/fullday/ValleSur.jpg";
-import imgMontana from "@/assets/fullday/montana7colores.jpg";
-import imgMachuPicchu from "@/assets/fullday/FullDayMachuPicchu.jpg";
-import imgHumantay from "@/assets/fullday/LagunaHumantay.jpg";
-import imgParacas from "@/assets/fullday/ParacasIcaconalmuerzo.jpg";
+import imgMorada from "@/assets/optimized/MORADADIOSES.webp";
+import imgCityPanoramico from "@/assets/optimized/FULLDAYCUSCOPANORAMICO.webp";
+import imgCityQoricancha from "@/assets/optimized/FULLDAYCITTYCORICANCHA.webp";
+import imgValleSagrado from "@/assets/optimized/FULLDAYVALLESAGRADO.webp";
+import imgValleSur from "@/assets/optimized/FULLDAYVALLESUR.webp";
+import imgMontana from "@/assets/optimized/FULLDAYMONTANA.webp";
+import imgMachuPicchu from "@/assets/optimized/FULLDAYMACHUPICCHU.webp";
+import imgHumantay from "@/assets/optimized/FULLDAYHUMANTAY.webp";
+import imgParacas from "@/assets/optimized/FULLDAYPARACASICA.webp";
 
 export interface FullDayTour {
   id: string;

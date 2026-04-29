@@ -6,8 +6,8 @@ import { Label } from "@/components/ui/label";
 import { CheckCircle2, MessageSquareText, FileSignature, PlaneTakeoff, ArrowRight, Star, Compass, MousePointer2, Send, Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
-import heroImg from "@/assets/dest-amazonia.jpg";
-import featureImg from "@/assets/act-valle-sagrado.jpg";
+import heroImg from "@/assets/optimized/CUSCOINOLVIDABLE.webp";
+import featureImg from "@/assets/optimized/FULLDAYVALLESAGRADO.webp";
 
 const steps = [
   {
@@ -86,17 +86,17 @@ const DisenaTuViaje = () => {
     const destinosTxt = destinosSeleccionados.length > 0 ? destinosSeleccionados.join(', ') : 'No especificado';
     const experienciasTxt = experienciasSeleccionadas.length > 0 ? experienciasSeleccionadas.join(', ') : 'No especificado';
 
-    const message = `🌟 *PLANIFICACIÓN DE VIAJE PERSONALIZADO* 🌟%0A%0A` +
-      `👤 *NOMBRE:* ${formData.nombre}%0A` +
-      `📱 *WHATSAPP:* ${formData.whatsapp}%0A` +
-      `📧 *CORREO:* ${formData.email}%0A` +
-      `🌍 *ORIGEN:* ${formData.origen}%0A%0A` +
-      `📍 *DESTINOS:* ${destinosTxt}%0A` +
-      `📅 *FECHAS:* ${formData.fechas}%0A` +
-      `⏱ *DÍAS:* ${formData.dias}%0A` +
-      `🏨 *CONFORT:* ${formData.confort || 'No especificado'}%0A` +
-      `🏕 *EXPERIENCIA:* ${experienciasTxt}%0A%0A` +
-      `💬 *COMENTARIOS:*%0A${formData.comentarios}`;
+    const message = `*SOLICITUD DE PLANIFICACION DE VIAJE PERSONALIZADO*%0A%0A` +
+      `Nombre: ${formData.nombre}%0A` +
+      `WhatsApp: ${formData.whatsapp}%0A` +
+      `Email: ${formData.email}%0A` +
+      `Origen: ${formData.origen}%0A%0A` +
+      `Destinos: ${destinosTxt}%0A` +
+      `Fechas: ${formData.fechas}%0A` +
+      `Dias: ${formData.dias}%0A` +
+      `Confort: ${formData.confort || 'No especificado'}%0A` +
+      `Experiencia: ${experienciasTxt}%0A%0A` +
+      `Comentarios:%0A${formData.comentarios}`;
     
     window.open(`https://wa.me/51942293293?text=${message}`, '_blank');
   };
@@ -113,7 +113,7 @@ const DisenaTuViaje = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
         
-        <div className="container-narrow relative z-10 px-4 text-center text-white mt-16">
+        <div className="container-narrow relative z-10 px-4 text-center text-white mt-24">
           <Badge className="mb-6 bg-primary text-white border-none px-6 py-1.5 rounded-full uppercase tracking-widest text-xs font-bold shadow-xl">
             Personalización Total
           </Badge>
@@ -124,11 +124,20 @@ const DisenaTuViaje = () => {
             No todos los viajeros buscan lo mismo. Por eso diseñamos experiencias completamente personalizadas en función de tus intereses, tiempo y estilo de viaje.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-             <Button size="lg" className="rounded-full px-8 bg-primary hover:bg-primary/90 h-14 text-lg font-bold shadow-xl shadow-primary/20" asChild>
-                <a href="#proceso">¿Cómo funciona?</a>
+             <Button 
+               size="lg" 
+               className="rounded-full px-8 bg-primary hover:bg-primary/90 h-14 text-lg font-bold shadow-xl shadow-primary/20"
+               onClick={() => document.getElementById('proceso')?.scrollIntoView({ behavior: 'smooth' })}
+             >
+                ¿Cómo funciona?
              </Button>
-             <Button size="lg" variant="outline" className="rounded-full px-8 border-2 border-white text-white hover:bg-white/10 h-14 text-lg font-bold" asChild>
-                <a href="#formulario">Empieza ahora</a>
+             <Button 
+               size="lg" 
+               variant="outline" 
+               className="rounded-full px-8 border-2 border-white text-white hover:bg-white/10 h-14 text-lg font-bold"
+               onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+             >
+                Empieza ahora
              </Button>
           </div>
         </div>
@@ -209,7 +218,7 @@ const DisenaTuViaje = () => {
           
           <div className="mt-16 text-center">
              <Button className="rounded-full px-10 h-14 bg-black text-white hover:bg-black/90 font-bold group shadow-xl" asChild>
-                <a href="https://wa.me/51942293293" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/51942293293?text=%C2%A1Hola%20Inkateam!%20Prefiero%20coordinar%20mi%20viaje%20a%20medida%20directamente%20por%20aqu%C3%AD.%20Me%20gustar%C3%ADa%20recibir%20asesor%C3%ADa%20personalizada%20para%20un%20viaje%20al%20Per%C3%BA.%20%C2%A1Gracias!" target="_blank" rel="noopener noreferrer">
                    O escríbenos directamente por WhatsApp <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
              </Button>

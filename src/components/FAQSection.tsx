@@ -38,7 +38,7 @@ const FAQSection = () => {
                <h4 className="font-bold mb-2 text-xl relative z-10">¿Prefieres hablar con una persona?</h4>
                <p className="text-sm text-muted-foreground mb-6 relative z-10">Nuestro equipo está listo para ayudarte por WhatsApp y resolver todas tus dudas de forma personalizada.</p>
                <Button className="w-full rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold h-14 relative z-10 transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-green-600/30" asChild>
-                  <a href="https://wa.me/51942293293" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/51942293293?text=%C2%A1Hola%20Inkateam%20Travel!%20Estoy%20visitando%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20tours%20y%20experiencias%20en%20Per%C3%BA.%20%C2%BFPodr%C3%ADan%20asesorarme%3F%20Muchas%20gracias." target="_blank" rel="noopener noreferrer">
                     <MessageSquare size={20} className="mr-2" /> Escríbenos por WhatsApp
                   </a>
                </Button>

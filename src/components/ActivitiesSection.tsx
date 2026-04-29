@@ -4,16 +4,25 @@ import { MapPin, ArrowRight } from "lucide-react";
 import { activities } from "@/data/activities";
 
 const ActivitiesSection = () => {
-  // Selección personalizada de 8 actividades para esta sección
+  // Selección personalizada de 8 experiencias (2 Cusco, 2 Lima, 4 Combinados)
   const displayActivities = [
-    activities[0], // Machu Picchu
-    { ...activities[8], shortTitle: "Lima" }, // Lima en lugar de Cusco
-    activities[2], // Valle Sagrado
-    activities[3], // Montaña 7 Colores
-    activities[4], // Laguna Humantay
-    { ...activities[10], shortTitle: "Ica Paracas & Huacachina" }, // Ica Paracas en lugar de Circuito del Agua
-    activities[6], // Ruta del Sol
-    activities[7], // Lago Titicaca
+    { ...activities[0], category: "cusco" }, // 0: Machu Picchu (Hero)
+    { ...activities[8], category: "lima", shortTitle: "Lima Colonial" }, // 1: Lima
+    { ...activities[2], category: "cusco" }, // 2: Valle Sagrado
+    { ...activities[9], category: "lima", shortTitle: "Circuito del Agua" }, // 3: Lima 2
+    { ...activities[10], category: "combinados", shortTitle: "Ica, Paracas & Huacachina" }, // 4: Combinado 1
+    { ...activities[6], category: "combinados" }, // 5: Ruta del Sol
+    { ...activities[7], category: "combinados" }, // 6: Lago Titicaca
+    { 
+      slug: "lima-cusco-5d-4n", 
+      title: "Lima & Cusco 5D / 4N",
+      shortTitle: "Lima & Cusco",
+      location: "Lima – Cusco",
+      difficulty: "Fácil",
+      img: activities[0].img, // Usamos Mapi como fallback o una representativa
+      category: "combinados",
+      isTour: true 
+    }, // 7: Combinado 4
   ];
 
   return (
@@ -40,21 +49,21 @@ const ActivitiesSection = () => {
           <div className="lg:w-2/3">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 auto-rows-[200px] md:auto-rows-[240px]">
               {displayActivities.map((a, index) => {
-                // Determine category based on slug/location for linking
-                let linkTo = `/tours/cusco`;
-                if (a.slug.includes("lima") || a.slug.includes("paracas") || a.slug.includes("ica")) linkTo = "/tours/lima";
-                if (a.slug.includes("puno") || a.slug.includes("ruta-del-sol")) linkTo = "/tours/combinados";
+                // Determine link
+                const linkTo = a.isTour 
+                  ? `/tours/combinados/${a.slug}` 
+                  : `/actividades/${a.slug}`;
 
                 // Specific spans for a balanced 8-item grid
                 const spans = [
                   "md:col-span-2 md:row-span-2", // 0: Machu Picchu (Hero)
-                  "md:col-span-1 md:row-span-1", // 1: Tour Lima
+                  "md:col-span-1 md:row-span-1", // 1: Lima
                   "md:col-span-1 md:row-span-1", // 2: Valle Sagrado
-                  "md:col-span-1 md:row-span-1", // 3: Montaña 7 Colores
-                  "md:col-span-1 md:row-span-1", // 4: Laguna Humantay
-                  "md:col-span-1 md:row-span-2", // 5: Ica Paracas
-                  "md:col-span-1 md:row-span-1", // 6: Ruta del Sol
-                  "md:col-span-1 md:row-span-1", // 7: Lago Titicaca
+                  "md:col-span-1 md:row-span-1", // 3: Circuito Agua
+                  "md:col-span-1 md:row-span-1", // 4: Ica Paracas
+                  "md:col-span-1 md:row-span-2", // 5: Ruta del Sol (Larga)
+                  "md:col-span-1 md:row-span-1", // 6: Lago Titicaca
+                  "md:col-span-1 md:row-span-1", // 7: Lima & Cusco
                 ];
 
                 const spanClass = spans[index] || "md:col-span-1 md:row-span-1";
@@ -63,20 +72,20 @@ const ActivitiesSection = () => {
                   <Link
                     to={linkTo}
                     key={a.slug}
-                    className={`${spanClass} relative group rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700`}
+                    className={`${spanClass} relative group rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700`}
                   >
                     <img
                       src={a.img}
-                      alt={a.alt}
+                      alt={a.shortTitle}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1.5s]"
                       loading="lazy"
                     />
                     {/* Dark Professional Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-70 group-hover:opacity-60 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-70 transition-opacity" />
 
                     {/* Content */}
                     <div className="absolute bottom-6 left-6 right-6">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2 block opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
                         {a.location.split(' – ')[0]}
                       </span>
                       <h3 className="font-display text-xl md:text-2xl font-bold text-white leading-tight">
@@ -85,9 +94,9 @@ const ActivitiesSection = () => {
                       <div className="h-1 w-0 bg-primary group-hover:w-full transition-all duration-500 mt-3" />
                     </div>
 
-                    {/* Subtle Hover Reveal for Location */}
-                    <div className="absolute top-4 right-4 translate-x-10 group-hover:translate-x-0 transition-transform duration-500">
-                      <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full border border-white/30">
+                    {/* Badge */}
+                    <div className="absolute top-4 right-4 translate-x-12 group-hover:translate-x-0 transition-transform duration-500">
+                      <span className="bg-white/10 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 uppercase tracking-tighter">
                         {a.difficulty}
                       </span>
                     </div>

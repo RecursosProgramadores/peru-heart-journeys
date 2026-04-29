@@ -1,14 +1,14 @@
 import { Tour } from "../../types/tour";
 
 // Tour Images
-import imgEsencial from "@/assets/tours/CUSCOESECNCIAL.jpg";
-import imgTradicional from "@/assets/tours/CUSCOTRADICIONAL.png";
-import imgInolvidable from "@/assets/tours/cuscoinolvidable.png";
-import imgColorido from "@/assets/tours/cuscocolorido.png";
-import imgCompleto from "@/assets/tours/cuscocompleto.png";
-import imgMapiTrekking from "@/assets/tours/CUSCOMAPIYTREKKING4D3N.jpg";
-import imgValleTrekking from "@/assets/tours/CUSCOVALLEYTREKKING5D4N.png";
-import imgCulturalTrekking from "@/assets/tours/CUSCOCULTURALYTREKKING5D4N.png";
+import imgEsencial from "@/assets/optimized/CUSCOESECNCIAL.webp";
+import imgTradicional from "@/assets/optimized/CUSCOTRADICIONAL.webp";
+import imgInolvidable from "@/assets/optimized/CUSCOINOLVIDABLE.webp";
+import imgColorido from "@/assets/optimized/CUSCOCOLORIDO.webp";
+import imgCompleto from "@/assets/optimized/CUSCOCOMPLETO.webp";
+import imgMapiTrekking from "@/assets/optimized/CUSCOMAPIYTREKING4D3N.webp";
+import imgValleTrekking from "@/assets/optimized/CUSCOVALLETREKKING5D4N.webp";
+import imgCulturalTrekking from "@/assets/optimized/CUSCOCULTURALTREKKING5D4N.webp";
 
 export const cuscoTours: Tour[] = [
     {
@@ -25,7 +25,7 @@ export const cuscoTours: Tour[] = [
         description: [
             "Ideal para viajeros con poco tiempo que desean conocer la maravilla del mundo sin complicaciones y con una logística impecable.",
             "Este viaje está diseñado para que vivas Machu Picchu de forma directa, sin perder tiempo en traslados innecesarios y con todo el soporte de nuestros guías expertos.",
-            "⭐ Experiencia destacada: Este viaje está diseñado para que vivas Machu Picchu de forma directa, sin perder tiempo en logística ni traslados innecesarios."
+            "Experiencia destacada: Este viaje está diseñado para que vivas Machu Picchu de forma directa, sin perder tiempo en logística ni traslados innecesarios."
         ],
         highlights: ["Inmersión Directa", "Tren Turístico", "Cusco Colonial", "Almuerzo en Machu Picchu"],
         itinerary: [
@@ -63,7 +63,7 @@ export const cuscoTours: Tour[] = [
         description: [
             "La mejor opción para una primera visita en Cusco. Descubre la majestuosidad del Valle Sagrado y el misticismo de la ciudadela inca.",
             "Este itinerario te permite comprender la historia Inca antes de llegar a Machu Picchu, haciendo que la experiencia sea mucho más completa y significativa.",
-            "⭐ Experiencia destacada: Este itinerario te permite comprender la historia Inca antes de llegar a Machu Picchu, haciendo que la experiencia sea mucho más completa y significativa."
+            "Experiencia destacada: Este itinerario te permite comprender la historia Inca antes de llegar a Machu Picchu, haciendo que la experiencia sea mucho más completa y significativa."
         ],
         highlights: ["Sacsayhuamán", "Valle Sagrado de los Incas", "Ollantaytambo", "Pueblo de Pisac"],
         itinerary: [
@@ -102,7 +102,7 @@ export const cuscoTours: Tour[] = [
         description: [
             "Seis días diseñados para dejar una huella imborrable. Combina los sitios clásicos con un día de reto personal en la montaña.",
             "Aquí el viaje se vuelve personal: eliges tu reto (Montaña 7 Colores o Laguna Humantay) y conectas con la naturaleza de forma directa.",
-            "⭐ Experiencia destacada: Aquí el viaje se vuelve personal: eliges tu reto y conectas con la naturaleza de forma directa."
+            "Experiencia destacada: Aquí el viaje se vuelve personal: eliges tu reto y conectas con la naturaleza de forma directa."
         ],
         highlights: ["City Tour", "Valle Sagrado", "Machu Picchu", "Aventura Personalizada"],
         itinerary: [
@@ -142,7 +142,7 @@ export const cuscoTours: Tour[] = [
         description: [
             "Una experiencia completa que combina historia, cultura y los paisajes más impresionantes de los Andes peruanos.",
             "Este viaje reúne lo mejor de Cusco en una sola experiencia: la historia de los Incas, la energía de Machu Picchu y los paisajes únicos de los Andes.",
-            "⭐ Experiencia destacada: Este viaje reúne lo mejor de Cusco en una sola experiencia: la historia de los Incas, la energía de Machu Picchu y los paisajes únicos de los Andes."
+            "Experiencia destacada: Este viaje reúne lo mejor de Cusco en una sola experiencia: la historia de los Incas, la energía de Machu Picchu y los paisajes únicos de los Andes."
         ],
         highlights: ["Vinicunca", "Laguna Humantay", "Machu Picchu", "Semana Completa"],
         itinerary: [
@@ -182,7 +182,7 @@ export const cuscoTours: Tour[] = [
         description: [
             "El itinerario más completo para conocer Cusco en profundidad, incluyendo rutas menos turísticas y experiencias culturales únicas.",
             "Este es el viaje más completo para descubrir Cusco: combina historia, naturaleza y rutas culturales poco exploradas, ofreciendo una visión total del mundo andino.",
-            "⭐ Experiencia destacada: Este es el viaje más completo para descubrir Cusco: combina historia, naturaleza y rutas culturales poco exploradas, ofreciendo una visión total del mundo andino."
+            "Experiencia destacada: Este es el viaje más completo para descubrir Cusco: combina historia, naturaleza y rutas culturales poco exploradas, ofreciendo una visión total del mundo andino."
         ],
         highlights: ["Valle Sur Cultural", "Pikillacta", "Tipón", "Inmersión Total"],
         itinerary: [
@@ -222,7 +222,7 @@ export const cuscoTours: Tour[] = [
         description: [
             "Este itinerario combina dos extremos: la historia de Machu Picchu y la exigencia física de la alta montaña.",
             "Una experiencia completa diseñada para viajeros activos que buscan paisajes inolvidables y retos personales.",
-            "⭐ Experiencia destacada: Este itinerario combina dos extremos: la historia de Machu Picchu y la exigencia física de la alta montaña."
+            "Experiencia destacada: Este itinerario combina dos extremos: la historia de Machu Picchu y la exigencia física de la alta montaña."
         ],
         highlights: ["Desafío Vinicunca", "Machu Picchu", "Alta Montaña", "Experiencia Activa"],
         itinerary: [
@@ -254,7 +254,7 @@ export const cuscoTours: Tour[] = [
         description: [
             "Un viaje que combina el legado Inca con el reto físico de la montaña, ideal para quienes buscan una experiencia completa.",
             "Disfruta de la arqueología del Valle Sagrado antes de coronar tu viaje con una visita a Machu Picchu y un trekking panorámico.",
-            "⭐ Experiencia destacada: Un viaje que combina el legado Inca con el reto físico de la montaña, ideal para quienes buscan una experiencia completa."
+            "Experiencia destacada: Un viaje que combina el legado Inca con el reto físico de la montaña, ideal para quienes buscan una experiencia completa."
         ],
         highlights: ["Valle Sagrado", "Vinicunca", "Machu Picchu", "Cusco Imperial"],
         itinerary: [
@@ -287,7 +287,7 @@ export const cuscoTours: Tour[] = [
         description: [
             "Dos de los trekkings más impresionantes del Perú en un solo viaje, combinados con la visita a Machu Picchu.",
             "Diseñado para quienes no quieren perderse nada de los paisajes de alta montaña y buscan una experiencia de trekking real.",
-            "⭐ Experiencia destacada: Dos de los trekkings más impresionantes del Perú en un solo viaje, combinados con la visita a Machu Picchu."
+            "Experiencia destacada: Dos de los trekkings más impresionantes del Perú en un solo viaje, combinados con la visita a Machu Picchu."
         ],
         highlights: ["Laguna Humantay", "Montaña 7 Colores", "Machu Picchu", "Trekkings icónicos"],
         itinerary: [

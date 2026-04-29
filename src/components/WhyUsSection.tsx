@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import expertosImg from "@/assets/principal/filosofi.png";
+import expertosImg from "@/assets/optimized/Filosofia.webp";
 import { Badge } from "./ui/badge";
 
 const WhyUsSection = () => {
@@ -57,7 +57,7 @@ const WhyUsSection = () => {
           </div>
           <div className="flex flex-wrap gap-4 relative z-10">
              <a 
-              href="https://wa.me/51942293293" 
+              href="https://wa.me/51942293293?text=%C2%A1Hola%20Inkateam%20Travel!%20Estoy%20visitando%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20tours%20y%20experiencias%20en%20Per%C3%BA.%20%C2%BFPodr%C3%ADan%20asesorarme%3F%20Muchas%20gracias." 
               target="_blank" 
               rel="noopener noreferrer"
               className="px-8 h-14 bg-primary hover:bg-primary/90 text-white rounded-full font-bold flex items-center justify-center transition-all hover:scale-105"

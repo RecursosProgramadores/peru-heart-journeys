@@ -9,7 +9,7 @@ const Footer = () => {
 
   const socials = [
     { icon: <Facebook className="w-5 h-5" />, label: "Facebook", path: "https://www.facebook.com/inkateamtravelperu" },
-    { icon: <Instagram className="w-5 h-5" />, label: "Instagram", path: "https://www.instagram.com/inkateamtravel/?__pwa=1" },
+    { icon: <Instagram className="w-5 h-5" />, label: "Instagram", path: "https://www.instagram.com/accounts/login/?next=%2Finkateamtravel%2F&source=omni_redirect&__pwa=1" },
     { icon: <Twitter className="w-5 h-5" />, label: "X (Twitter)", path: "https://x.com/inkateamtravel" },
   ];
 
@@ -29,7 +29,7 @@ const Footer = () => {
   const legalLinks = [
     { name: "Términos y Condiciones", path: "/terminos" },
     { name: "Política de Privacidad", path: "/privacidad" },
-    { name: "Libro de Reclamaciones", path: "#" },
+    { name: "Libro de Reclamaciones", path: "https://docs.google.com/forms/d/e/1FAIpQLSdimxVhPBQ2slXybhvC50xrhozc7CqlFuL4Q7jwkYxZmB5_zQ/viewform?usp=publish-editor" },
   ];
 
   return (
@@ -89,7 +89,7 @@ const Footer = () => {
                    </a>
                  </li>
                  <li>
-                   <a href="https://wa.me/51942293293" target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4 p-4 rounded-2xl border border-border/40 bg-muted/10 hover:bg-white hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all">
+                   <a href="https://wa.me/51942293293?text=%C2%A1Hola%20Inkateam%20Travel!%20Estoy%20visitando%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20tours%20y%20experiencias%20en%20Per%C3%BA.%20%C2%BFPodr%C3%ADan%20asesorarme%3F%20Muchas%20gracias." target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4 p-4 rounded-2xl border border-border/40 bg-muted/10 hover:bg-white hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all">
                      <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                        <Phone className="w-5 h-5" />
                      </div>
@@ -178,9 +178,15 @@ const Footer = () => {
           <ul className="flex flex-wrap justify-center gap-6 sm:gap-10 text-sm font-semibold text-white/60">
             {legalLinks.map((link) => (
                <li key={link.name}>
-                 <Link to={link.path} className="hover:text-white transition-colors hover:underline decoration-primary/50 underline-offset-4">
-                   {link.name}
-                 </Link>
+                 {link.path.startsWith('http') ? (
+                   <a href={link.path} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors hover:underline decoration-primary/50 underline-offset-4">
+                     {link.name}
+                   </a>
+                 ) : (
+                   <Link to={link.path} className="hover:text-white transition-colors hover:underline decoration-primary/50 underline-offset-4">
+                     {link.name}
+                   </Link>
+                 )}
                </li>
             ))}
           </ul>

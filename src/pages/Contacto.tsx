@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MapPin, Mail, Phone, Send, Clock, MessageCircle } from "lucide-react";
 
-import bgHero from "@/assets/act-city-tour-cusco.jpg";
+import bgHero from "@/assets/optimized/Filosofia.webp";
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ const Contacto = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `👋 *Hola Inkateam, tengo una consulta general.*%0A%0A*Mis Datos:*%0A👤 Nombre: ${formData.nombre}%0A📧 Correo: ${formData.email}%0A📱 WhatsApp: ${formData.whatsapp}%0A🌍 País de origen: ${formData.pais}%0A%0A💬 *Mi Mensaje:*%0A${formData.mensaje}`;
+    const message = `*Hola Inkateam, tengo una consulta general.*%0A%0A*Mis Datos:*%0A_Nombre:_ ${formData.nombre}%0A_Correo:_ ${formData.email}%0A_WhatsApp:_ ${formData.whatsapp}%0A_País de origen:_ ${formData.pais}%0A%0A*Mi Mensaje:*%0A${formData.mensaje}`;
     
     window.open(`https://wa.me/51942293293?text=${message}`, '_blank');
   };
@@ -40,7 +40,7 @@ const Contacto = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
         
-        <div className="container-narrow relative z-10 px-4 text-center text-white mt-16">
+        <div className="container-narrow relative z-10 px-4 text-center text-white mt-24">
           <div className="inline-flex items-center gap-2 bg-primary text-white font-bold px-4 py-1.5 rounded-full mb-6 text-sm uppercase tracking-widest shadow-xl">
             <MessageCircle size={14} className="mr-2" /> Asistencia Inmediata
           </div>

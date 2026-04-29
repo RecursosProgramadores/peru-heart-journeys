@@ -23,10 +23,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-import heroImg from "@/assets/act-laguna-humantay.jpg";
-import salkantayImg from "@/assets/tour-adventure.jpg";
-import machuPicchu from "@/assets/hero-machu-picchu.jpg";
-import montanaColores from "@/assets/act-montana-colores.jpg";
+import heroImg from "@/assets/optimized/VIAJESTRANSPRINCIPAL.webp";
+import salkantayImg from "@/assets/optimized/HOMESALKANTAY.webp";
+import machuPicchu from "@/assets/optimized/FULLDAYMACHUPICCHU.webp";
+import montanaColores from "@/assets/optimized/FULLDAYMONTANA.webp";
 
 const itineraryDays = [
   {
@@ -118,7 +118,7 @@ const ViajesTransformacionales = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
         
-        <div className="container-narrow relative z-10 px-4 text-center text-white mt-16">
+        <div className="container-narrow relative z-10 px-4 text-center text-white mt-24">
           <Badge className="mb-6 bg-primary text-white border-none px-6 py-1.5 rounded-full uppercase tracking-widest text-xs font-bold shadow-xl">
             Viajes que van más allá del destino
           </Badge>
@@ -163,7 +163,7 @@ const ViajesTransformacionales = () => {
         <div className="container px-4 mx-auto max-w-6xl">
           <div className="flex flex-col lg:flex-row gap-16 items-start mb-24">
             <div className="lg:w-1/2">
-              <Badge className="mb-4 bg-primary text-white">🔥 EXPERIENCIA DESTACADA</Badge>
+              <Badge className="mb-4 bg-primary text-white">EXPERIENCIA DESTACADA</Badge>
               <h2 className="font-display text-4xl md:text-6xl font-black mb-8 text-foreground leading-tight">
                 Desafío Salkantay: <br />
                 <span className="text-primary italic">Transforma tu cuerpo y conquista Machu Picchu</span>
@@ -201,7 +201,7 @@ const ViajesTransformacionales = () => {
           </div>
 
           <div className="text-center mb-16">
-             <h3 className="font-display text-3xl md:text-5xl font-bold mb-6">🧠 ¿POR QUÉ ES UN VIAJE TRANSFORMACIONAL?</h3>
+             <h3 className="font-display text-3xl md:text-5xl font-bold mb-6">¿POR QUÉ ES UN VIAJE TRANSFORMACIONAL?</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
@@ -269,10 +269,10 @@ const ViajesTransformacionales = () => {
 
           <div className="flex flex-wrap justify-center gap-6">
              <Button size="xl" className="rounded-full px-10 bg-black text-white hover:bg-black/90 font-bold h-16 shadow-2xl shadow-black/20" asChild>
-                <a href="https://wa.me/51942293293" target="_blank" rel="noopener noreferrer">Quiero ser parte del Desafío Salkantay</a>
+                <a href="https://wa.me/51942293293?text=%C2%A1Hola%20Inkateam!%20Me%20interesa%20unirme%20al%20Desaf%C3%ADo%20Salkantay.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20detalles%20sobre%20el%20programa%20de%20preparaci%C3%B3n%20y%20las%20pr%C3%B3ximas%20fechas%3F%20Gracias." target="_blank" rel="noopener noreferrer">Quiero ser parte del Desafío Salkantay</a>
              </Button>
              <Button size="xl" variant="outline" className="rounded-full px-10 border-2 font-bold h-16" asChild>
-                <a href="https://wa.me/51942293293" target="_blank" rel="noopener noreferrer">Reservar cupo</a>
+                <a href="https://wa.me/51942293293?text=%C2%A1Hola%20Inkateam!%20Estoy%20interesado%20en%20reservar%20mi%20cupo%20para%20el%20Desaf%C3%ADo%20Salkantay.%20%C2%BFPodr%C3%ADan%20indicarme%20los%20pasos%20a%20seguir%3F%20Gracias." target="_blank" rel="noopener noreferrer">Reservar cupo</a>
              </Button>
           </div>
         </div>

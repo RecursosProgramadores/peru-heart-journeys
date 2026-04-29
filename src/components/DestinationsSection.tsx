@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import destLima from "@/assets/act-city-tour-lima.jpg";
-import destCusco from "@/assets/act-city-tour-cusco.jpg";
-import destCombinados from "@/assets/hero-machu-picchu.jpg";
+import destLima from "@/assets/optimized/HOMEDESTMEDIALIMA.webp";
+import destCusco from "@/assets/optimized/HOMEDESTTUMEDIDACUSCO.webp";
+import destCombinados from "@/assets/optimized/HOMEDESTINOSAMEDIDACOMBINADO.webp";
 import { toursByCategory } from "@/data/tours";
 
 const categories = [

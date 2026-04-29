@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Clock, ArrowRight, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
-import bgHero from "@/assets/dest-amazonia.jpg";
+import bgHero from "@/assets/optimized/CUSCOCOLORIDO.webp";
 import { blogPosts } from "@/data/blog";
 
 const Blog = () => {
@@ -21,7 +21,7 @@ const Blog = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
         
-        <div className="container-narrow relative z-10 px-4 text-center text-white mt-16">
+        <div className="container-narrow relative z-10 px-4 text-center text-white mt-24">
           <div className="inline-flex items-center gap-2 bg-primary text-white font-bold px-4 py-1.5 rounded-full mb-6 text-sm uppercase tracking-widest shadow-xl">
             <BookOpen size={14} className="mr-2" /> Historias y Consejos
           </div>

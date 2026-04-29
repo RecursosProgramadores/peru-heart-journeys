@@ -1,10 +1,11 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { activities } from "@/data/activities";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Mountain, ChevronLeft, CheckCircle2 } from "lucide-react";
 
 const ActivityDetail = () => {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const activity = activities.find((a) => a.slug === slug);
 
   if (!activity) {
@@ -12,8 +13,8 @@ const ActivityDetail = () => {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <h1 className="font-display text-4xl font-bold text-foreground mb-4">Actividad no encontrada</h1>
-          <Link to="/#actividades">
-            <Button variant="default">Volver a actividades</Button>
+          <Link to="/">
+            <Button variant="default">Volver al inicio</Button>
           </Link>
         </div>
       </div>
@@ -50,7 +51,7 @@ const ActivityDetail = () => {
       <div className="min-h-screen bg-background">
 
         {/* Hero */}
-        <section className="relative h-[50vh] md:h-[60vh] mt-16 md:mt-20">
+        <section className="relative h-[50vh] md:h-[60vh] mt-24 md:mt-32">
           <img
             src={activity.img}
             alt={activity.alt}
@@ -60,13 +61,12 @@ const ActivityDetail = () => {
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
             <div className="container-narrow">
               <Link
-                to="/#actividades"
+                to="/"
                 className="inline-flex items-center gap-1 text-white/80 hover:text-white text-sm font-medium mb-4 transition-colors"
               >
                 <ChevronLeft size={16} /> Todas las actividades
               </Link>
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-3xl">{activity.emoji}</span>
                 <span className="bg-primary/90 text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
                   {activity.difficulty}
                 </span>
@@ -156,8 +156,18 @@ const ActivityDetail = () => {
                   </div>
 
                   <div className="border-t border-border pt-5">
-                    <Button variant="default" size="lg" className="w-full rounded-full text-base" asChild>
-                      <a href="/#contacto">Consultar disponibilidad</a>
+                    <Button 
+                      variant="default" 
+                      size="lg" 
+                      className="w-full rounded-full text-base font-bold"
+                      onClick={() => {
+                        navigate("/");
+                        setTimeout(() => {
+                          document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
+                      }}
+                    >
+                      Consultar disponibilidad
                     </Button>
                     <p className="text-xs text-muted-foreground text-center mt-3">
                       Sin compromiso • Respuesta en &lt;24h
@@ -189,7 +199,7 @@ const ActivityDetail = () => {
                     </div>
                     <div className="p-4">
                       <h3 className="font-display text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-                        {a.emoji} {a.shortTitle}
+                        {a.shortTitle}
                       </h3>
                       <p className="font-body text-sm text-muted-foreground mt-1">{a.location} • {a.duration}</p>
                     </div>

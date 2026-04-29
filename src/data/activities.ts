@@ -1,18 +1,17 @@
-import actCityTourCusco from "@/assets/act-city-tour-cusco.jpg";
-import actMachuPicchu from "@/assets/act-machu-picchu.jpg";
-import actValleSagrado from "@/assets/act-valle-sagrado.jpg";
-import actMontanaColores from "@/assets/act-montana-colores.jpg";
-import actLagunaHumantay from "@/assets/act-laguna-humantay.jpg";
-import actValleSur from "@/assets/act-valle-sur.jpg";
-import actRutaSol from "@/assets/act-ruta-sol.jpg";
-import actLagoTiticaca from "@/assets/act-lago-titicaca.jpg";
-import actCityTourLima from "@/assets/act-city-tour-lima.jpg";
-import actCircuitoAgua from "@/assets/act-circuito-agua.jpg";
-import actParacasIca from "@/assets/act-paracas-ica.jpg";
+import actCityTourCusco from "@/assets/optimized/FULLDAYCUSCOPANORAMICO.webp";
+import actMachuPicchu from "@/assets/optimized/FULLDAYMACHUPICCHU.webp";
+import actValleSagrado from "@/assets/optimized/FULLDAYVALLESAGRADO.webp";
+import actMontanaColores from "@/assets/optimized/FULLDAYMONTANA.webp";
+import actLagunaHumantay from "@/assets/optimized/FULLDAYHUMANTAY.webp";
+import actValleSur from "@/assets/optimized/FULLDAYVALLESUR.webp";
+import actRutaSol from "@/assets/optimized/VIAJESTRANSPRINCIPAL.webp";
+import actLagoTiticaca from "@/assets/optimized/HOMEEXPERULAGotITI.webp";
+import actCityTourLima from "@/assets/optimized/HOMEDESTMEDIALIMA.webp";
+import actCircuitoAgua from "@/assets/optimized/HOMEDESTMEDIALIMA.webp";
+import actParacasIca from "@/assets/optimized/FULLDAYPARACASICA.webp";
 
 export interface Activity {
   slug: string;
-  emoji: string;
   title: string;
   shortTitle: string;
   location: string;
@@ -30,7 +29,6 @@ export interface Activity {
 export const activities: Activity[] = [
   {
     slug: "tour-machu-picchu",
-    emoji: "🏔",
     title: "Tour Machu Picchu Full Day",
     shortTitle: "Machu Picchu",
     location: "Cusco – Aguas Calientes",
@@ -50,7 +48,6 @@ export const activities: Activity[] = [
   },
   {
     slug: "city-tour-cusco",
-    emoji: "🏛",
     title: "City Tour Cusco",
     shortTitle: "City Tour Cusco",
     location: "Cusco",
@@ -63,14 +60,13 @@ export const activities: Activity[] = [
     description: [
       "El City Tour en Cusco es la mejor introducción a la antigua capital del Imperio Inca. La experiencia inicia generalmente por la tarde, recorriendo los principales sitios arqueológicos ubicados en los alrededores de la ciudad.",
       "Durante el tour se visita la imponente fortaleza de Sacsayhuamán, famosa por sus enormes bloques de piedra perfectamente ensamblados. Luego se continúa hacia Qenqo, antiguo centro ceremonial; Puka Pukara, puesto militar estratégico; y Tambomachay, conocido como el templo del agua.",
-      "Este recorrido permite comprender la historia, arquitectura e ingeniería inca antes de visitar Machu Picchu. Ideal para aclimatarse y comenzar a conectar con la cultura andina.",
+      "Este recorrido permite comprender la historia, architecture e ingeniería inca antes de visitar Machu Picchu. Ideal para aclimatarse y comenzar a conectar con la cultura andina.",
     ],
     highlights: ["Sacsayhuamán", "Qenqo", "Puka Pukara", "Tambomachay", "Aclimatación"],
     keywords: ["city tour cusco", "sacsayhuaman", "tours cusco", "sitios arqueológicos cusco"],
   },
   {
     slug: "tour-valle-sagrado",
-    emoji: "🌄",
     title: "Tour Valle Sagrado de los Incas",
     shortTitle: "Valle Sagrado",
     location: "Cusco – Valle Sagrado",
@@ -90,7 +86,6 @@ export const activities: Activity[] = [
   },
   {
     slug: "montana-7-colores",
-    emoji: "🌈",
     title: "Tour Montaña de 7 Colores (Vinicunca)",
     shortTitle: "Montaña 7 Colores",
     location: "Cusco – Cusipata",
@@ -110,7 +105,6 @@ export const activities: Activity[] = [
   },
   {
     slug: "laguna-humantay",
-    emoji: "🏞",
     title: "Tour Laguna de Humantay",
     shortTitle: "Laguna Humantay",
     location: "Cusco – Mollepata",
@@ -122,7 +116,7 @@ export const activities: Activity[] = [
     excerpt: "Caminata moderada hasta la laguna de aguas turquesas rodeada de glaciares y montañas nevadas a más de 4,200 msnm.",
     description: [
       "La Laguna de Humantay es uno de los paisajes más impresionantes de la región de Cusco. Este tour combina caminata moderada y vistas espectaculares de montaña.",
-      "La experiencia inicia con traslado hacia Mollepata y luego hacia Soraypampa, punto de inicio de la caminata. Desde allí se asciende hasta la laguna de aguas turquesas ubicada a más de 4,200 msnm.",
+      "La experiencia inicia con traslado hacia Mollepata and luego hacia Soraypampa, punto de inicio de la caminata. Desde allí se asciende hasta la laguna de aguas turquesas ubicada a más de 4,200 msnm.",
       "El entorno natural, rodeado de glaciares y montañas nevadas, convierte esta excursión en una experiencia ideal para amantes de la naturaleza y la fotografía.",
     ],
     highlights: ["Laguna turquesa", "Glaciares", "Soraypampa", "Trekking", "Fotografía de naturaleza"],
@@ -130,7 +124,6 @@ export const activities: Activity[] = [
   },
   {
     slug: "ruta-valle-sur-cusco",
-    emoji: "🛕",
     title: "Ruta Valle Sur Cusco",
     shortTitle: "Valle Sur",
     location: "Cusco – Valle Sur",
@@ -142,14 +135,13 @@ export const activities: Activity[] = [
     description: [
       "El Tour Valle Sur Cusco permite conocer sitios arqueológicos menos masificados pero de gran valor histórico.",
       "Incluye visita a Tipón, famoso por su sistema hidráulico inca; Pikillacta, complejo preinca de la cultura Wari; y la iglesia de Andahuaylillas, conocida como la Capilla Sixtina de América por su impresionante arte colonial.",
-      "Es una excursión cultural ideal para viajeros interesados en historia y arquitectura.",
+      "Es una excursión cultural ideal para viajeros interesados en historia y architecture.",
     ],
     highlights: ["Tipón", "Pikillacta", "Andahuaylillas", "Arte colonial", "Sistema hidráulico inca"],
     keywords: ["valle sur cusco", "tipon cusco", "andahuaylillas", "capilla sixtina america"],
   },
   {
     slug: "ruta-del-sol-cusco-puno",
-    emoji: "🚌",
     title: "Ruta del Sol Cusco – Puno",
     shortTitle: "Ruta del Sol",
     location: "Cusco – Puno",
@@ -168,7 +160,6 @@ export const activities: Activity[] = [
   },
   {
     slug: "lago-titicaca-uros-amantani-taquile",
-    emoji: "🌊",
     title: "Experiencia Lago Titicaca – Uros, Amantaní y Taquile",
     shortTitle: "Lago Titicaca",
     location: "Puno – Lago Titicaca",
@@ -188,14 +179,13 @@ export const activities: Activity[] = [
   },
   {
     slug: "city-tour-lima",
-    emoji: "🌆",
     title: "City Tour Lima Panorámico",
     shortTitle: "City Tour Lima",
     location: "Lima",
     duration: "Medio día",
     difficulty: "Fácil",
     img: actCityTourLima,
-    alt: "Vista panorámica de Miraflores Lima con el malecón y el Océano Pacífico al atardecer",
+    alt: "Vista panorámica de Miraflores Lima con el malecón and el Océano Pacífico al atardecer",
     excerpt: "Descubre Lima entre modernidad y tradición: Miraflores, el Malecón, Centro Histórico y plazas coloniales.",
     description: [
       "El City Tour en Lima permite descubrir la capital del Perú desde su contraste entre modernidad y tradición.",
@@ -207,7 +197,6 @@ export const activities: Activity[] = [
   },
   {
     slug: "circuito-magico-del-agua",
-    emoji: "💦",
     title: "Circuito Mágico del Agua",
     shortTitle: "Circuito del Agua",
     location: "Lima",
@@ -224,7 +213,6 @@ export const activities: Activity[] = [
   },
   {
     slug: "paracas-ica-huacachina",
-    emoji: "🏜",
     title: "Paracas – Ica – Huacachina",
     shortTitle: "Paracas & Huacachina",
     location: "Ica – Paracas",
@@ -232,10 +220,10 @@ export const activities: Activity[] = [
     difficulty: "Moderada",
     img: actParacasIca,
     alt: "Oasis de Huacachina con palmeras y dunas doradas en el desierto de Ica",
-    excerpt: "Aventura en el desierto: Islas Ballestas, bodega de piscos y sandboarding en las dunas de Huacachina.",
+    excerpt: "Aventura en el desierto: Islas Ballestas, bodega de piscos and sandboarding en las dunas de Huacachina.",
     description: [
       "El tour a Paracas, Ica y Huacachina es una experiencia de aventura en el desierto peruano.",
-      "Incluye navegación a las Islas Ballestas, visita a bodega de vinos y piscos, y recorrido en tubulares por las dunas de Huacachina.",
+      "Incluye navegación a las Islas Ballestas, visita a bodega de vinos y piscos, and recorrido en tubulares por las dunas de Huacachina.",
       "Perfecto para combinar con Lima.",
     ],
     highlights: ["Islas Ballestas", "Bodega de pisco", "Dunas de Huacachina", "Tubulares", "Sandboarding"],

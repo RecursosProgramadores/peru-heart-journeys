@@ -3,13 +3,13 @@ import { MapPin, Calendar, Compass, ArrowRight, Camera, MessageCircle } from "lu
 import { Link } from "react-router-dom";
 
 
-import imgCusco from "@/assets/tour-cusco.jpg";
-import imgMachuPicchu from "@/assets/hero-machu-picchu.jpg";
-import imgLima from "@/assets/act-city-tour-lima.jpg";
-import imgParacas from "@/assets/act-paracas-ica.jpg";
-import imgTiticaca from "@/assets/dest-titicaca.jpg";
-import imgAndes from "@/assets/dest-andes.jpg";
-import bgHero from "@/assets/act-valle-sagrado.jpg";
+import imgCusco from "@/assets/optimized/HOMEDESTTUMEDIDACUSCO.webp";
+import imgMachuPicchu from "@/assets/optimized/FULLDAYMACHUPICCHU.webp";
+import imgLima from "@/assets/optimized/HOMEDESTMEDIALIMA.webp";
+import imgParacas from "@/assets/optimized/FULLDAYPARACASICA.webp";
+import imgTiticaca from "@/assets/optimized/HOMEEXPERULAGotITI.webp";
+import imgAndes from "@/assets/optimized/FULLDAYMONTANA.webp";
+import bgHero from "@/assets/optimized/FULLDAYVALLESAGRADO.webp";
 
 const destinosData = [
   {
@@ -87,7 +87,7 @@ const Destinos = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
         
-        <div className="container-narrow relative z-10 px-4 text-center text-white mt-16">
+        <div className="container-narrow relative z-10 px-4 text-center text-white mt-24">
           <div className="inline-flex items-center gap-2 bg-primary text-white font-bold px-4 py-1.5 rounded-full mb-6 text-sm uppercase tracking-widest shadow-xl">
             <Compass size={14} className="mr-2" /> Explora el Perú
           </div>
@@ -190,7 +190,7 @@ const Destinos = () => {
             Escríbenos ahora y recibe asesoría personalizada de nuestros expertos.
           </p>
           <Button size="xl" className="font-bold text-lg px-8 py-7 rounded-full shadow-2xl bg-[#25D366] hover:bg-[#20ba5a] text-white border-none transition-all duration-300 hover:scale-105 group" asChild>
-            <a href="https://wa.me/51942293293" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/51942293293?text=%C2%A1Hola%20Inkateam%20Travel!%20Estoy%20visitando%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20tours%20y%20experiencias%20en%20Per%C3%BA.%20%C2%BFPodr%C3%ADan%20asesorarme%3F%20Muchas%20gracias." target="_blank" rel="noopener noreferrer">
               <MessageCircle className="w-6 h-6 mr-2 group-hover:animate-pulse" /> WhatsApp Solicita asesoría
             </a>
           </Button>

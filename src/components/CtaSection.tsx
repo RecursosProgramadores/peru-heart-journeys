@@ -27,7 +27,7 @@ const CtaSection = () => {
               className="w-full sm:w-auto h-16 sm:h-18 px-8 sm:px-10 text-lg font-bold bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-[0_0_30px_rgba(37,211,102,0.3)] hover:shadow-[0_0_50px_rgba(37,211,102,0.5)] transition-all duration-300 hover:-translate-y-1.5 rounded-2xl flex items-center justify-center gap-3"
               asChild
             >
-              <a href="https://wa.me/51942293293?text=Hola,%20quisiera%20más%20información%20para%20viajar%20a%20Perú." target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/51942293293?text=%C2%A1Hola%20Inkateam%20Travel!%20Estoy%20visitando%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20tours%20y%20experiencias%20en%20Per%C3%BA.%20%C2%BFPodr%C3%ADan%20asesorarme%3F%20Muchas%20gracias." target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7" />
                 Hablar por WhatsApp
               </a>

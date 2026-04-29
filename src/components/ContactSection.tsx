@@ -22,7 +22,13 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `👋 *Hola Inkateam, quiero diseñar mi viaje.*%0A%0A*Mis Datos:*%0A👤 Nombre: ${formData.nombre}%0A🌍 País: ${formData.pais}%0A📅 Fechas: ${formData.fechas}%0A📍 Destino: ${formData.destino}%0A👥 Personas: ${formData.personas}%0A%0A💬 *Mensaje:*%0A${formData.mensaje}`;
+    const message = `*SOLICITUD DE DISENO DE VIAJE*%0A%0A` +
+      `Nombre: ${formData.nombre}%0A` +
+      `Pais: ${formData.pais}%0A` +
+      `Fechas: ${formData.fechas}%0A` +
+      `Destino: ${formData.destino}%0A` +
+      `Personas: ${formData.personas}%0A%0A` +
+      `*Mensaje:*%0A${formData.mensaje}`;
     window.open(`https://wa.me/51942293293?text=${message}`, '_blank');
   };
 
@@ -49,7 +55,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-sm uppercase tracking-widest text-muted-foreground mb-1">WhatsApp</h4>
-                    <a href="https://wa.me/51942293293" target="_blank" rel="noopener noreferrer" className="text-xl font-black hover:text-primary transition-colors">
+                    <a href="https://wa.me/51942293293?text=%C2%A1Hola%20Inkateam%20Travel!%20Estoy%20visitando%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20tours%20y%20experiencias%20en%20Per%C3%BA.%20%C2%BFPodr%C3%ADan%20asesorarme%3F%20Muchas%20gracias." target="_blank" rel="noopener noreferrer" className="text-xl font-black hover:text-primary transition-colors">
                       +51 942 293 293
                     </a>
                   </div>

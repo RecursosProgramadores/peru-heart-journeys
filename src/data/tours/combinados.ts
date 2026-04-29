@@ -1,11 +1,11 @@
 import { Tour } from "../../types/tour";
 
 // Tour Images
-import imgLimaCusco from "@/assets/tours/combinadoslimacusco5dy4n.png";
-import imgPeruCompleto from "@/assets/tours/combinadoperucompleto.png";
-import imgCuscoPuno from "@/assets/tours/combinadocuscopuno.png";
-import imgLimaIca3D from "@/assets/tours/combinadolimayica3d2n.png";
-import imgLimaIca4D from "@/assets/tours/combinadolimaica4dy3n.png";
+import imgLimaCusco from "@/assets/optimized/COMBUNADOSLIMAYCUSCO5D4N.webp";
+import imgPeruCompleto from "@/assets/optimized/COMINADOPERUCOMPLETO.webp";
+import imgCuscoPuno from "@/assets/optimized/COMBINADOCUSCOYPUNO8D7N.webp";
+import imgLimaIca3D from "@/assets/optimized/COMBINADOSLIMAICA3D2N.webp";
+import imgLimaIca4D from "@/assets/optimized/COMBINADOLIMAICA4D3N.webp";
 
 export const combinadosTours: Tour[] = [
     {
@@ -22,7 +22,7 @@ export const combinadosTours: Tour[] = [
         description: [
             "Conoce lo mejor del Perú en un solo viaje: la capital gastronómica de Sudamérica y la maravilla del mundo, Machu Picchu.",
             "Este itinerario optimiza tu tiempo, permitiéndote disfrutar de los contrastes culturales más impactantes del país con una logística de primera clase.",
-            "⭐ Experiencia destacada: Este viaje combina lo mejor del Perú: la capital gastronómica de Sudamérica y la maravilla del mundo."
+            "Experiencia destacada: Este viaje combina lo mejor del Perú: la capital gastronómica de Sudamérica y la maravilla del mundo."
         ],
         highlights: ["City Tour Lima", "Circuito Mágico del Agua", "Machu Picchu", "Capitales Peruanas"],
         itinerary: [
@@ -59,7 +59,7 @@ export const combinadosTours: Tour[] = [
         description: [
             "Desde el océano Pacífico hasta los Andes, este viaje muestra la diversidad total del Perú en una sola ruta perfectamente coordinada.",
             "Disfruta de la modernidad limeña, la adrenalina del desierto de Ica y la espiritualidad profunda de la cultura inca en Cusco.",
-            "⭐ Experiencia destacada: Desde el océano Pacífico hasta los Andes, este viaje muestra la diversidad total del Perú en una sola ruta."
+            "Experiencia destacada: Desde el océano Pacífico hasta los Andes, este viaje muestra la diversidad total del Perú en una sola ruta."
         ],
         highlights: ["Huacachina", "Machu Picchu", "Islas Ballestas", "Valle Sagrado"],
         itinerary: [
@@ -101,7 +101,7 @@ export const combinadosTours: Tour[] = [
         description: [
             "Conecta el corazón del Imperio Inca con el lago navegable más alto del mundo en una experiencia que combina historia y convivencia.",
             "Dormir en una isla del Lago Titicaca y compartir con una familia local transforma el viaje en una experiencia auténtica, más allá del turismo tradicional.",
-            "⭐ Experiencia destacada: Dormir en una isla del Lago Titicaca y compartir con una familia local transforma el viaje en una experiencia auténtica."
+            "Experiencia destacada: Dormir en una isla del Lago Titicaca y compartir con una familia local transforma el viaje en una experiencia auténtica."
         ],
         highlights: ["Lago Titicaca", "Isla Amantani", "Ruta del Sol", "Machu Picchu"],
         itinerary: [
@@ -141,7 +141,7 @@ export const combinadosTours: Tour[] = [
         description: [
             "Combina la metrópoli limeña con la aventura inigualable de Paracas e Ica en solo tres días.",
             "Desde la fauna marina de las Islas Ballestas hasta la adrenalina de los tubulares en el desierto de Huacachina.",
-            "⭐ Experiencia: La Huacachina es el único oasis natural de Sudamérica, rodeado de dunas gigantes que te quitarán el aliento."
+            "Experiencia: La Huacachina es el único oasis natural de Sudamérica, rodeado de dunas gigantes que te quitarán el aliento."
         ],
         highlights: ["Islas Ballestas", "Oasis Huacachina", "Sandboarding & Tubulares", "Cata de Pisco"],
         itinerary: [
@@ -172,7 +172,7 @@ export const combinadosTours: Tour[] = [
         description: [
             "Ideal para aquellos que desean disfrutar del mar y el desierto sin los apuros de un viaje corto.",
             "Incluye lo mejor de Lima, con su magia nocturna, y la expedición completa hacia el sur en una logística perfectamente coordinada.",
-            "⭐ Experiencia: Desde fauna marina en Paracas hasta adrenalina en el desierto, este viaje ofrece el contraste total del Perú costero."
+            "Experiencia: Desde fauna marina en Paracas hasta adrenalina en el desierto, este viaje ofrece el contraste total del Perú costero."
         ],
         highlights: ["Circuito Mágico", "Costa Verde", "Huacachina", "Logística Premium"],
         itinerary: [

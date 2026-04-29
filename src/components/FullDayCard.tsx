@@ -11,9 +11,9 @@ interface FullDayCardProps {
 
 const FullDayCard: React.FC<FullDayCardProps> = ({ tour }) => {
   return (
-    <Link to={`/full-days/${tour.id}`} className="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-border/50 flex flex-col h-full block">
+    <div className="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-border/50 flex flex-col h-full">
       {/* Image Section */}
-      <div className="relative aspect-[4/3] overflow-hidden">
+      <Link to={`/full-days/${tour.id}`} className="relative aspect-[4/3] overflow-hidden block">
         <img
           src={tour.image}
           alt={tour.title}
@@ -28,7 +28,7 @@ const FullDayCard: React.FC<FullDayCardProps> = ({ tour }) => {
         <div className="absolute bottom-4 right-4 bg-primary text-white font-black px-4 py-1.5 rounded-full text-lg shadow-xl translate-y-12 group-hover:translate-y-0 transition-transform duration-500">
           ${tour.price}
         </div>
-      </div>
+      </Link>
 
       {/* Content Section */}
       <div className="p-8 flex flex-col flex-1">
@@ -37,9 +37,11 @@ const FullDayCard: React.FC<FullDayCardProps> = ({ tour }) => {
           <span className="text-xs font-bold uppercase tracking-wider">{tour.duration}</span>
         </div>
         
-        <h3 className="font-display text-2xl font-bold text-foreground mb-4 leading-tight group-hover:text-primary transition-colors line-clamp-2">
-          {tour.title}
-        </h3>
+        <Link to={`/full-days/${tour.id}`}>
+          <h3 className="font-display text-2xl font-bold text-foreground mb-4 leading-tight group-hover:text-primary transition-colors line-clamp-2">
+            {tour.title}
+          </h3>
+        </Link>
         
         <p className="text-muted-foreground text-sm line-clamp-2 mb-8 flex-1">
           {tour.description}
@@ -48,13 +50,16 @@ const FullDayCard: React.FC<FullDayCardProps> = ({ tour }) => {
         {/* Action Buttons */}
         <div className="pt-6 border-t border-border/50">
           <Button
+            asChild
             className="w-full rounded-xl bg-black hover:bg-black/90 text-white font-bold text-xs h-11 shadow-lg shadow-black/10 transition-all hover:-translate-y-0.5"
           >
-            <Ticket size={16} className="mr-2" /> Tarifas & Reserva
+            <Link to={`/full-days/${tour.id}`}>
+              <Ticket size={16} className="mr-2" /> Tarifas & Reserva
+            </Link>
           </Button>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

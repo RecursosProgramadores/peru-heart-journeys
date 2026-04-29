@@ -23,6 +23,8 @@ import { es } from "date-fns/locale";
 import { Calendar as CalendarIcon, Users, User, Mail, MessageSquare, ChevronRight, ChevronLeft, CreditCard, Building2, Bed, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { countries } from "@/data/countries";
+import { Search } from "lucide-react";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -52,8 +54,9 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
     confirmEmail: "",
   });
   const [participantsInfo, setParticipantsInfo] = useState<{
-    [key: number]: { firstName: string; lastName: string; email: string; whatsapp: string };
+    [key: number]: { firstName: string; lastName: string; email: string; whatsapp: string; nationality: string };
   }>({});
+  const [countrySearch, setCountrySearch] = useState("");
 
   useEffect(() => {
     if (isFullDay) {
@@ -98,39 +101,39 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
 
   const handleFinish = () => {
     const dateStr = date ? format(date, "PPP", { locale: es }) : "No seleccionada";
-    let message = `*Nueva Reserva: ${tour.title}*\n\n`;
-    message += `📅 *Fecha:* ${dateStr}\n`;
+    let message = `*SOLICITUD DE RESERVA: ${tour.title.toUpperCase()}*%0A%0A`;
+    message += `*DETALLES DEL VIAJE*%0A`;
+    message += `Fecha: ${dateStr}%0A`;
     
     if (isFullDay) {
-      message += `📦 *Paquete:* ${selectedPackage?.name}\n`;
+      message += `Paquete: ${selectedPackage?.name}%0A`;
     } else {
-      message += `🏨 *Hotel:* ${selectedHotelRate?.hotel}\n`;
-      message += `🛏️ *Acomodación:* ${accommodationType.toUpperCase()}\n`;
+      message += `Hotel/Acomodacion: ${selectedHotelRate?.hotel} - ${accommodationType.toUpperCase()}%0A`;
     }
     
-    message += `👤 *Pasajeros:* ${participantsCount}\n`;
-    message += `💰 *Total estimada:* $${total.toFixed(2)}\n\n`;
+    message += `Pasajeros: ${participantsCount}%0A`;
+    message += `Inversion Estimada: $${total.toFixed(2)} USD%0A%0A`;
     
-    message += `*Datos del Comprador:*\n`;
-    message += `- Nombre: ${buyerInfo.firstName} ${buyerInfo.lastName}\n`;
-    message += `- Email: ${buyerInfo.email}\n\n`;
+    message += `*DATOS DEL COMPRADOR*%0A`;
+    message += `Nombre: ${buyerInfo.firstName} ${buyerInfo.lastName}%0A`;
+    message += `Email: ${buyerInfo.email}%0A%0A`;
 
-    message += `*Información de Pasajeros:*\n`;
+    message += `*INFORMACION DE PASAJEROS*%0A`;
     for (let i = 1; i <= participantsCount; i++) {
       const p = participantsInfo[i];
       if (p) {
-        message += `Pasajero ${i}: ${p.firstName} ${p.lastName} (${p.whatsapp})\n`;
+        message += `Pasajero ${i}: ${p.firstName} ${p.lastName} | WhatsApp: ${p.whatsapp} | Nacionalidad: ${p.nationality || 'No especificada'}%0A`;
       }
     }
 
-    const whatsappUrl = `https://wa.me/51942293293?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/51942293293?text=${message}`;
     window.open(whatsappUrl, "_blank");
     onClose();
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl p-0 overflow-hidden bg-white border-none shadow-2xl rounded-3xl sm:max-h-[90vh]">
+      <DialogContent className="max-w-4xl p-0 overflow-hidden bg-white border-none shadow-2xl rounded-3xl sm:max-h-[90vh] overflow-y-auto">
         <div className="flex flex-col md:flex-row h-full">
           {/* Main Content Area */}
           <div className="flex-1 p-6 md:p-8 overflow-y-auto">
@@ -300,7 +303,38 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                           <Input placeholder="Nombre *" className="rounded-xl" onChange={(e) => handleParticipantChange(i + 1, 'firstName', e.target.value)} />
                           <Input placeholder="Apellido *" className="rounded-xl" onChange={(e) => handleParticipantChange(i + 1, 'lastName', e.target.value)} />
                           <Input placeholder="WhatsApp / Teléfono *" className="rounded-xl" onChange={(e) => handleParticipantChange(i + 1, 'whatsapp', e.target.value)} />
-                          <Input placeholder="Nacionalidad" className="rounded-xl" />
+                          
+                          <div className="relative">
+                            <Select 
+                              onValueChange={(v) => handleParticipantChange(i + 1, 'nationality', v)}
+                              value={participantsInfo[i+1]?.nationality || ""}
+                            >
+                              <SelectTrigger className="rounded-xl">
+                                <SelectValue placeholder="Nacionalidad *" />
+                              </SelectTrigger>
+                              <SelectContent className="max-h-[300px]">
+                                <div className="flex items-center px-3 pb-2 border-b sticky top-0 bg-white z-10">
+                                  <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+                                  <input
+                                    className="flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
+                                    placeholder="Buscar país..."
+                                    value={countrySearch}
+                                    onChange={(e) => setCountrySearch(e.target.value)}
+                                    onClick={(e) => e.stopPropagation()}
+                                    onKeyDown={(e) => e.stopPropagation()}
+                                  />
+                                </div>
+                                {countries
+                                  .filter(c => c.toLowerCase().includes(countrySearch.toLowerCase()))
+                                  .map((country) => (
+                                    <SelectItem key={country} value={country}>
+                                      {country}
+                                    </SelectItem>
+                                  ))
+                                }
+                              </SelectContent>
+                            </Select>
+                          </div>
                         </div>
                       </div>
                     ))}

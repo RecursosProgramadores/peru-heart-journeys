@@ -49,7 +49,7 @@ const TourDetail = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
-                <div className="container-narrow relative z-10 px-4 text-center text-white">
+                <div className="container-narrow relative z-10 px-4 text-center text-white mt-24">
                     <Badge className="mb-6 bg-primary text-white border-none py-1.5 px-4 text-sm font-bold uppercase tracking-widest">
                         {tour.category === 'combinados' ? 'Tour Combinado' : `Tour ${tour.category}`}
                     </Badge>

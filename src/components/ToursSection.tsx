@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import tourCusco from "@/assets/tour-cusco.jpg";
+import tourCusco from "@/assets/optimized/HOMESALKANTAY.webp";
 import { MapPin, Users, Calendar, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 

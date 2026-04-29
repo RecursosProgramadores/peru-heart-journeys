@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Heart, Star, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImg from "@/assets/hero-machu-picchu.jpg";
+import heroImg from "@/assets/optimized/HOmeprincipal.webp";
 
 const stats = [
   { icon: <Heart className="w-4 h-4" />, value: "21K+", label: "Viajeros felices" },
@@ -29,7 +29,7 @@ const HeroSection = () => {
         >
           Inkateam Travel <br className="hidden sm:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-400 drop-shadow-sm">
-            ViajaViveMasEmociones
+            Viaja Vive Más Emociones
           </span>
         </h1>
         <p className="font-body text-lg sm:text-xl md:text-2xl text-primary-foreground max-w-3xl mx-auto mb-10 leading-relaxed font-medium drop-shadow-md">
@@ -50,11 +50,9 @@ const HeroSection = () => {
             variant="hero-outline"
             size="xl"
             className="w-full sm:w-auto text-base font-bold backdrop-blur-md bg-black/20 hover:bg-black/40 border-white/70 hover:border-white transition-all duration-300 hover:-translate-y-1"
-            asChild
+            onClick={() => document.getElementById('tours')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            <a href="#tours" className="flex items-center gap-2">
-              Ver planes disponibles <ChevronDown className="w-5 h-5 animate-bounce-gentle" />
-            </a>
+            Ver planes disponibles <ChevronDown className="w-5 h-5 animate-bounce-gentle" />
           </Button>
         </div>
       </div>

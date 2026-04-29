@@ -15,6 +15,7 @@ import {
   AlertCircle
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import heroImg from "@/assets/optimized/HOMEEXPERULAGotITI.webp";
 
 const TurismoComunitario = () => {
   const itinerary = [
@@ -75,14 +76,14 @@ const TurismoComunitario = () => {
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/assets/act-lago-titicaca.jpg" 
+            src={heroImg} 
             alt="Turismo Comunitario en Perú" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
         </div>
         
-        <div className="container-narrow relative z-10 text-center text-white px-4">
+        <div className="container-narrow relative z-10 text-center text-white px-4 mt-24">
           <Badge className="mb-6 bg-primary/20 hover:bg-primary/30 text-white border-white/20 px-4 py-1 animate-fade-in uppercase tracking-widest text-xs">
             Comunidad Tejiendo Viajes
           </Badge>
@@ -92,8 +93,10 @@ const TurismoComunitario = () => {
           <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90 font-light leading-relaxed">
             Vivir el Perú desde adentro, compartiendo con personas reales, tradiciones vivas y formas de vida ancestrales.
           </p>
-          <Button size="lg" className="mt-10 rounded-full px-8 bg-primary hover:bg-primary/90 text-white font-bold h-14 text-lg shadow-xl shadow-primary/20">
-            Quiero tejer mi propia aventura
+          <Button size="lg" className="mt-10 rounded-full px-8 bg-primary hover:bg-primary/90 text-white font-bold h-14 text-lg shadow-xl shadow-primary/20" asChild>
+            <a href="https://wa.me/51942293293?text=%C2%A1Hola%20Inkateam!%20Me%20gustar%C3%ADa%20tejer%20mi%20propia%20aventura%20con%20la%20comunidad.%20Estoy%20interesado%20en%20la%20experiencia%20de%20Turismo%20Comunitario.%20%C2%BFMe%20podr%C3%ADan%20brindar%20disponibilidad%3F" target="_blank" rel="noopener noreferrer">
+              Quiero tejer mi propia aventura
+            </a>
           </Button>
         </div>
       </section>
@@ -161,7 +164,7 @@ const TurismoComunitario = () => {
         <div className="container-narrow px-4">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
             <div>
-              <Badge className="bg-primary hover:bg-primary mb-4">⭐ Experiencia destacada</Badge>
+              <Badge className="bg-primary hover:bg-primary mb-4">Experiencia destacada</Badge>
               <h2 className="text-4xl md:text-5xl font-display font-bold">Aquí no eres un turista. <br /> <span className="text-primary">Eres parte de la comunidad.</span></h2>
             </div>
           </div>
@@ -264,11 +267,15 @@ const TurismoComunitario = () => {
                   </div>
 
                   <div className="space-y-4">
-                     <Button className="w-full h-16 rounded-2xl bg-primary hover:bg-primary/90 text-white font-bold text-lg shadow-xl shadow-primary/20 transition-all hover:scale-[1.02]">
-                       <MessageCircle className="mr-2" size={20} /> Consultar disponibilidad
+                     <Button className="w-full h-16 rounded-2xl bg-primary hover:bg-primary/90 text-white font-bold text-lg shadow-xl shadow-primary/20 transition-all hover:scale-[1.02]" asChild>
+                       <a href="https://wa.me/51942293293?text=%C2%A1Hola!%20Deseo%20consultar%20disponibilidad%20para%20la%20experiencia%20de%20Turismo%20Comunitario.%20Muchas%20gracias." target="_blank" rel="noopener noreferrer">
+                         <MessageCircle className="mr-2" size={20} /> Consultar disponibilidad
+                       </a>
                      </Button>
-                     <Button variant="outline" className="w-full h-16 rounded-2xl border-2 font-bold text-lg hover:bg-muted transition-all">
-                       Asegura tu cupo con $100
+                     <Button variant="outline" className="w-full h-16 rounded-2xl border-2 font-bold text-lg hover:bg-muted transition-all" asChild>
+                       <a href="https://wa.me/51942293293?text=%C2%A1Hola!%20Estoy%20listo%20para%20asegurar%20mi%20cupo%20con%20$100%20para%20el%20viaje%20de%20Turismo%20Comunitario.%20%C2%BFPodr%C3%ADan%20indicarme%20los%20pasos%20de%20pago%3F" target="_blank" rel="noopener noreferrer">
+                         <CheckCircle2 className="mr-2" size={20} /> Asegura tu cupo con $100
+                       </a>
                      </Button>
                   </div>
 

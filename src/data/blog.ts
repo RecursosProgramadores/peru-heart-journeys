@@ -1,8 +1,8 @@
-import imgMachuPicchu from "@/assets/hero-machu-picchu.jpg";
-import imgCusco from "@/assets/tour-cusco.jpg";
-import imgAndes from "@/assets/dest-andes.jpg";
-import imgHumantay from "@/assets/act-laguna-humantay.jpg";
-import imgValleSagrado from "@/assets/act-valle-sagrado.jpg";
+import imgMachuPicchu from "@/assets/optimized/FULLDAYMACHUPICCHU.webp";
+import imgCusco from "@/assets/optimized/HOMEDESTTUMEDIDACUSCO.webp";
+import imgAndes from "@/assets/optimized/FULLDAYMONTANA.webp";
+import imgHumantay from "@/assets/optimized/FULLDAYHUMANTAY.webp";
+import imgValleSagrado from "@/assets/optimized/FULLDAYVALLESAGRADO.webp";
 
 export interface BlogPost {
   id: string;
