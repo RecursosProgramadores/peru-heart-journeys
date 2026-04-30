@@ -105,28 +105,28 @@ const DisenaTuViaje = () => {
     <div className="min-h-screen bg-background font-body text-foreground">
 
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[500px] flex flex-col items-center justify-center overflow-hidden">
+      <section className="relative h-[85vh] md:h-[70vh] min-h-[550px] flex flex-col items-center justify-center overflow-hidden">
         <img
           src={heroImg}
           alt="Tu viaje a tu manera - Perú"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
         
-        <div className="container-narrow relative z-10 px-4 text-center text-white mt-24">
-          <Badge className="mb-6 bg-primary text-white border-none px-6 py-1.5 rounded-full uppercase tracking-widest text-xs font-bold shadow-xl">
+        <div className="container relative z-10 px-6 text-center text-white mt-16 md:mt-24">
+          <Badge className="mb-6 bg-primary text-white border-none px-4 md:px-6 py-1.5 rounded-full uppercase tracking-widest text-[10px] md:text-xs font-black shadow-xl">
             Personalización Total
           </Badge>
-          <h1 className="font-display text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1] text-balance">
             Tu viaje, <br /><span className="text-primary italic">a tu manera</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/90 leading-relaxed mb-10 font-medium">
+          <p className="max-w-2xl mx-auto text-base md:text-xl text-white/80 leading-relaxed mb-10 font-medium px-2">
             No todos los viajeros buscan lo mismo. Por eso diseñamos experiencias completamente personalizadas en función de tus intereses, tiempo y estilo de viaje.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
              <Button 
                size="lg" 
-               className="rounded-full px-8 bg-primary hover:bg-primary/90 h-14 text-lg font-bold shadow-xl shadow-primary/20"
+               className="w-full sm:w-auto rounded-full px-8 bg-primary hover:bg-primary/90 h-14 text-base font-bold shadow-xl shadow-primary/20"
                onClick={() => document.getElementById('proceso')?.scrollIntoView({ behavior: 'smooth' })}
              >
                 ¿Cómo funciona?
@@ -134,7 +134,7 @@ const DisenaTuViaje = () => {
              <Button 
                size="lg" 
                variant="outline" 
-               className="rounded-full px-8 border-2 border-white text-white hover:bg-white/10 h-14 text-lg font-bold"
+               className="w-full sm:w-auto rounded-full px-8 border-2 border-white text-white hover:bg-white/10 h-14 text-base font-bold"
                onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
              >
                 Empieza ahora

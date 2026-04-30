@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const tripTypes = [
   { label: "Viajes transformacionales", href: "/viajes-transformacionales", icon: <MapPin size={16} /> },
@@ -32,6 +32,8 @@ const tourCategories = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,23 +46,30 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-border/50 ${scrolled ? "py-2 shadow-lg" : "py-4 shadow-sm"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled || !isHome
+          ? "bg-white/95 backdrop-blur-md border-b border-border/50 py-2 shadow-lg"
+          : "bg-transparent py-6"
+      }`}
     >
       <div className="container-narrow flex items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex-shrink-0">
+        <Link to="/" className="flex-shrink-0 transition-transform hover:scale-105 active:scale-95">
           <img
             src={logo}
             alt="Inka Team Logo"
-            className={`transition-all duration-300 ${scrolled ? "h-10 md:h-12" : "h-12 md:h-14"} w-auto object-contain`}
+            className={`transition-all duration-500 ${
+              scrolled || !isHome ? "h-10 md:h-12" : "h-14 md:h-16"
+            } w-auto object-contain`}
           />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
           {/* Tipos de viaje Dropdown */}
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-bold text-foreground hover:text-primary transition-all outline-none uppercase tracking-widest text-[11px]">
-              Tipos de viaje <ChevronDown size={14} className="mt-0.5" />
+            <DropdownMenuTrigger
+              className="flex items-center gap-1 text-[11px] font-bold text-black hover:text-primary transition-all outline-none uppercase tracking-widest"
+            >
+              Tipos de viaje <ChevronDown size={14} className="mt-0.5 opacity-70" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-64 p-2 bg-white rounded-2xl shadow-2xl border-border/50 animate-in fade-in zoom-in duration-200">
               {tripTypes.map((type) => (
@@ -81,8 +90,10 @@ const Navbar = () => {
 
           {/* Planes de viaje Dropdown */}
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-bold text-foreground hover:text-primary transition-all outline-none uppercase tracking-widest text-[11px]">
-              Planes de viaje <ChevronDown size={14} className="mt-0.5" />
+            <DropdownMenuTrigger
+              className="flex items-center gap-1 text-[11px] font-bold text-black hover:text-primary transition-all outline-none uppercase tracking-widest"
+            >
+              Planes de viaje <ChevronDown size={14} className="mt-0.5 opacity-70" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-56 p-2 bg-white rounded-2xl shadow-2xl border-border/50 animate-in fade-in zoom-in duration-200">
               {tourCategories.map((cat) => (
@@ -110,7 +121,7 @@ const Navbar = () => {
             <Link
               key={l.href + l.label}
               to={l.href}
-              className="text-sm font-bold text-foreground hover:text-primary transition-all uppercase tracking-widest text-[11px]"
+              className="text-[11px] font-bold text-black hover:text-primary transition-all uppercase tracking-widest"
             >
               {l.label}
             </Link>
@@ -127,7 +138,7 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-foreground p-2"
+          className="md:hidden text-black p-2"
           onClick={() => setOpen(!open)}
           aria-label="Menú"
         >
@@ -199,3 +210,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

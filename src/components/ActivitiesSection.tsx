@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MapPin, ArrowRight } from "lucide-react";
 import { activities } from "@/data/activities";
+import imgLimaCusco from "@/assets/optimized/COMBUNADOSLIMAYCUSCO5D4N.webp";
 
 const ActivitiesSection = () => {
   // Selección personalizada de 8 experiencias (2 Cusco, 2 Lima, 4 Combinados)
@@ -19,7 +20,7 @@ const ActivitiesSection = () => {
       shortTitle: "Lima & Cusco",
       location: "Lima – Cusco",
       difficulty: "Fácil",
-      img: activities[0].img, // Usamos Mapi como fallback o una representativa
+      img: imgLimaCusco, 
       category: "combinados",
       isTour: true 
     }, // 7: Combinado 4
