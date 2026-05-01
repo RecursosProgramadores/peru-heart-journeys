@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
     script.setAttribute("data-loadtrk", "true");
     script.onload = () => {
       // @ts-ignore
-      this.loadtrk = true;
+      script.loadtrk = true;
     };
     document.body.appendChild(script);
 
