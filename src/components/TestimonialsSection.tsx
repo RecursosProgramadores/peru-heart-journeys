@@ -47,7 +47,7 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section id="testimonios" className="py-24 bg-muted/20">
+    <section id="testimonios" className="py-24 bg-[#f0f7f0]">
       <div className="container-narrow px-4 mx-auto leading-relaxed">
         {/* Header */}
         <div className="mb-16 text-center max-w-3xl mx-auto">

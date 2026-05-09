@@ -4,38 +4,44 @@
 
 @layer base {
   :root {
-    --background: 40 33% 97%;
-    --foreground: 0 0% 29%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 20%;
 
-    --card: 40 33% 97%;
-    --card-foreground: 0 0% 29%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 29%;
+    --popover-foreground: 0 0% 20%;
 
-    --primary: 14 64% 62%;
-    --primary-foreground: 40 33% 97%;
+    --primary: 48 96% 58%;
+    --primary-foreground: 240 5% 9%;
 
-    --secondary: 120 22% 35%;
-    --secondary-foreground: 40 33% 97%;
+    --secondary: 0 0% 97%;
+    --secondary-foreground: 0 0% 20%;
 
-    --muted: 36 33% 93%;
+    --muted: 0 0% 97%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 43 72% 52%;
-    --accent-foreground: 0 0% 15%;
+    --accent: 48 96% 58%;
+    --accent-foreground: 240 5% 9%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 2 67% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 36 20% 88%;
-    --input: 36 20% 88%;
-    --ring: 14 64% 62%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 48 96% 58%;
 
     --radius: 0.75rem;
 
-    --andes: 213 51% 34%;
-    --andes-foreground: 40 33% 97%;
+    --andes: 2 67% 51%;
+    --andes-foreground: 0 0% 100%;
+
+    --brand-black: 240 5% 9%;
+    --brand-green: 123 43% 39%;
+    --brand-blue: 210 61% 45%;
+    --brand-orange: 29 88% 50%;
+    --brand-violet: 279 45% 38%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;

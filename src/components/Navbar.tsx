@@ -48,8 +48,8 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled || !isHome
-          ? "bg-white/95 backdrop-blur-md border-b border-border/50 py-2 shadow-lg"
-          : "bg-transparent py-6"
+          ? "bg-[#151517]/95 backdrop-blur-md border-b border-white/10 py-2 shadow-lg"
+          : "bg-[#151517] py-6"
       }`}
     >
       <div className="container-narrow flex items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -58,7 +58,7 @@ const Navbar = () => {
             src={logo}
             alt="Inka Team Logo"
             className={`transition-all duration-500 ${
-              scrolled || !isHome ? "h-10 md:h-12" : "h-14 md:h-16"
+              scrolled || !isHome ? "h-[48px]" : "h-[56px]"
             } w-auto object-contain`}
           />
         </Link>
@@ -67,7 +67,7 @@ const Navbar = () => {
           {/* Tipos de viaje Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger
-              className="flex items-center gap-1 text-[11px] font-bold text-black hover:text-primary transition-all outline-none uppercase tracking-widest"
+              className="flex items-center gap-1 text-[11px] font-bold text-white hover:text-primary transition-all outline-none uppercase tracking-widest"
             >
               Tipos de viaje <ChevronDown size={14} className="mt-0.5 opacity-70" />
             </DropdownMenuTrigger>
@@ -91,7 +91,7 @@ const Navbar = () => {
           {/* Planes de viaje Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger
-              className="flex items-center gap-1 text-[11px] font-bold text-black hover:text-primary transition-all outline-none uppercase tracking-widest"
+              className="flex items-center gap-1 text-[11px] font-bold text-white hover:text-primary transition-all outline-none uppercase tracking-widest"
             >
               Planes de viaje <ChevronDown size={14} className="mt-0.5 opacity-70" />
             </DropdownMenuTrigger>
@@ -121,7 +121,7 @@ const Navbar = () => {
             <Link
               key={l.href + l.label}
               to={l.href}
-              className="text-[11px] font-bold text-black hover:text-primary transition-all uppercase tracking-widest"
+              className="text-[11px] font-bold text-white hover:text-primary transition-all uppercase tracking-widest"
             >
               {l.label}
             </Link>
@@ -129,7 +129,7 @@ const Navbar = () => {
           <Button
             variant="default"
             size="sm"
-            className="shadow-xl bg-black hover:bg-black/90 text-white font-bold rounded-xl px-6 h-11 text-[11px] uppercase tracking-widest transition-all hover:-translate-y-0.5"
+            className="shadow-xl bg-primary hover:bg-primary/90 text-[#151517] font-bold rounded-xl px-6 h-11 text-[11px] uppercase tracking-widest transition-all hover:-translate-y-0.5"
             asChild
           >
             <Link to="/disena-tu-viaje">Personaliza tu viaje</Link>
@@ -138,7 +138,7 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-black p-2"
+          className="md:hidden text-white p-2"
           onClick={() => setOpen(!open)}
           aria-label="Menú"
         >
@@ -197,7 +197,7 @@ const Navbar = () => {
               ))}
             </div>
 
-            <Button variant="default" size="xl" className="w-full bg-black text-white font-bold h-16 rounded-2xl shadow-2xl" asChild>
+            <Button variant="default" size="xl" className="w-full bg-primary text-[#151517] font-bold h-16 rounded-2xl shadow-2xl" asChild>
               <Link to="/disena-tu-viaje" onClick={() => setOpen(false)}>
                 Personaliza tu viaje
               </Link>

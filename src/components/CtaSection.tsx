@@ -3,18 +3,18 @@ import { MessageCircle, FileText } from "lucide-react";
 
 const CtaSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#0A0F1C] border-t border-border/10">
+    <section className="py-24 relative overflow-hidden bg-[#D3302F] border-t border-border/10">
       {/* Background Decorators */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[-30%] left-[-20%] w-[70%] h-[150%] bg-primary/20 blur-[150px] rounded-full mix-blend-screen opacity-50" />
-        <div className="absolute bottom-[-30%] right-[-20%] w-[70%] h-[150%] bg-amber-500/10 blur-[150px] rounded-full mix-blend-screen opacity-50" />
+        <div className="absolute top-[-30%] left-[-20%] w-[70%] h-[150%] bg-white/10 blur-[150px] rounded-full mix-blend-screen opacity-50" />
+        <div className="absolute bottom-[-30%] right-[-20%] w-[70%] h-[150%] bg-black/10 blur-[150px] rounded-full mix-blend-screen opacity-50" />
       </div>
 
       <div className="container relative z-10 px-4 mx-auto text-center">
-        <div className="max-w-4xl mx-auto bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 sm:p-14 lg:p-20 shadow-2xl">
+        <div className="max-w-4xl mx-auto bg-black/10 backdrop-blur-xl border border-white/20 rounded-[2.5rem] p-8 sm:p-14 lg:p-20 shadow-2xl">
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg leading-tight">
             ¿Listo para descubrir <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-primary">Perú</span>?
+            <span className="text-[#FBC02D]">Perú</span>?
           </h2>
           
           <p className="font-body text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed">

@@ -33,7 +33,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-white pt-24 overflow-hidden border-t border-border mt-20">
+    <footer className="relative bg-[#151517] pt-24 overflow-hidden border-t border-white/10 mt-20">
       {/* Decorative Top Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-md h-40 bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
@@ -45,12 +45,12 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-4 space-y-8">
             <Link to="/" className="inline-block group">
-              <div className="bg-white p-5 rounded-3xl shadow-xl shadow-primary/5 border border-border transition-transform duration-500 group-hover:scale-105 group-hover:shadow-primary/10 group-hover:border-primary/20">
+              <div className="p-5 transition-transform duration-500 group-hover:scale-105 group-hover:shadow-primary/10 group-hover:border-primary/20">
                 <img src={logo} alt="Inka Team Travel Logo" className="h-16 md:h-20 w-auto object-contain" />
               </div>
             </Link>
             
-            <p className="text-muted-foreground leading-relaxed font-medium">
+            <p className="text-white/70 leading-relaxed font-medium">
               Especialistas en crear experiencias de viaje inolvidables. Conectamos tu espíritu con la magia, historia y naturaleza viva del Perú.
             </p>
 
@@ -61,7 +61,7 @@ const Footer = () => {
                   href={social.path}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-2xl bg-muted/30 border border-border/50 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 flex items-center justify-center text-foreground hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20"
+                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 hover:bg-primary text-primary hover:text-[#151517] hover:border-primary transition-all duration-300 flex items-center justify-center hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -73,35 +73,35 @@ const Footer = () => {
           {/* Contact Details */}
           <div className="lg:col-span-4 space-y-8">
             <div>
-               <h4 className="font-display font-bold text-xl text-foreground mb-6 flex items-center gap-2">
+               <h4 className="font-display font-bold text-xl text-white mb-6 flex items-center gap-2">
                  Contáctanos
                </h4>
                <ul className="space-y-5">
                  <li>
-                   <a href="mailto:reservas@inkateamtravel.com" className="group flex items-start gap-4 p-4 rounded-2xl border border-border/40 bg-muted/10 hover:bg-white hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all">
+                   <a href="mailto:reservas@inkateamtravel.com" className="group flex items-start gap-4 p-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all">
                      <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                        <Mail className="w-5 h-5" />
                      </div>
                      <div>
-                       <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Email Oficial</p>
-                       <p className="text-foreground font-medium group-hover:text-primary transition-colors">reservas@inkateamtravel.com</p>
+                       <p className="text-xs font-bold uppercase tracking-wider text-white/70 mb-1">Email Oficial</p>
+                       <p className="text-white font-medium group-hover:text-primary transition-colors">reservas@inkateamtravel.com</p>
                      </div>
                    </a>
                  </li>
                  <li>
-                   <a href="https://wa.me/51942293293?text=%C2%A1Hola%20Inkateam%20Travel!%20Estoy%20visitando%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20tours%20y%20experiencias%20en%20Per%C3%BA.%20%C2%BFPodr%C3%ADan%20asesorarme%3F%20Muchas%20gracias." target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4 p-4 rounded-2xl border border-border/40 bg-muted/10 hover:bg-white hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all">
+                   <a href="https://wa.me/51942293293?text=%C2%A1Hola%20Inkateam%20Travel!%20Estoy%20visitando%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20tours%20y%20experiencias%20en%20Per%C3%BA.%20%C2%BFPodr%C3%ADan%20asesorarme%3F%20Muchas%20gracias." target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4 p-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all">
                      <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                        <Phone className="w-5 h-5" />
                      </div>
                      <div>
-                       <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">WhatsApp Directo</p>
-                       <p className="text-foreground font-medium group-hover:text-primary transition-colors">+51 942 293 293</p>
+                       <p className="text-xs font-bold uppercase tracking-wider text-white/70 mb-1">WhatsApp Directo</p>
+                       <p className="text-white font-medium group-hover:text-primary transition-colors">+51 942 293 293</p>
                      </div>
                    </a>
                  </li>
                  <li className="flex items-start gap-4 px-4">
                     <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-white/70 leading-relaxed">
                       Lima, Perú.<br/>
                       Jose Gregorio Paredes 273, Pueblo Libre
                     </p>
@@ -114,7 +114,7 @@ const Footer = () => {
           <div className="lg:col-span-4 flex flex-col md:flex-row lg:flex-col xl:flex-row gap-10">
             {Object.entries(footerLinks).map(([category, links]) => (
               <div key={category} className="flex-1">
-                <h4 className="font-display font-bold text-xl text-foreground mb-6">{category}</h4>
+                <h4 className="font-display font-bold text-xl text-white mb-6">{category}</h4>
                 
                 {links.length > 0 && (
                   <ul className="space-y-4">
@@ -122,7 +122,7 @@ const Footer = () => {
                       <li key={link.name}>
                         <Link
                           to={link.path}
-                          className="group flex items-center text-muted-foreground hover:text-primary transition-colors font-medium"
+                          className="group flex items-center text-white/70 hover:text-primary transition-colors font-medium"
                         >
                           <span className="w-0 h-0.5 bg-primary mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300" />
                           {link.name}
@@ -170,7 +170,7 @@ const Footer = () => {
       </div>
 
       {/* Dark Luxury Bottom Bar */}
-      <div className="bg-[#0A0F1C] relative border-t border-white/10 rounded-t-[2rem] sm:rounded-t-[3rem] px-4 pt-10 pb-8">
+      <div className="bg-[#101012] relative border-t border-white/10 rounded-t-[2rem] sm:rounded-t-[3rem] px-4 pt-10 pb-8">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
         
         <div className="container mx-auto flex flex-col items-center gap-8">
