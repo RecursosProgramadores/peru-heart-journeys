@@ -26,20 +26,28 @@ export const combinadosTours: Tour[] = [
         ],
         highlights: ["City Tour Lima", "Circuito Mágico del Agua", "Machu Picchu", "Capitales Peruanas"],
         itinerary: [
-            { day: 1, title: "Llegada a Lima", content: "Recepción en el aeropuerto Jorge Chávez y traslado privado a tu hotel. Tiempo libre para descansar." },
-            { day: 2, title: "Lima: Historia y Fuentes", content: "Recorrido por el Centro Histórico y Miraflores. Por la noche, visita al espectacular Circuito Mágico del Agua." },
-            { day: 3, title: "Lima – Cusco", content: "Vuelo a Cusco (no incluido). Recepción en el aeropuerto Velasco Astete y traslado al hotel para aclimatación." },
-            { day: 4, title: "Machu Picchu", content: "Viaje en tren y visita guiada a la ciudadela arqueológica. Incluye bus, entrada y un delicioso almuerzo." },
-            { day: 5, title: "Salida", content: "Mañana libre en Cusco y traslado final al aeropuerto según tu horario de vuelo." }
+            { day: 1, title: "Bienvenida en Lima", content: "Recepción en el aeropuerto, traslado al hotel y City Tour Lima + Circuito Mágico del Agua (2pm)." },
+            { day: 2, title: "Lima – Cusco", content: "Vuelo a Cusco y traslado al hotel. Por la tarde, disfrute de un Tour Panorámico por la ciudad (2pm)." },
+            { day: 3, title: "Valle Sagrado Completo", content: "Full Day visitando Chincheros, Maras, Moray, Ollantaytambo y Pisac con almuerzo incluido." },
+            { day: 4, title: "Machu Picchu", content: "Visita guiada a la ciudadela inca con tren turístico, bus y almuerzo incluidos." },
+            { day: 5, title: "Salida", content: "Tiempo libre en la ciudad imperial y traslado final al aeropuerto según tu vuelo." }
         ],
         includes: [
-            "Traslados en Lima y Cusco",
-            "2 noches en Lima + 2 noches en Cusco con desayunos",
-            "City Tour Lima + Circuito Mágico del Agua",
-            "Machu Picchu completo con almuerzo",
-            "Guía profesional y asistencia permanente"
+            "Traslados aeropuerto/hotel/aeropuerto en privado en Lima y Cusco",
+            "01 noche de alojamiento en Lima + 03 noches de alojamiento en Cusco con desayunos",
+            "City Tour Lima + Circuito Mágico del Agua (2pm)",
+            "Tour Panorámico Cusco (2pm)",
+            "Full Day Valle Sagrado con almuerzo (Chincheros, Maras, Moray, Ollantaytambo, Pisac)",
+            "Full Day MachuPicchu con almuerzo (Entrada, Tren Turístico, Bus)",
+            "Guías para las visitas",
+            "Tarjeta de Asistencia"
         ],
-        notIncludes: ["Vuelos internacionales y Lima–Cusco", "Boleto Turístico Cusco", "Gastos personales"],
+        notIncludes: [
+            "Alimentación no especificada",
+            "Boleto Turístico Parcial (USD$20 aprox)",
+            "Entrada a Maras (USD$8 aprox)",
+            "Tiquetes aéreos"
+        ],
         rates: [
             { hotel: "Hotel Cat Turista", single: "769", doble: "610", triple: "573" },
             { hotel: "Hotel Cat Turista Sup", single: "918", doble: "675", triple: "629", isRecommended: true }
@@ -51,7 +59,7 @@ export const combinadosTours: Tour[] = [
         title: "Lima, Ica & Cusco 8D / 7N: El Perú Completo",
         shortTitle: "LIMA, ICA & CUSCO 8D-7N",
         duration: "8 Días / 7 Noches",
-        price: "1020",
+        price: "1012",
         difficulty: "Moderada",
         img: imgPeruCompleto,
         alt: "Triángulo de oro Perú",
@@ -63,28 +71,35 @@ export const combinadosTours: Tour[] = [
         ],
         highlights: ["Huacachina", "Machu Picchu", "Islas Ballestas", "Valle Sagrado"],
         itinerary: [
-            { day: 1, title: "Llegada a Lima", content: "Recepción y traslado privado a tu hotel seleccionado." },
-            { day: 2, title: "Lima Cultural", content: "Exploración del Centro histórico y visita nocturna al Circuito Mágico del Agua." },
-            { day: 3, title: "Paracas & Ica", content: "Expedición a las Islas Ballestas. Continuación a Ica para visita a bodega y aventura en Huacachina (tubulares + sandboarding). Incluye almuerzo." },
-            { day: 4, title: "Hacia la Capital Inca", content: "Vuelo a Cusco y traslado al hotel para aclimatación segura." },
-            { day: 5, title: "City Tour Cusco", content: "Visita a Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay." },
-            { day: 6, title: "Valle Sagrado de los Incas", content: "Tour por Chinchero, Moray, Maras, Ollantaytambo y Pisac con almuerzo buffet." },
-            { day: 7, title: "Machu Picchu", content: "Día completo en la ciudadela con tren, bus, entrada y almuerzo incluidos." },
-            { day: 8, title: "Regreso", content: "Traslado final al aeropuerto." }
+            { day: 1, title: "Llegada a Lima", content: "Recepción en el aeropuerto y traslado privado a tu hotel seleccionado." },
+            { day: 2, title: "Lima Cultural", content: "City Tour Panorámico por la ciudad de los reyes (Lima Colonial y Moderna)." },
+            { day: 3, title: "Paracas, Ica & Huacachina", content: "Full Day visitando Islas Ballestas, bodega de vinos y aventura en los tubulares de Huacachina con almuerzo." },
+            { day: 4, title: "Vuelo a Cusco", content: "Traslado al aeropuerto, vuelo a la ciudad imperial y tiempo libre para aclimatación." },
+            { day: 5, title: "City Tour Cusco", content: "Visita guiada a Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay." },
+            { day: 6, title: "Valle Sagrado Completo", content: "Recorrido por Chinchero, Moray, Maras, Ollantaytambo y Pisac con almuerzo." },
+            { day: 7, title: "Machu Picchu", content: "Visita guiada a la maravilla con tren turístico, bus y almuerzo incluidos." },
+            { day: 8, title: "Salida", content: "Tiempo libre para compras y traslado final al aeropuerto de Cusco." }
         ],
         includes: [
-            "Traslados completos en privado",
-            "3 noches en Lima + 4 noches en Cusco con desayunos",
-            "City Tour Lima + Circuito Mágico",
-            "Full Day Paracas & Ica (Grupal)",
-            "City Tour Cusco y Valle Sagrado",
-            "Machu Picchu completo con almuerzo",
-            "Guía profesional y asistencia permanente"
+            "Traslados aeropuerto/hotel/aeropuerto en privado en Lima y Cusco",
+            "03 noche de alojamiento en Lima + 04 noches de alojamiento en Cusco con desayunos",
+            "City Tour Panorámico Lima",
+            "Full Day Paracas, Ica, Huacachina con almuerzo (Islas Ballestas, Bodega de Vinos y Piscos, Tubulares en Huacachina)",
+            "City Tour Cusco (Sacsayhuaman, Qenqo, PukaPukara, Tambomachay)",
+            "Full Day Valle Sagrado con almuerzo (Chincheros, Maras, Moray, Ollantaytambo, Pisac)",
+            "Full Day Machu Picchu con almuerzo (Entrada, Tren Turístico, Bus)",
+            "Guías para las visitas",
+            "Tarjeta de Asistencia"
         ],
-        notIncludes: ["Vuelos", "Impuestos en Paracas", "Boleto Turístico Cusco", "Entradas adicionales"],
+        notIncludes: [
+            "Alimentación no especificada",
+            "Boleto Turístico Integral (USD$38 aprox)",
+            "Entrada a Maras (USD$8 aprox)",
+            "Tiquetes aéreos"
+        ],
         rates: [
-            { hotel: "Hotel Cat Turista", single: "1020", doble: "769", triple: "712" },
-            { hotel: "Hotel Cat Turista Sup", single: "1252", doble: "876", triple: "815", isRecommended: true }
+            { hotel: "Hotel Cat Turista", single: "1012", doble: "760", triple: "704" },
+            { hotel: "Hotel Cat Turista Sup", single: "1244", doble: "867", triple: "807", isRecommended: true }
         ]
     },
     {
@@ -105,23 +120,32 @@ export const combinadosTours: Tour[] = [
         ],
         highlights: ["Lago Titicaca", "Isla Amantani", "Ruta del Sol", "Machu Picchu"],
         itinerary: [
-            { day: 1, title: "Llegada a Cusco", content: "Recepción y traslado. Tiempo libre para aclimatación." },
-            { day: 2, title: "City Tour Cusco", content: "Introducción a la cosmovisión Inca visitando Sacsayhuamán y otros centros arqueológicos." },
-            { day: 3, title: "Valle Sagrado", content: "Recorrido por Moray, Maras y Ollantaytambo con almuerzo buffet." },
-            { day: 4, title: "Machu Picchu", content: "Visita guiada profunda a la maravilla del mundo con almuerzo incluido." },
-            { day: 5, title: "Ruta del Sol", content: "Viaje escénico hacia Puno visitando Andahuaylillas, Raqchi y Pukara. Incluye almuerzo." },
-            { day: 6, title: "Experiencia Vivencial: Uros y Amantaní", content: "Lancha por el Titicaca. Noche con familia local en Amantaní, compartiendo su cultura y alimentación." },
-            { day: 7, title: "Isla Taquile", content: "Visita a los famosos tejedores de Taquile y retorno a Puno." },
-            { day: 8, title: "Salida", content: "Traslado al aeropuerto de Juliaca." }
+            { day: 1, title: "Llegada a Cusco", content: "Recepción en el aeropuerto y traslado privado al hotel seleccionado." },
+            { day: 2, title: "City Tour Cusco", content: "Visita guiada a Sacsayhuamán y los principales templos de la ciudad imperial." },
+            { day: 3, title: "Valle Sagrado Completo", content: "Recorrido por Moray, Maras y Ollantaytambo con almuerzo buffet incluido." },
+            { day: 4, title: "Machu Picchu", content: "Visita guiada profunda a la maravilla del mundo con tren, bus y almuerzo." },
+            { day: 5, title: "Ruta del Sol (Cusco–Puno)", content: "Traslado a la estación y viaje escénico visitando Andahuaylillas, La Raya y Pukara con almuerzo." },
+            { day: 6, title: "Vivencial Titicaca D1", content: "Lancha por el lago, visita a las Islas de Los Uros y noche con una familia local en Amantaní." },
+            { day: 7, title: "Vivencial Titicaca D2", content: "Visita a la Isla Taquile y retorno a la ciudad de Puno para descanso." },
+            { day: 8, title: "Salida", content: "Tiempo libre y traslado final al aeropuerto de Juliaca para tu vuelo de retorno." }
         ],
         includes: [
-            "Traslados completos",
-            "4 noches en Cusco + 2 noches en Puno + 1 noche en Amantaní",
-            "Todos los tours mencionados (Cusco, Valle, Machu Picchu, Ruta del Sol, Titicaca)",
-            "Alimentación completa en Amantaní",
-            "Guía profesional y asistencia permanente"
+            "Traslados aeropuerto/hotel/aeropuerto - estación en privado en Cusco y Puno",
+            "04 noches de alojamiento en Cusco + 02 noches de alojamiento en Puno + 01 noche de alojamiento en casa de Familia, con desayunos",
+            "City Tour Cusco (Sacsayhuaman, Qenqo, PukaPukara, Tambomachay)",
+            "Full Day Valle Sagrado con almuerzo (Chincheros, Maras, Moray, Ollantaytambo, Pisac)",
+            "Full Day MachuPicchu con almuerzo (Entrada, Tren Turístico, Bus)",
+            "Ruta del Sol Cusco a Puno con almuerzo (Andahuaylillas, La Raya, Pukara)",
+            "Experiencia Vivencial Lago Titicaca 2D-1N con alimentación (Islas de Los Uros, Isla Amantani, Isla Taquile)",
+            "Guías para las visitas",
+            "Tarjeta de asistencia"
         ],
-        notIncludes: ["Vuelos", "Boleto Turístico Integral Cusco", "Entradas específicas (Maras, Andahuaylillas)", "Propinas"],
+        notIncludes: [
+            "Alimentación no especificada",
+            "Boleto Turístico Integral (USD$38 aprox)",
+            "Entrada a Maras (USD$8 aprox)",
+            "Tiquetes aéreos"
+        ],
         rates: [
             { hotel: "Hotel Cat Turista", single: "1040", doble: "830", triple: "779" },
             { hotel: "Hotel Cat Turista Sup", single: "1213", doble: "900", triple: "832", isRecommended: true }
@@ -133,7 +157,7 @@ export const combinadosTours: Tour[] = [
         title: "Lima & Ica 3D / 2N: Aventura en el Desierto",
         shortTitle: "LIMA & ICA 3D",
         duration: "3 Días / 2 Noches",
-        price: "Consulte",
+        price: "311",
         difficulty: "Moderada",
         img: imgLimaIca3D,
         alt: "Oasis de Huacachina",
@@ -145,18 +169,23 @@ export const combinadosTours: Tour[] = [
         ],
         highlights: ["Islas Ballestas", "Oasis Huacachina", "Sandboarding & Tubulares", "Cata de Pisco"],
         itinerary: [
-            { day: 1, title: "Llegada y City Tour", content: "Bienvenida en Lima y City Tour por los puntos más importantes de la ciudad." },
-            { day: 2, title: "Full Day Paracas e Ica", content: "Viaje a Paracas para ver las Islas Ballestas. Continuación a Ica para visita a bodega de vinos/piscos y aventura en Huacachina (tubulares + sandboarding). Retorno a Lima." },
-            { day: 3, title: "Salida", content: "Traslado al aeropuerto para continuar con tu viaje." }
+            { day: 1, title: "Llegada y City Tour", content: "Recepción en el aeropuerto y City Tour Panorámico por la ciudad de Lima." },
+            { day: 2, title: "Full Day Paracas, Ica & Huacachina", content: "Expedición visitando Islas Ballestas, bodega de vinos/piscos y aventura en Huacachina con almuerzo incluido." },
+            { day: 3, title: "Salida", content: "Tiempo libre para actividades personales y traslado final al aeropuerto Jorge Chávez." }
         ],
         includes: [
-            "Traslados privados en Lima",
-            "2 noches de hotel en Lima",
-            "Full Day Paracas e Ica (Grupal)",
-            "Almuerzo en Ica",
-            "Actividades y entradas"
+            "Traslados aeropuerto/hotel/aeropuerto en privado",
+            "02 noches de alojamiento con desayuno",
+            "City Tour Lima Panorámico",
+            "Full Day Paracas, Ica, Huacachina con almuerzo (Islas Ballestas, Bodega de Vinos y Piscos, Tubulares en Huacachina)",
+            "Tarjeta de Asistencia"
         ],
-        notIncludes: ["Impuestos locales en Paracas (S/ 22 aprox)", "Vuelos", "Cenas"]
+        notIncludes: ["Impuestos locales en Paracas (S/ 22 aprox)", "Vuelos", "Cenas"],
+        rates: [
+            { hotel: "Hoteles Tambo", single: "311", doble: "217", triple: "192" },
+            { hotel: "Ibis Budget Lima Miraflores", single: "318", doble: "217", triple: "189", isRecommended: true },
+            { hotel: "Radisson Red Miraflores", single: "358", doble: "242", triple: "226" }
+        ]
     },
     {
         slug: "lima-ica-4d-3n",
@@ -164,7 +193,7 @@ export const combinadosTours: Tour[] = [
         title: "Lima & Ica 4D / 3N: Costa y Desierto sin prisas",
         shortTitle: "LIMA & ICA 4D",
         duration: "4 Días / 3 Noches",
-        price: "Consulte",
+        price: "388",
         difficulty: "Fácil",
         img: imgLimaIca4D,
         alt: "Vistas costeras",
@@ -176,17 +205,24 @@ export const combinadosTours: Tour[] = [
         ],
         highlights: ["Circuito Mágico", "Costa Verde", "Huacachina", "Logística Premium"],
         itinerary: [
-            { day: 1, title: "Llegada", content: "Recepción en el aeropuerto y traslado a tu hotel." },
-            { day: 2, title: "City Tour + Circuito Mágico", content: "Recorrido por Lima Colonial y Moderna. Show nocturno de fuentes de agua." },
-            { day: 3, title: "Full Day Paracas e Ica", content: "Expedición completa a las Islas Ballestas y el Oasis de Huacachina con almuerzo incluido." },
-            { day: 4, title: "Despedida", content: "Mañana libre y traslado al aeropuerto." }
+            { day: 1, title: "Llegada a Lima", content: "Recepción en el aeropuerto y traslado privado a tu hotel." },
+            { day: 2, title: "City Tour + Circuito Mágico", content: "City Tour Lima Panorámico y visita nocturna al Circuito Mágico del Agua." },
+            { day: 3, title: "Full Day Paracas, Ica & Huacachina", content: "Expedición completa visitando Islas Ballestas y el Oasis de Huacachina con almuerzo incluido." },
+            { day: 4, title: "Salida", content: "Tiempo libre para actividades y traslado final al aeropuerto." }
         ],
         includes: [
-            "Traslados privados",
-            "3 noches con desayuno",
-            "Tours mencionados",
-            "Almuerzo en Ica"
+            "Traslados aeropuerto/hotel/aeropuerto en privado",
+            "03 noches de alojamiento con desayuno",
+            "City Tour Lima Panorámico",
+            "Visita Circuito Mágico del Agua",
+            "Full Day Paracas, Ica, Huacachina con almuerzo (Islas Ballestas, Bodega de Vinos y Piscos, Tubulares en Huacachina)",
+            "Tarjeta de Asistencia"
         ],
-        notIncludes: ["Vuelos", "Impuestos locales en muelle", "Gastos no mencionados"]
+        notIncludes: ["Vuelos", "Impuestos locales en muelle", "Gastos no mencionados"],
+        rates: [
+            { hotel: "Hoteles Tambo", single: "388", doble: "263", triple: "232" },
+            { hotel: "Ibis Budget Lima Miraflores", single: "399", doble: "264", triple: "227", isRecommended: true },
+            { hotel: "Radisson Red Miraflores", single: "458", doble: "301", triple: "282" }
+        ]
     }
 ];

@@ -29,24 +29,22 @@ export const cuscoTours: Tour[] = [
         ],
         highlights: ["Inmersión Directa", "Tren Turístico", "Cusco Colonial", "Almuerzo en Machu Picchu"],
         itinerary: [
-            { day: 1, title: "Llegada a Cusco", content: "Recepción en el aeropuerto y traslado al hotel. Tiempo libre para aclimatación y un recorrido suave por las calles históricas de la ciudad." },
-            { day: 2, title: "Machu Picchu Mágico", content: "Traslado a la estación de tren y viaje hacia Aguas Calientes. Ascenso en bus y visita guiada profunda a la ciudadela de Machu Picchu. Almuerzo incluido." },
-            { day: 3, title: "Despedida de los Andes", content: "Tiempo libre para últimas compras de artesanías y traslado al aeropuerto según el horario de tu vuelo." }
+            { day: 1, title: "Llegada y Traslado", content: "Recepción en el aeropuerto, traslado al hotel y tiempo libre para descanso y aclimatación." },
+            { day: 2, title: "Full Day Machu Picchu", content: "Visita guiada a la ciudadela inca con tren turístico, bus de subida y almuerzo incluido." },
+            { day: 3, title: "Salida", content: "Tiempo libre para actividades personales y traslado final al aeropuerto según tu vuelo." }
         ],
         includes: [
-            "Traslados aeropuerto / hotel / aeropuerto",
-            "2 noches de alojamiento con desayuno",
-            "Full Day Machu Picchu completo",
-            "Tren turístico y Bus de subida/bajada",
-            "Entrada a Machu Picchu",
-            "Almuerzo en Machu Picchu",
-            "Guía profesional y asistencia permanente"
+            "Traslados aeropuerto/hotel/aeropuerto",
+            "02 noches de alojamiento con desayunos",
+            "Full Day MachuPicchu con almuerzo (Entrada, Tren Turístico, Bus)",
+            "Tarjeta de Asistencia",
+            "Guía para la visita"
         ],
         notIncludes: ["Vuelos nacionales o internacionales", "Tours adicionales", "Gastos personales", "Propinas"],
         rates: [
             { hotel: "Polo Corporativo Infancia", single: "452", doble: "415", triple: "403" },
-            { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "462", doble: "420", triple: "414", isRecommended: true },
-            { hotel: "HSA Dorado", single: "552", doble: "454", triple: "436" }
+            { hotel: "Cusco Plaza (Saphi/Nazarenas) ❤️", single: "462", doble: "420", triple: "414", isRecommended: true },
+            { hotel: "Novotel Cusco", single: "688", doble: "532", triple: "-" }
         ]
     },
     {
@@ -67,25 +65,31 @@ export const cuscoTours: Tour[] = [
         ],
         highlights: ["Sacsayhuamán", "Valle Sagrado de los Incas", "Ollantaytambo", "Pueblo de Pisac"],
         itinerary: [
-            { day: 1, title: "Llegada y Aclimatación", content: "Recepción y traslado al hotel. Tiempo libre para descansar y adaptarse a la altura." },
-            { day: 2, title: "City Tour Arqueológico", content: "Visita guiada a Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay. Una introducción perfecta a la arquitectura inca." },
-            { day: 3, title: "Magia del Valle Sagrado", content: "Recorrido por Chinchero, Moray, las Salineras de Maras, Ollantaytambo y Pisac. Incluye almuerzo buffet con productos locales." },
-            { day: 4, title: "Cumbre en Machu Picchu", content: "Viaje en tren y visita guiada a la maravilla. Incluye bus, entrada y un delicioso almuerzo en Aguas Calientes." },
-            { day: 5, title: "Retorno", content: "Traslado al aeropuerto para tu vuelo de salida." }
+            { day: 1, title: "Llegada y Traslado", content: "Recepción en el aeropuerto, traslado al hotel y tiempo libre para aclimatación." },
+            { day: 2, title: "City Tour Cusco", content: "Visita guiada por los templos y centros arqueológicos más importantes de la ciudad imperial." },
+            { day: 3, title: "Valle Sagrado Completo", content: "Full Day visitando Chincheros, Maras, Moray, Ollantaytambo y Pisac con almuerzo incluido." },
+            { day: 4, title: "Machu Picchu", content: "Visita guiada a la ciudadela inca con almuerzo, tren turístico y bus incluidos." },
+            { day: 5, title: "Salida", content: "Tiempo libre para actividades personales y traslado al aeropuerto para tu vuelo de retorno." }
         ],
         includes: [
-            "Traslados aeropuerto / hotel / aeropuerto",
-            "4 noches de alojamiento con desayuno",
-            "City Tour Cusco",
-            "Valle Sagrado con almuerzo buffet",
-            "Machu Picchu completo (tren + bus + entrada + almuerzo)",
-            "Guía profesional y asistencia permanente"
+            "Traslados aeropuerto/hotel/aeropuerto en privado en Cusco",
+            "04 noches de alojamiento en Cusco con desayunos",
+            "City Tour Cusco (Sacsayhuaman, Qenqo, PukaPukara, Tambomachay)",
+            "Full Day Valle Sagrado con almuerzo (Chincheros, Maras, Moray, Ollantaytambo, Pisac)",
+            "Full Day MachuPicchu con almuerzo (Entrada, Tren Turístico, Bus)",
+            "Tarjeta de Asistencia",
+            "Guías para las visitas"
         ],
-        notIncludes: ["Vuelos", "Boleto Turístico Integral (aprox. USD 38)", "Entrada a Maras (aprox. USD 8)", "Gastos personales"],
+        notIncludes: [
+            "Alimentación no especificada",
+            "Boleto Turístico Integral (USD$38 aprox)",
+            "Entrada a Maras (USD$8 aprox)",
+            "Tiquetes aéreos"
+        ],
         rates: [
             { hotel: "Polo Corporativo Infancia", single: "567", doble: "504", triple: "482" },
-            { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "589", doble: "514", triple: "505", isRecommended: true },
-            { hotel: "HSA Dorado", single: "769", doble: "581", triple: "550" }
+            { hotel: "Cusco Plaza (Saphi/Nazarenas) ❤️", single: "589", doble: "514", triple: "505", isRecommended: true },
+            { hotel: "Novotel Cusco", single: "1040", doble: "738", triple: "-" }
         ]
     },
     {
@@ -106,26 +110,35 @@ export const cuscoTours: Tour[] = [
         ],
         highlights: ["City Tour", "Valle Sagrado", "Machu Picchu", "Aventura Personalizada"],
         itinerary: [
-            { day: 1, title: "Llegada", content: "Recepción y traslado al hotel. Aclimatación importante." },
-            { day: 2, title: "Exploración Imperial", content: "City Tour visitando los centros arqueológicos más emblemáticos de los alrededores de Cusco." },
-            { day: 3, title: "Corazón del Valle Sagrado", content: "Visita completa al Valle Sagrado: Moray, Maras y Ollantaytambo con almuerzo incluido." },
-            { day: 4, title: "La Maravilla", content: "Viaje en tren y visita guiada a Machu Picchu con almuerzo en Aguas Calientes." },
-            { day: 5, title: "Día de Aventura a Elección", content: "Elige entre la Montaña 7 Colores (Vinicunca) o la Laguna de Humantay. Incluye transporte y alimentación completa." },
-            { day: 6, title: "Traslado Final", content: "Traslado al aeropuerto para tu viaje de retorno." }
+            { day: 1, title: "Llegada y Traslado", content: "Recepción en el aeropuerto, traslado al hotel y tiempo libre." },
+            { day: 2, title: "City Tour Cusco", content: "Visita a los centros arqueológicos más emblemáticos de los alrededores de Cusco." },
+            { day: 3, title: "Valle Sagrado Completo", content: "Recorrido por Chincheros, Maras, Moray, Ollantaytambo y Pisac con almuerzo incluido." },
+            { day: 4, title: "Machu Picchu", content: "Viaje en tren y visita guiada a la maravilla con almuerzo en Aguas Calientes." },
+            { day: 5, title: "Aventura a Elección", content: "Elige entre la Montaña 7 Colores o la Laguna de Humantay con alimentación completa." },
+            { day: 6, title: "Salida", content: "Tiempo libre para compras finales y traslado al aeropuerto según tu vuelo." }
         ],
         includes: [
-            "Traslados completos",
-            "5 noches de alojamiento con desayuno",
-            "City Tour Cusco",
-            "Valle Sagrado con almuerzo",
-            "Machu Picchu completo",
-            "Trekking elegido (Humantay o 7 Colores) con alimentación",
-            "Guía profesional y asistencia permanente"
+            "Traslados aeropuerto/hotel/aeropuerto en privado en Cusco",
+            "05 noches de alojamiento en Cusco con desayunos",
+            "City Tour Cusco (Sacsayhuaman, Qenqo, PukaPukara, Tambomachay)",
+            "Full Day Valle Sagrado con almuerzo (Chincheros, Maras, Moray, Ollantaytambo, Pisac)",
+            "Full Day MachuPicchu con almuerzo (Entrada, Tren Turístico, Bus)",
+            "Full Day Montaña 7 Colores o Laguna Humantay con alimentación",
+            "Tarjeta de Asistencia",
+            "Guías para las visitas"
         ],
-        notIncludes: ["Vuelos", "Boleto Turístico", "Entradas a Humantay o Montaña 7 Colores", "Gastos personales"],
+        notIncludes: [
+            "Alimentación no especificada",
+            "Boleto Turístico Integral (USD$38 aprox)",
+            "Entrada a Maras (USD$8 aprox)",
+            "Entrada Montaña 7 Colores (USD$8 aprox)",
+            "Entrada Laguna Humantay (USD$10 aprox)",
+            "Tiquetes aéreos"
+        ],
         rates: [
             { hotel: "Polo Corporativo Infancia", single: "636", doble: "559", triple: "533" },
-            { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "663", doble: "573", triple: "562", isRecommended: true }
+            { hotel: "Cusco Plaza (Saphi/Nazarenas) ❤️", single: "663", doble: "573", triple: "562", isRecommended: true },
+            { hotel: "Novotel Cusco", single: "1227", doble: "852", triple: "-" }
         ]
     },
     {
@@ -146,26 +159,37 @@ export const cuscoTours: Tour[] = [
         ],
         highlights: ["Vinicunca", "Laguna Humantay", "Machu Picchu", "Semana Completa"],
         itinerary: [
-            { day: 1, title: "Bienvenida", content: "Traslado al hotel y tiempo de aclimatación suave." },
-            { day: 2, title: "Cusco Arqueológico", content: "City Tour visitando Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay." },
-            { day: 3, title: "Valle Sagrado", content: "Recorrido por Chinchero, Moray, Maras y Ollantaytambo con almuerzo." },
-            { day: 4, title: "Energía en Machu Picchu", content: "Tour guiado a la ciudadela con tren y almuerzo incluidos." },
-            { day: 5, title: "Espectáculo de la Naturaleza: Vinicunca", content: "Trekking hacia la famosa Montaña de 7 Colores a más de 5,000 msnm." },
-            { day: 6, title: "Espejo de Agua: Laguna Humantay", content: "Ruta hacia Soraypampa y caminata hacia la laguna turquesa a los pies del Salkantay." },
-            { day: 7, title: "Retorno", content: "Traslado al aeropuerto." }
+            { day: 1, title: "Llegada y Traslado", content: "Recepción en el aeropuerto, traslado al hotel y tiempo libre." },
+            { day: 2, title: "City Tour Cusco", content: "Recorrido por Sacsayhuaman, Qenqo, Puka Pukara y Tambomachay." },
+            { day: 3, title: "Valle Sagrado Completo", content: "Visita a Chincheros, Maras, Moray, Ollantaytambo y Pisac con almuerzo." },
+            { day: 4, title: "Machu Picchu", content: "Tour guiado a la ciudadela con tren, bus y almuerzo incluidos." },
+            { day: 5, title: "Montaña 7 Colores", content: "Trekking hacia Vinicunca con transporte y alimentación completa." },
+            { day: 6, title: "Laguna Humantay", content: "Caminata hacia la laguna turquesa con alimentación y guía." },
+            { day: 7, title: "Salida", content: "Tiempo libre y traslado al aeropuerto según el horario de tu vuelo." }
         ],
         includes: [
-            "Traslados aeropuerto / hotel / aeropuerto",
-            "6 noches de alojamiento con desayuno",
-            "City Tour Cusco y Valle Sagrado",
-            "Machu Picchu completo",
-            "Montaña 7 Colores y Laguna de Humantay con alimentación",
-            "Guía profesional y asistencia permanente"
+            "Traslados aeropuerto/hotel/aeropuerto en privado en Cusco",
+            "06 noches de alojamiento en Cusco con desayunos",
+            "City Tour Cusco (Sacsayhuaman, Qenqo, PukaPukara, Tambomachay)",
+            "Full Day Valle Sagrado con almuerzo (Chincheros, Maras, Moray, Ollantaytambo, Pisac)",
+            "Full Day MachuPicchu con almuerzo (Entrada, Tren Turístico, Bus)",
+            "Full Day Montaña 7 Colores",
+            "Full Day Laguna Humantay",
+            "Tarjeta de Asistencia",
+            "Guías para las visitas"
         ],
-        notIncludes: ["Vuelos", "Boleto Turístico Integral", "Entradas a parques naturales", "Gastos personales"],
+        notIncludes: [
+            "Alimentación no especificada",
+            "Boleto Turístico Integral (USD$38 aprox)",
+            "Entrada a Maras (USD$8 aprox)",
+            "Entrada Montaña 7 Colores (USD$8 aprox)",
+            "Entrada Laguna Humantay (USD$10 aprox)",
+            "Tiquetes aéreos"
+        ],
         rates: [
             { hotel: "Polo Corporativo Infancia", single: "702", doble: "611", triple: "581" },
-            { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "734", doble: "627", triple: "615", isRecommended: true }
+            { hotel: "Cusco Plaza (Saphi/Nazarenas) ❤️", single: "734", doble: "627", triple: "615", isRecommended: true },
+            { hotel: "Novotel Cusco", single: "1411", doble: "963", triple: "-" }
         ]
     },
     {
@@ -186,26 +210,40 @@ export const cuscoTours: Tour[] = [
         ],
         highlights: ["Valle Sur Cultural", "Pikillacta", "Tipón", "Inmersión Total"],
         itinerary: [
-            { day: 1, title: "Llegada", content: "Recepción y traslado. Descanso para aclimatación." },
-            { day: 2, title: "Raíces del Imperio", content: "City Tour por los principales recintos incas periféricos." },
-            { day: 3, title: "Valle Sagrado", content: "Excursión por los pueblos y centros arqueológicos del valle." },
-            { day: 4, title: "Visita a Machu Picchu", content: "Encuentro guiado con la maravilla del mundo moderno." },
-            { day: 5, title: "Trekking Vinicunca", content: "Caminata de alta montaña hacia la Montaña de 7 Colores." },
-            { day: 6, title: "Laguna Humantay", content: "Caminata hacia la impresionante laguna turquesa." },
-            { day: 7, title: "Ruta Cultural Valle Sur", content: "Visita a Tipón (ingeniería hidráulica), Pikillacta (ciudad pre-Inca) y Andahuaylillas." },
-            { day: 8, title: "Fin del Viaje", content: "Traslado al aeropuerto según tu horario de vuelo." }
+            { day: 1, title: "Llegada y Traslado", content: "Recepción en el aeropuerto, traslado al hotel y tiempo libre." },
+            { day: 2, title: "City Tour Cusco", content: "Recorrido por los principales recintos incas periféricos y la ciudad imperial." },
+            { day: 3, title: "Valle Sagrado Completo", content: "Excursión por los pueblos y centros arqueológicos del valle con almuerzo." },
+            { day: 4, title: "Machu Picchu", content: "Encuentro guiado con la maravilla del mundo moderno con almuerzo y tren." },
+            { day: 5, title: "Montaña 7 Colores", content: "Caminata de alta montaña hacia Vinicunca con alimentación completa." },
+            { day: 6, title: "Laguna Humantay", content: "Caminata hacia la impresionante laguna turquesa con alimentación." },
+            { day: 7, title: "Ruta Valle Sur", content: "Visita a Tipón, Pikillacta y Andahuaylillas (la Sixtina de América)." },
+            { day: 8, title: "Salida", content: "Traslado al aeropuerto según tu horario de vuelo programado." }
         ],
         includes: [
-            "Traslados completos",
-            "7 noches de alojamiento con desayuno",
-            "Todos los tours mencionados (Cusco, Valle Sagrado, Machu Picchu, 7 Colores, Humantay, Valle Sur)",
-            "Alimentación según itinerario",
-            "Guía profesional y asistencia permanente"
+            "Traslados aeropuerto/hotel/aeropuerto en privado en Cusco",
+            "07 noches de alojamiento en Cusco con desayunos",
+            "City Tour Cusco (Sacsayhuaman, Qenqo, PukaPukara, Tambomachay)",
+            "Full Day Valle Sagrado con almuerzo (Chincheros, Maras, Moray, Ollantaytambo, Pisac)",
+            "Full Day MachuPicchu con almuerzo (Entrada, Tren Turístico, Bus)",
+            "Full Day Montaña 7 Colores",
+            "Full Day Laguna Humantay",
+            "Half Day Ruta Valle Sur (Tipon, Pikillacta, Andahuaylillas)",
+            "Tarjeta de Asistencia",
+            "Guías para las visitas"
         ],
-        notIncludes: ["Vuelos", "Boleto Turístico Integral", "Entradas a sitios específicos (Maras, 7 colores, Humantay, Andahuaylillas)", "Propinas"],
+        notIncludes: [
+            "Alimentación no especificada",
+            "Boleto Turístico Integral (USD$38 aprox)",
+            "Entrada a Maras (USD$8 aprox)",
+            "Entrada Montaña 7 Colores (USD$8 aprox)",
+            "Entrada Laguna Humantay (USD$10 aprox)",
+            "Ingreso Andahuaylillas (USD$5 aprox)",
+            "Tiquetes aéreos"
+        ],
         rates: [
             { hotel: "Polo Corporativo Infancia", single: "767", doble: "663", triple: "628" },
-            { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "805", doble: "682", triple: "668", isRecommended: true }
+            { hotel: "Cusco Plaza (Saphi/Nazarenas) ❤️", single: "805", doble: "682", triple: "668", isRecommended: true },
+            { hotel: "Novotel Cusco", single: "1595", doble: "1074", triple: "-" }
         ]
     },
     {
@@ -214,7 +252,7 @@ export const cuscoTours: Tour[] = [
         title: "Cusco Machu Picchu & Trekking 4D / 3N",
         shortTitle: "CUSCO TREKKING 4D-3N",
         duration: "4 Días / 3 Noches",
-        price: "Consulte",
+        price: "519",
         difficulty: "Exigente",
         img: imgMapiTrekking,
         alt: "Aventura en Vinicunca",
@@ -226,19 +264,28 @@ export const cuscoTours: Tour[] = [
         ],
         highlights: ["Desafío Vinicunca", "Machu Picchu", "Alta Montaña", "Experiencia Activa"],
         itinerary: [
-            { day: 1, title: "Llegada a Cusco", content: "Recepción y traslado. Descanso para aclimatación." },
-            { day: 2, title: "Machu Picchu", content: "Visita guiada a la ciudadela con tren y almuerzo incluidos." },
-            { day: 3, title: "Montaña 7 Colores", content: "Trekking hacia la cumbre de Vinicunca (5,000 msnm) con alimentación completa." },
-            { day: 4, title: "Traslado de Salida", content: "Traslado final al aeropuerto." }
+            { day: 1, title: "Llegada y Traslado", content: "Recepción en el aeropuerto, traslado al hotel y descanso para aclimatación." },
+            { day: 2, title: "Machu Picchu", content: "Visita guiada a la ciudadela con tren turístico, bus y almuerzo incluidos." },
+            { day: 3, title: "Montaña 7 Colores", content: "Trekking hacia la cumbre de Vinicunca con transporte y alimentación completa." },
+            { day: 4, title: "Salida", content: "Tiempo libre y traslado final al aeropuerto según tu horario de vuelo." }
         ],
         includes: [
-            "Traslados completos",
-            "3 noches de alojamiento con desayuno",
-            "Full Day Machu Picchu completo",
-            "Tour Montaña 7 Colores con alimentación",
-            "Guía profesional y asistencia permanente"
+            "Traslados aeropuerto/hotel/aeropuerto",
+            "03 noches de alojamiento con desayunos",
+            "Full Day MachuPicchu con almuerzo (Entrada, Tren Turístico, Bus)",
+            "Full Day Montaña 7 Colores con alimentación",
+            "Tarjeta de Asistencia",
+            "Guía para las visitas"
         ],
-        notIncludes: ["Vuelos", "Entrada a Montaña 7 Colores", "Boleto Turístico Cusco", "Gastos personales"]
+        notIncludes: [
+            "Alimentación no especificada",
+            "Entrada Montaña 7 Colores (USD$8 aprox)"
+        ],
+        rates: [
+            { hotel: "Polo Corporativo Infancia", single: "519", doble: "469", triple: "452" },
+            { hotel: "Cusco Plaza (Saphi/Nazarenas) ❤️", single: "535", doble: "477", triple: "469", isRecommended: true },
+            { hotel: "Novotel Cusco", single: "874", doble: "645", triple: "-" }
+        ]
     },
     {
         slug: "cusco-valle-trekking-5d-4n",
@@ -246,7 +293,7 @@ export const cuscoTours: Tour[] = [
         title: "Cusco Valle Sagrado & Trekking 5D / 4N",
         shortTitle: "CUSCO VALLE TREKKING 5D-4N",
         duration: "5 Días / 4 Noches",
-        price: "Consulte",
+        price: "586",
         difficulty: "Moderada",
         img: imgValleTrekking,
         alt: "Valle y montaña",
@@ -258,20 +305,31 @@ export const cuscoTours: Tour[] = [
         ],
         highlights: ["Valle Sagrado", "Vinicunca", "Machu Picchu", "Cusco Imperial"],
         itinerary: [
-            { day: 1, title: "Bienvenida", content: "Llegada y traslado al hotel seleccionado." },
-            { day: 2, title: "Cusco Arqueológico", content: "City Tour visitando Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay." },
-            { day: 3, title: "Valle Sagrado", content: "Recorrido por Chinchero, Moray, Maras y Ollantaytambo con almuerzo." },
-            { day: 4, title: "Machu Picchu", content: "Tour guiado a la ciudadela con tren y almuerzo incluidos." },
-            { day: 5, title: "Montaña 7 Colores", content: "Caminata de alta montaña y traslado final al aeropuerto por la noche." }
+            { day: 1, title: "Llegada y Traslado", content: "Recepción en el aeropuerto, traslado al hotel y tiempo de descanso." },
+            { day: 2, title: "Valle Sagrado", content: "Full Day visitando Chincheros, Maras, Moray, Ollantaytambo y Pisac con almuerzo." },
+            { day: 3, title: "Machu Picchu", content: "Día completo en la ciudadela con tren turístico, bus y almuerzo incluido." },
+            { day: 4, title: "Montaña 7 Colores", content: "Trekking de aventura hacia Vinicunca con alimentación completa." },
+            { day: 5, title: "Salida", content: "Tiempo libre y traslado al aeropuerto según itinerario." }
         ],
         includes: [
-            "Traslados completos",
-            "4 noches de alojamiento con desayuno",
-            "Tours mencionados (Cusco, Valle, Machu Picchu, 7 Colores)",
-            "Alimentación según itinerario",
-            "Guía profesional y asistencia permanente"
+            "Traslados aeropuerto/hotel/aeropuerto",
+            "04 noches de alojamiento con desayunos",
+            "Full Day Valle Sagrado con almuerzo (Chincheros, Maras, Moray, Ollantaytambo, Pisac)",
+            "Full Day MachuPicchu con almuerzo (Entrada, Tren Turístico, Bus)",
+            "Full Day Montaña 7 Colores con alimentación",
+            "Tarjeta de Asistencia",
+            "Guía para las visitas"
         ],
-        notIncludes: ["Vuelos", "Entradas específicas", "Boleto Turístico", "Gastos personales"]
+        notIncludes: [
+            "Alimentación no especificada",
+            "Boleto Turístico Parcial (USD$20 aprox)",
+            "Entrada Montaña 7 Colores (USD$8 aprox)"
+        ],
+        rates: [
+            { hotel: "Polo Corporativo Infancia", single: "586", doble: "523", triple: "502" },
+            { hotel: "Cusco Plaza (Saphi/Nazarenas) ❤️", single: "608", doble: "534", triple: "524", isRecommended: true },
+            { hotel: "Novotel Cusco", single: "1059", doble: "757", triple: "-" }
+        ]
     },
     {
         slug: "cusco-cultural-adventure-5d-4n",
@@ -279,7 +337,7 @@ export const cuscoTours: Tour[] = [
         title: "Cusco Cultural & Trekking 5D / 4N",
         shortTitle: "CUSCO CULTURAL ADVENTURE 5D-4N",
         duration: "5 Días / 4 Noches",
-        price: "Consulte",
+        price: "584",
         difficulty: "Exigente",
         img: imgCulturalTrekking,
         alt: "Laguna y Montaña",
@@ -291,19 +349,30 @@ export const cuscoTours: Tour[] = [
         ],
         highlights: ["Laguna Humantay", "Montaña 7 Colores", "Machu Picchu", "Trekkings icónicos"],
         itinerary: [
-            { day: 1, title: "Llegada", content: "Recepción y traslado para aclimatación." },
-            { day: 2, title: "Machu Picchu", content: "Visita guiada a la maravilla con tren y almuerzo." },
-            { day: 3, title: "Laguna de Humantay", content: "Salida hacia Soraypampa y caminata a la laguna turquesa con alimentación." },
-            { day: 4, title: "Montaña 7 Colores", content: "Caminata hacia Vinicunca con alimentación completa." },
-            { day: 5, title: "Regreso", content: "Traslado al aeropuerto." }
+            { day: 1, title: "Llegada y Traslado", content: "Recepción en el aeropuerto, traslado al hotel y descanso." },
+            { day: 2, title: "Machu Picchu", content: "Full Day guiado a la maravilla con tren turístico y almuerzo." },
+            { day: 3, title: "Laguna Humantay", content: "Aventura hacia la laguna turquesa con alimentación y guía." },
+            { day: 4, title: "Montaña 7 Colores", content: "Trekking hacia Vinicunca con alimentación y transporte incluido." },
+            { day: 5, title: "Salida", content: "Tiempo libre y traslado al aeropuerto según el horario coordinado." }
         ],
         includes: [
-            "Traslados completos",
-            "4 noches de alojamiento con desayuno",
-            "Machu Picchu completo",
-            "Laguna de Humantay y Montaña 7 Colores con alimentación",
-            "Guía profesional y asistencia permanente"
+            "Traslados aeropuerto/hotel/aeropuerto",
+            "04 noches de alojamiento con desayunos",
+            "Full Day MachuPicchu con almuerzo (Entrada, Tren Turístico, Bus)",
+            "Full Day Montaña 7 Colores con alimentación",
+            "Full Day Laguna Humantay con alimentación",
+            "Tarjeta de Asistencia",
+            "Guía para las visitas"
         ],
-        notIncludes: ["Vuelos", "Entradas a parques naturales", "Boleto Turístico", "Gastos personales"]
+        notIncludes: [
+            "Alimentación no especificada",
+            "Entrada Montaña 7 Colores (USD$8 aprox)",
+            "Entrada Laguna Humantay (USD$10 aprox)"
+        ],
+        rates: [
+            { hotel: "Polo Corporativo Infancia", single: "584", doble: "521", triple: "500" },
+            { hotel: "Cusco Plaza (Saphi/Nazarenas) ❤️", single: "606", doble: "532", triple: "522", isRecommended: true },
+            { hotel: "Novotel Cusco", single: "1057", doble: "756", triple: "-" }
+        ]
     }
 ];

@@ -12,7 +12,7 @@ export const limaTours: Tour[] = [
         title: "Lima 2D / 1N: Escapada Urbana 2026",
         shortTitle: "LIMA 2D-1N",
         duration: "2 Días / 1 Noche",
-        price: "199",
+        price: "191",
         difficulty: "Fácil",
         img: imgLima2D,
         alt: "Lima City Tour",
@@ -24,19 +24,19 @@ export const limaTours: Tour[] = [
         ],
         highlights: ["Circuito Mágico del Agua", "City Tour Lima", "Traslados Privados", "Cultura Urbana"],
         itinerary: [
-            { day: 1, title: "Llegada y Circuito Mágico", content: "Recepción en el aeropuerto y traslado al hotel. Por la noche, visita al Circuito Mágico del Agua para disfrutar de un espectáculo de fuentes único." },
-            { day: 2, title: "City Tour y Despedida", content: "City Tour por Lima (Centro Histórico y Miraflores). A la hora coordinada, traslado al aeropuerto para tu vuelo de retorno." }
+            { day: 1, title: "Llegada y Circuito Mágico", content: "Recepción en el aeropuerto, traslado al hotel y visita nocturna al Circuito Mágico del Agua." },
+            { day: 2, title: "City Tour y Salida", content: "City Tour por Lima Panorámico y traslado al aeropuerto según el horario de tu vuelo." }
         ],
         includes: [
-            "Traslados privados",
-            "1 noche de hotel con desayuno",
-            "City Tour Lima",
-            "Circuito Mágico del Agua",
-            "Guía profesional"
+            "Traslados aeropuerto/hotel/aeropuerto en privado",
+            "01 noche de alojamiento con desayuno",
+            "Visita al Circuito Mágico del Agua",
+            "City Tour Lima Panorámico",
+            "Tarjeta de Asistencia"
         ],
         notIncludes: ["Vuelos", "Alimentación no especificada", "Gastos personales"],
         rates: [
-            { hotel: "Lima Wasi Miraflores", single: "199", doble: "136", triple: "117" },
+            { hotel: "Hotel Señorial", single: "191", doble: "141", triple: "124" },
             { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "202", doble: "136", triple: "117", isRecommended: true },
             { hotel: "Radisson Red Miraflores", single: "227", doble: "149", triple: "135" }
         ]
@@ -47,7 +47,7 @@ export const limaTours: Tour[] = [
         title: "Lima 3D / 2N: Cultura y Gastronomía",
         shortTitle: "LIMA 3D-2N",
         duration: "3 Días / 2 Noches",
-        price: "264",
+        price: "247",
         difficulty: "Fácil",
         img: imgLima3D,
         alt: "Artesanías y cultura en Lima",
@@ -59,21 +59,22 @@ export const limaTours: Tour[] = [
         ],
         highlights: ["Inmersión Gastronómica", "Centro Histórico", "Modernidad limeña", "Tiempo Libre"],
         itinerary: [
-            { day: 1, title: "Llegada y Traslado", content: "Bienvenida en el aeropuerto y traslado privado a tu hotel seleccionado." },
-            { day: 2, title: "City Tour + Circuito Mágico", content: "Recorrido por la ciudad colonial y moderna. Por la noche, visita guiada al Circuito Mágico del Agua." },
-            { day: 3, title: "Día libre y Salida", content: "Mañana libre para compras o disfrutar de la gastronomía local. Traslado final al aeropuerto." }
+            { day: 1, title: "Llegada y Traslado", content: "Recepción en el aeropuerto y traslado privado a tu hotel seleccionado." },
+            { day: 2, title: "City Tour + Circuito Mágico", content: "City Tour Lima Panorámico y visita nocturna al espectacular Circuito Mágico del Agua." },
+            { day: 3, title: "Salida", content: "Tiempo libre para actividades personales y traslado final al aeropuerto." }
         ],
         includes: [
-            "Traslados privados",
-            "2 noches con desayuno",
-            "Tours mencionados",
-            "Guía profesional"
+            "Traslados aeropuerto/hotel/aeropuerto en privado",
+            "02 noches de alojamiento con desayuno",
+            "Visita al Circuito Mágico del Agua",
+            "City Tour Lima Panorámico",
+            "Tarjeta de asistencia"
         ],
         notIncludes: ["Alimentación no indicada", "Vuelos", "Gastos personales"],
         rates: [
-            { hotel: "Lima Wasi Miraflores", single: "264", doble: "171", triple: "146" },
+            { hotel: "Hotel Señorial", single: "247", doble: "182", triple: "160" },
             { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "270", doble: "172", triple: "146", isRecommended: true },
-            { hotel: "Ibis Reducto", single: "286", doble: "176", triple: "-" }
+            { hotel: "Radisson Red Miraflores", single: "320", doble: "198", triple: "181" }
         ]
     },
     {
@@ -82,7 +83,7 @@ export const limaTours: Tour[] = [
         title: "Lima 4D / 3N: Explora a tu ritmo",
         shortTitle: "LIMA 4D-3N",
         duration: "4 Días / 3 Noches",
-        price: "328",
+        price: "304",
         difficulty: "Fácil",
         img: imgLima4D,
         alt: "Miraflores y Costa Verde",
@@ -94,21 +95,23 @@ export const limaTours: Tour[] = [
         ],
         highlights: ["Personalización", "Seguridad y Confort", "Barranco bohemio", "Vistas al Pacífico"],
         itinerary: [
-            { day: 1, title: "Bienvenida en Lima", content: "Recepción y traslado privado a tu hotel." },
-            { day: 2, title: "Descubriendo la Capital", content: "City Tour Lima (Colonial y Moderna) + Visita nocturna al Circuito Mágico del Agua." },
-            { day: 3, title: "Tu día, tu ritmo", content: "Día completamente libre para actividades opcionales, compras o descanso." },
-            { day: 4, title: "Traslado de Salida", content: "A la hora coordinada, traslado al aeropuerto Jorge Chávez." }
+            { day: 1, title: "Bienvenida en Lima", content: "Recepción en el aeropuerto y traslado privado a tu hotel." },
+            { day: 2, title: "Cultura y Fuentes", content: "City Tour Lima Panorámico y visita nocturna al Circuito Mágico del Agua." },
+            { day: 3, title: "Día Libre", content: "Día Libre para explorar la ciudad a su manera (gastronomía, museos o compras)." },
+            { day: 4, title: "Salida", content: "Tiempo libre y traslado final al aeropuerto Jorge Chávez." }
         ],
         includes: [
-            "Traslados privados",
-            "3 noches con desayuno",
-            "Tours esenciales",
-            "Guía"
+            "Traslados aeropuerto/hotel/aeropuerto en privado",
+            "03 noches de alojamiento con desayuno",
+            "Visita al Circuito Mágico del Agua",
+            "City Tour Lima Panorámico",
+            "Tarjeta de Asistencia"
         ],
         notIncludes: ["Actividades en día libre", "Vuelos", "Consumos extras"],
         rates: [
-            { hotel: "Lima Wasi Miraflores", single: "328", doble: "207", triple: "175" },
-            { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "338", doble: "208", triple: "174", isRecommended: true }
+            { hotel: "Hotel Señorial", single: "304", doble: "223", triple: "196" },
+            { hotel: "Hoteles Tambo (I,II, 2 de Mayo) ❤️", single: "338", doble: "208", triple: "174", isRecommended: true },
+            { hotel: "Radisson Red Miraflores", single: "413", doble: "248", triple: "227" }
         ]
     }
 ];
