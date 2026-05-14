@@ -30,7 +30,7 @@ const destinosData = [
     toSee: ["Intihuatana", "Templo del Sol", "Puerta del Sol (Inti Punku)", "Montaña Huayna Picchu", "El Templo del Cóndor"],
     bestTime: "Abril a Octubre para cielos despejados",
     image: imgMachuPicchu,
-    link: "/tours/machu-picchu"
+    link: "/tours/cusco"
   },
   {
     id: "lima",
@@ -50,7 +50,7 @@ const destinosData = [
     toSee: ["Islas Ballestas", "Reserva Nacional de Paracas", "El Candelabro", "Oasis de Huacachina", "Ruta del Pisco"],
     bestTime: "Todo el año (Destino siempre soleado)",
     image: imgParacas,
-    link: "/tours/ica-paracas"
+    link: "/tours/combinados"
   },
   {
     id: "lago-titicaca",
@@ -60,7 +60,7 @@ const destinosData = [
     toSee: ["Islas Flotantes de los Uros", "Isla Taquile", "Isla Amantaní", "Chullpas de Sillustani"],
     bestTime: "Mayo a Octubre",
     image: imgTiticaca,
-    link: "/tours/puno"
+    link: "/tours/combinados"
   },
   {
     id: "andes-trekking",
@@ -70,7 +70,7 @@ const destinosData = [
     toSee: ["Laguna Humantay", "Montaña de 7 Colores", "Nevado Salkantay", "Valle de Lares", "Ausangate Trek"],
     bestTime: "Mayo a Septiembre (Mejores vistas de nevados)",
     image: imgAndes,
-    link: "/tours/aventura"
+    link: "/tours/cusco"
   }
 ];
 
@@ -191,7 +191,7 @@ const Destinos = () => {
           </p>
           <Button size="xl" className="font-bold text-lg px-8 py-7 rounded-full shadow-2xl bg-[#25D366] hover:bg-[#20ba5a] text-white border-none transition-all duration-300 hover:scale-105 group" asChild>
             <a href="https://wa.me/51942293293?text=%C2%A1Hola%20Inkateam%20Travel!%20Estoy%20visitando%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20tours%20y%20experiencias%20en%20Per%C3%BA.%20%C2%BFPodr%C3%ADan%20asesorarme%3F%20Muchas%20gracias." target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-6 h-6 mr-2 group-hover:animate-pulse" /> WhatsApp Solicita asesoría
+              <MessageCircle className="w-6 h-6 mr-2 group-hover:animate-pulse" /> WhatsApp
             </a>
           </Button>
         </div>

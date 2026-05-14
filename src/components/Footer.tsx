@@ -30,6 +30,7 @@ const Footer = () => {
     { name: "Términos y Condiciones", path: "/terminos" },
     { name: "Política de Privacidad", path: "/privacidad" },
     { name: "Libro de Reclamaciones", path: "https://docs.google.com/forms/d/e/1FAIpQLSdimxVhPBQ2slXybhvC50xrhozc7CqlFuL4Q7jwkYxZmB5_zQ/viewform?usp=publish-editor" },
+    { name: "Acceso agencias", path: "https://agencias.inkateamtravel.com" },
   ];
 
   return (

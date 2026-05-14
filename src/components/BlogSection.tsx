@@ -2,31 +2,36 @@ import React from "react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { ArrowRight, BookOpen, Compass, Info, Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const articles = [
   {
     title: "Qué hacer en Cusco",
     desc: "Descubre los secretos de la capital histórica del imperio inca.",
     category: "Guías de destinos",
-    icon: <BookOpen className="w-5 h-5" />
+    icon: <BookOpen className="w-5 h-5" />,
+    slug: "cuantos-dias-en-cusco"
   },
   {
     title: "Mejor época para viajar a Perú",
     desc: "Planifica tu viaje considerando el clima en costa, sierra y selva.",
     category: "Consejos de viaje",
-    icon: <Calendar className="w-5 h-5" />
+    icon: <Calendar className="w-5 h-5" />,
+    slug: "mejor-epoca-para-viajar-a-peru"
   },
   {
     title: "Cómo visitar Machu Picchu",
     desc: "Todo lo que necesitas saber sobre entradas, trenes y horarios.",
     category: "Recomendaciones prácticas",
-    icon: <Info className="w-5 h-5" />
+    icon: <Info className="w-5 h-5" />,
+    slug: "como-viajar-a-machu-picchu"
   },
   {
     title: "Consejos para la altura",
     desc: "Aclimatate correctamente y disfruta de los Andes sin molestias.",
     category: "Información actualizada",
-    icon: <Compass className="w-5 h-5" />
+    icon: <Compass className="w-5 h-5" />,
+    slug: "soroche-mal-de-altura"
   }
 ];
 
@@ -46,21 +51,24 @@ const BlogSection = () => {
               En nuestro blog encontrarás contenido diseñado estratégicamente para ayudarte a planificar mejor tu viaje y aprovechar cada momento en el destino.
             </p>
           </div>
-          <Button variant="outline" className="rounded-full h-14 px-8 border-2 font-bold mb-2 group">
-             Ver todos los artículos <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+          <Button variant="outline" className="rounded-full h-14 px-8 border-2 font-bold mb-2 group" asChild>
+            <Link to="/blog">
+              Ver todos los artículos <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </Button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {articles.map((article, i) => (
-            <div 
+            <Link 
               key={article.title} 
+              to={`/blog/${article.slug}`}
               className="bg-white p-8 rounded-[2.5rem] border border-border/60 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group flex flex-col h-full"
             >
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-500">
                 {article.icon}
               </div>
-              <Badge variant="outline" className="text-[10px] uppercase tracking-widest mb-4 bg-muted/50 border-none font-bold">
+              <Badge variant="outline" className="text-[10px] uppercase tracking-widest mb-4 bg-muted/50 border-none font-bold w-fit">
                 {article.category}
               </Badge>
               <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors flex-1">
@@ -69,19 +77,22 @@ const BlogSection = () => {
               <p className="text-sm text-muted-foreground leading-relaxed italic mb-8">
                 "{article.desc}"
               </p>
-              <button className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-primary hover:gap-3 transition-all">
+              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-primary hover:gap-3 transition-all">
                 Explorar artículo <ArrowRight size={14} />
-              </button>
-            </div>
+              </div>
+            </Link>
           ))}
         </div>
 
         {/* Featured Recommendation Text Box */}
-        <div className="mt-16 p-8 rounded-[2rem] bg-muted/30 border border-border/50 text-center">
-           <p className="text-sm font-bold text-foreground">
-             ¿No encuentras lo que buscas? <span className="text-primary italic">Planifica mejor tu viaje con nuestra asesoría personalizada.</span>
+        <Link 
+          to="/disena-tu-viaje" 
+          className="mt-16 p-8 rounded-[2rem] bg-muted/30 border border-border/50 text-center block hover:bg-primary/5 hover:border-primary/20 transition-all duration-300 group cursor-pointer"
+        >
+           <p className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">
+             ¿No encuentras lo que buscas? <span className="text-primary italic group-hover:underline">Planifica mejor tu viaje con nuestra asesoría personalizada.</span>
            </p>
-        </div>
+        </Link>
       </div>
     </section>
   );

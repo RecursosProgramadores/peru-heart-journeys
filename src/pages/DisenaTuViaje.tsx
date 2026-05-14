@@ -1,10 +1,17 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { CheckCircle2, MessageSquareText, FileSignature, PlaneTakeoff, ArrowRight, Star, Compass, MousePointer2, Send, Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CheckCircle2, MessageSquareText, FileSignature, PlaneTakeoff, ArrowRight, Star, Compass, MousePointer2, Send, Check, ChevronsUpDown, CalendarIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import { cn } from "@/lib/utils";
+import { countries } from "@/data/countries";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
 
 import heroImg from "@/assets/optimized/CUSCOINOLVIDABLE.webp";
 import featureImg from "@/assets/optimized/FULLDAYVALLESAGRADO.webp";
@@ -53,9 +60,39 @@ const CONFORT_OPCIONES = [
   "Lujo / Boutique (Hoteles 5*)"
 ];
 
+const COUNTRY_CODES = [
+  { code: "+51", country: "Perú" },
+  { code: "+54", country: "Argentina" },
+  { code: "+591", country: "Bolivia" },
+  { code: "+55", country: "Brasil" },
+  { code: "+56", country: "Chile" },
+  { code: "+57", country: "Colombia" },
+  { code: "+506", country: "Costa Rica" },
+  { code: "+53", country: "Cuba" },
+  { code: "+593", country: "Ecuador" },
+  { code: "+503", country: "El Salvador" },
+  { code: "+34", country: "España" },
+  { code: "+1", country: "EE.UU. / Canadá" },
+  { code: "+502", country: "Guatemala" },
+  { code: "+504", country: "Honduras" },
+  { code: "+52", country: "México" },
+  { code: "+505", country: "Nicaragua" },
+  { code: "+507", country: "Panamá" },
+  { code: "+595", country: "Paraguay" },
+  { code: "+1", country: "Puerto Rico" },
+  { code: "+1", country: "República Dominicana" },
+  { code: "+598", country: "Uruguay" },
+  { code: "+58", country: "Venezuela" },
+  { code: "+49", country: "Alemania" },
+  { code: "+33", country: "Francia" },
+  { code: "+39", country: "Italia" },
+  { code: "+44", country: "Reino Unido" }
+].sort((a, b) => a.country.localeCompare(b.country));
+
 const DisenaTuViaje = () => {
   const [formData, setFormData] = useState({
     nombre: "",
+    prefijo: "+51",
     whatsapp: "",
     email: "",
     origen: "",
@@ -64,6 +101,10 @@ const DisenaTuViaje = () => {
     confort: "",
     comentarios: ""
   });
+  
+  const [openOrigen, setOpenOrigen] = useState(false);
+  const [openFecha, setOpenFecha] = useState(false);
+  const [date, setDate] = useState<Date>();
   
   const [destinosSeleccionados, setDestinosSeleccionados] = useState<string[]>([]);
   const [experienciasSeleccionadas, setExperienciasSeleccionadas] = useState<string[]>([]);
@@ -88,7 +129,7 @@ const DisenaTuViaje = () => {
 
     const message = `*SOLICITUD DE PLANIFICACION DE VIAJE PERSONALIZADO*%0A%0A` +
       `Nombre: ${formData.nombre}%0A` +
-      `WhatsApp: ${formData.whatsapp}%0A` +
+      `WhatsApp: ${formData.prefijo} ${formData.whatsapp}%0A` +
       `Email: ${formData.email}%0A` +
       `Origen: ${formData.origen}%0A%0A` +
       `Destinos: ${destinosTxt}%0A` +
@@ -257,7 +298,29 @@ const DisenaTuViaje = () => {
                   </div>
                   <div className="space-y-3">
                     <Label className="font-bold text-xs uppercase tracking-widest text-muted-foreground ml-1">WhatsApp *</Label>
-                    <Input name="whatsapp" value={formData.whatsapp} onChange={handleChange} required placeholder="Cód. País + Número" className="h-14 bg-muted/30 border-none rounded-2xl focus:ring-primary" />
+                    <div className="flex bg-muted/30 rounded-2xl focus-within:ring-2 focus-within:ring-primary transition-shadow">
+                      <div className="relative flex items-center border-r border-border/50">
+                        <select
+                          name="prefijo"
+                          value={formData.prefijo}
+                          onChange={handleChange}
+                          className="h-14 bg-transparent pl-4 pr-8 text-sm font-bold outline-none appearance-none cursor-pointer max-w-[120px] truncate"
+                        >
+                          {COUNTRY_CODES.map(c => (
+                            <option key={c.country + c.code} value={c.code}>{c.code} ({c.country})</option>
+                          ))}
+                        </select>
+                        <ChevronsUpDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 opacity-50 pointer-events-none" />
+                      </div>
+                      <Input 
+                        name="whatsapp" 
+                        value={formData.whatsapp} 
+                        onChange={handleChange} 
+                        required 
+                        placeholder="Número de celular" 
+                        className="h-14 flex-1 bg-transparent border-none focus-visible:ring-0 px-4" 
+                      />
+                    </div>
                   </div>
                   <div className="space-y-3">
                     <Label className="font-bold text-xs uppercase tracking-widest text-muted-foreground ml-1">Correo Electrónico *</Label>
@@ -265,7 +328,51 @@ const DisenaTuViaje = () => {
                   </div>
                   <div className="space-y-3">
                     <Label className="font-bold text-xs uppercase tracking-widest text-muted-foreground ml-1">Origen *</Label>
-                    <Input name="origen" value={formData.origen} onChange={handleChange} required placeholder="¿Desde dónde nos escribes?" className="h-14 bg-muted/30 border-none rounded-2xl focus:ring-primary" />
+                    <Popover open={openOrigen} onOpenChange={setOpenOrigen}>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          role="combobox"
+                          aria-expanded={openOrigen}
+                          className={cn(
+                            "w-full h-14 bg-muted/30 border-none rounded-2xl justify-between px-4 font-normal hover:bg-muted/50 transition-colors",
+                            !formData.origen && "text-muted-foreground"
+                          )}
+                        >
+                          {formData.origen ? formData.origen : "¿Desde dónde nos escribes?"}
+                          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0 rounded-2xl border-border/60 shadow-xl" align="start">
+                        <Command>
+                          <CommandInput placeholder="Buscar país..." className="h-12 text-sm" />
+                          <CommandList className="max-h-60 overflow-y-auto custom-scrollbar">
+                            <CommandEmpty className="py-6 text-center text-sm text-muted-foreground">No se encontraron resultados.</CommandEmpty>
+                            <CommandGroup>
+                              {countries.map((country) => (
+                                <CommandItem
+                                  key={country}
+                                  value={country}
+                                  onSelect={() => {
+                                    setFormData(prev => ({ ...prev, origen: country }));
+                                    setOpenOrigen(false);
+                                  }}
+                                  className="cursor-pointer rounded-xl my-1 mx-1 aria-selected:bg-primary/10 aria-selected:text-primary transition-colors"
+                                >
+                                  <Check
+                                    className={cn(
+                                      "mr-2 h-4 w-4",
+                                      formData.origen === country ? "opacity-100 text-primary" : "opacity-0"
+                                    )}
+                                  />
+                                  {country}
+                                </CommandItem>
+                              ))}
+                            </CommandGroup>
+                          </CommandList>
+                        </Command>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
               </div>
@@ -301,7 +408,37 @@ const DisenaTuViaje = () => {
                    <div className="space-y-8">
                       <div className="space-y-3">
                         <Label className="font-bold text-xs uppercase tracking-widest text-muted-foreground ml-1">Fechas Tentativas *</Label>
-                        <Input name="fechas" value={formData.fechas} onChange={handleChange} required placeholder="Mes o fechas específicas" className="h-14 bg-muted/30 border-none rounded-2xl" />
+                        <Popover open={openFecha} onOpenChange={setOpenFecha}>
+                          <PopoverTrigger asChild>
+                            <Button
+                              variant="outline"
+                              className={cn(
+                                "w-full h-14 bg-muted/30 border-none rounded-2xl justify-start text-left px-4 font-normal hover:bg-muted/50 transition-colors",
+                                !date && "text-muted-foreground"
+                              )}
+                            >
+                              <CalendarIcon className="mr-3 h-5 w-5 opacity-50" />
+                              {date ? format(date, "PPP", { locale: es }) : <span>Elige una fecha</span>}
+                            </Button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-auto p-0 rounded-2xl border-border/60 shadow-xl" align="start">
+                            <Calendar
+                              mode="single"
+                              selected={date}
+                              onSelect={(d) => {
+                                setDate(d);
+                                if (d) {
+                                  setFormData(prev => ({ ...prev, fechas: format(d, "PPP", { locale: es }) }));
+                                } else {
+                                  setFormData(prev => ({ ...prev, fechas: "" }));
+                                }
+                                setOpenFecha(false);
+                              }}
+                              initialFocus
+                              className="p-3 bg-white rounded-2xl"
+                            />
+                          </PopoverContent>
+                        </Popover>
                       </div>
                       <div className="space-y-3">
                         <Label className="font-bold text-xs uppercase tracking-widest text-muted-foreground ml-1">Días Disponibles *</Label>

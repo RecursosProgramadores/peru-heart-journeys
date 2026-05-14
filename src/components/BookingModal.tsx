@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
   Dialog,
   DialogContent,
@@ -18,9 +18,9 @@ import {
 } from "@/components/ui/select";
 import { FullDayTour } from "@/data/fullDayTours";
 import { Tour } from "@/types/tour";
-import { format } from "date-fns";
+import { format, addDays, isValid } from "date-fns";
 import { es } from "date-fns/locale";
-import { Calendar as CalendarIcon, Users, User, MessageSquare, ChevronRight, ChevronLeft, CreditCard, Building2, Bed, MapPin, Search } from "lucide-react";
+import { Calendar as CalendarIcon, Users, User, MessageSquare, ChevronRight, ChevronLeft, CreditCard, Building2, Bed, MapPin, Search, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { countries } from "@/data/countries";
@@ -33,17 +33,59 @@ interface BookingModalProps {
 
 type Step = "package" | "participants" | "payment";
 
+type RoomCombo = { single: number; doble: number; triple: number };
+
+const getValidCombinations = (pax: number, rate: any): RoomCombo[] => {
+  if (!rate) return [];
+  const hasTriple = rate.triple && rate.triple !== "-";
+  const hasDoble = rate.doble && rate.doble !== "-";
+  const combos: RoomCombo[] = [];
+
+  for (let t = 0; t * 3 <= pax; t++) {
+    if (t > 0 && !hasTriple) continue;
+    for (let d = 0; d * 2 + t * 3 <= pax; d++) {
+      if (d > 0 && !hasDoble) continue;
+      const s = pax - (t * 3) - (d * 2);
+      if (s > 0 && (!rate.single || rate.single === "-")) continue;
+      combos.push({ single: s, doble: d, triple: t });
+    }
+  }
+  combos.sort((a, b) => (a.single + a.doble + a.triple) - (b.single + b.doble + b.triple));
+  return combos.slice(0, 3);
+};
+
+const formatCombo = (c: RoomCombo) => {
+  const parts = [];
+  if (c.triple > 0) parts.push(`${c.triple} Triple${c.triple > 1 ? 's' : ''}`);
+  if (c.doble > 0) parts.push(`${c.doble} Doble${c.doble > 1 ? 's' : ''}`);
+  if (c.single > 0) parts.push(`${c.single} Simple${c.single > 1 ? 's' : ''}`);
+  return parts.join(" + ") || "Sin acomodación";
+};
+
+const getComboPrice = (c: RoomCombo | undefined, rate: any) => {
+  if (!c || !rate) return 0;
+  let total = 0;
+  const triplePrice = parseFloat(String(rate.triple).replace('$', '')) || 0;
+  const doblePrice = parseFloat(String(rate.doble).replace('$', '')) || 0;
+  const singlePrice = parseFloat(String(rate.single).replace('$', '')) || 0;
+  
+  if (c.triple > 0) total += c.triple * 3 * triplePrice;
+  if (c.doble > 0) total += c.doble * 2 * doblePrice;
+  if (c.single > 0) total += c.single * 1 * singlePrice;
+  return total;
+};
+
 const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) => {
   const isFullDay = 'id' in tour;
   const [step, setStep] = useState<Step>("package");
   const [date, setDate] = useState<Date | undefined>(new Date());
   
   // State for FullDayTour
-  const [selectedPackage, setSelectedPackage] = useState<any>(isFullDay ? (tour as FullDayTour).packages?.[0] : null);
+  const [selectedPackage, setSelectedPackage] = useState<any>(null);
   
   // State for Multi-day Tour
-  const [selectedHotelRate, setSelectedHotelRate] = useState<any>(!isFullDay ? (tour as Tour).rates?.[0] : null);
-  const [accommodationType, setAccommodationType] = useState<"single" | "doble" | "triple">("doble");
+  const [selectedHotelRate, setSelectedHotelRate] = useState<any>(null);
+  const [selectedComboIndex, setSelectedComboIndex] = useState<number>(0);
 
   const [participantsCount, setParticipantsCount] = useState(1);
   const [buyerInfo, setBuyerInfo] = useState({
@@ -57,6 +99,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
   }>({});
   const [countrySearch, setCountrySearch] = useState("");
 
+  // Initialize selected options when tour changes
   useEffect(() => {
     if (isFullDay) {
       const fdt = tour as FullDayTour;
@@ -67,23 +110,47 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
     }
   }, [tour, isFullDay]);
 
-  const serviceFee = 1.5;
-  
+  // Duration Logic
+  const durationDays = useMemo(() => {
+    if (!tour.duration) return 1;
+    const match = tour.duration.match(/(\d+)/);
+    return match ? parseInt(match[0]) : 1;
+  }, [tour.duration]);
+
+  const endDate = useMemo(() => {
+    if (!date || !isValid(date)) return undefined;
+    return addDays(date, durationDays - 1);
+  }, [date, durationDays]);
+
+  // Memoize room combinations to avoid redundant calculations
+  const availableCombos = useMemo(() => {
+    if (isFullDay) return [];
+    return getValidCombinations(participantsCount, selectedHotelRate);
+  }, [participantsCount, selectedHotelRate, isFullDay]);
+
+  const currentCombo = availableCombos[selectedComboIndex];
+
   const getPricePerPerson = () => {
     if (isFullDay) {
       return selectedPackage?.price || 0;
     } else {
-      const priceStr = selectedHotelRate?.[accommodationType];
-      if (!priceStr || priceStr === "-") return 0;
-      return parseFloat(priceStr);
+      const comboTotal = getComboPrice(currentCombo, selectedHotelRate);
+      return participantsCount > 0 ? comboTotal / participantsCount : 0;
     }
   };
 
-  const total = getPricePerPerson() * participantsCount + serviceFee;
+  const total = isFullDay 
+    ? (selectedPackage?.price || 0) * participantsCount 
+    : getComboPrice(currentCombo, selectedHotelRate);
 
   const handleNext = () => {
     if (step === "package") setStep("participants");
     else if (step === "participants") setStep("payment");
+    // Scroll to top of modal content
+    setTimeout(() => {
+      const scrollContainer = document.querySelector(".custom-scrollbar");
+      if (scrollContainer) scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   const handleBack = () => {
@@ -92,36 +159,45 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
   };
 
   const handleParticipantChange = (index: number, field: string, value: string) => {
-    setParticipantsInfo({
-      ...participantsInfo,
-      [index]: { ...participantsInfo[index], [field]: value },
-    });
+    setParticipantsInfo(prev => ({
+      ...prev,
+      [index]: { ...prev[index], [field]: value },
+    }));
   };
 
   const handleFinish = () => {
     const dateStr = date ? format(date, "PPP", { locale: es }) : "No seleccionada";
+    const endDateStr = endDate ? format(endDate, "PPP", { locale: es }) : "";
+    
     let message = `*SOLICITUD DE RESERVA: ${tour.title.toUpperCase()}*%0A%0A`;
     message += `*DETALLES DEL VIAJE*%0A`;
-    message += `Fecha: ${dateStr}%0A`;
+    message += `Inicio: ${dateStr}%0A`;
+    if (!isFullDay && endDateStr) {
+      message += `Fin: ${endDateStr}%0A`;
+      message += `Duración: ${tour.duration}%0A`;
+    }
     
     if (isFullDay) {
       message += `Paquete: ${selectedPackage?.name}%0A`;
     } else {
-      message += `Hotel/Acomodacion: ${selectedHotelRate?.hotel} - ${accommodationType.toUpperCase()}%0A`;
+      message += `Hotel: ${selectedHotelRate?.hotel}%0A`;
+      message += `Acomodación: ${currentCombo ? formatCombo(currentCombo) : 'No seleccionada'}%0A`;
     }
     
     message += `Pasajeros: ${participantsCount}%0A`;
-    message += `Inversion Estimada: $${total.toFixed(2)} USD%0A%0A`;
+    message += `Inversión Estimada: $${total.toFixed(2)} USD%0A%0A`;
     
     message += `*DATOS DEL COMPRADOR*%0A`;
     message += `Nombre: ${buyerInfo.firstName} ${buyerInfo.lastName}%0A`;
     message += `Email: ${buyerInfo.email}%0A%0A`;
 
-    message += `*INFORMACION DE PASAJEROS*%0A`;
+    message += `*INFORMACIÓN DE PASAJEROS*%0A`;
     for (let i = 1; i <= participantsCount; i++) {
       const p = participantsInfo[i];
       if (p) {
         message += `Pasajero ${i}: ${p.firstName} ${p.lastName} | WhatsApp: ${p.whatsapp} | Nacionalidad: ${p.nationality || 'No especificada'}%0A`;
+      } else {
+        message += `Pasajero ${i}: Pendiente de completar%0A`;
       }
     }
 
@@ -167,19 +243,53 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
               {step === "package" && (
                 <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
-                    <div className="space-y-5">
+                    <div className="space-y-6">
                       <Label className="text-xs font-black uppercase tracking-widest text-foreground flex items-center gap-2 mb-1">
-                        <CalendarIcon size={14} className="text-primary" /> 1. Fecha de salida
+                        <CalendarIcon size={14} className="text-primary" /> 1. Fecha del viaje
                       </Label>
-                      <div className="border border-border/50 rounded-[1.5rem] lg:rounded-[2.5rem] p-4 lg:p-8 bg-zinc-50/30 shadow-inner">
+                      
+                      <div className="flex items-center justify-between px-4 py-3 bg-zinc-50 rounded-2xl border border-zinc-100 shadow-sm">
+                        <div className="space-y-1">
+                          <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground">Salida</p>
+                          <p className="text-xs font-black text-foreground">{date ? format(date, "dd MMM, yyyy", { locale: es }) : "---"}</p>
+                        </div>
+                        <div className="flex flex-col items-center gap-1 opacity-40">
+                          <span className="text-[8px] font-black uppercase tracking-tighter text-primary">{durationDays} DÍAS</span>
+                          <ArrowRight size={14} className="text-primary" />
+                        </div>
+                        <div className="space-y-1 text-right">
+                          <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground">Regreso</p>
+                          <p className="text-xs font-black text-foreground">{endDate ? format(endDate, "dd MMM, yyyy", { locale: es }) : "---"}</p>
+                        </div>
+                      </div>
+
+                      <div className="border border-border/50 rounded-[1.5rem] lg:rounded-[2.5rem] p-4 lg:p-8 bg-zinc-50/30 shadow-inner relative overflow-hidden group">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                         <Calendar
-                          mode="single"
-                          selected={date}
-                          onSelect={setDate}
-                          className="rounded-md border-none p-0 scale-95 sm:scale-100 lg:scale-110 origin-top mx-auto"
+                          mode="range"
+                          selected={{ from: date, to: endDate }}
+                          onSelect={(range) => {
+                            if (range?.from) setDate(range.from);
+                          }}
+                          className="rounded-md border-none p-0 scale-95 sm:scale-100 lg:scale-110 origin-top mx-auto relative z-10"
                           locale={es}
+                          disabled={{ before: new Date() }}
                         />
                       </div>
+
+                      {!isFullDay && (
+                        <div className="flex items-center gap-4 p-5 rounded-[1.5rem] bg-primary/5 border border-primary/10 animate-in fade-in slide-in-from-top-2 duration-700">
+                          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shadow-sm flex-shrink-0">
+                            <CalendarIcon size={18} />
+                          </div>
+                          <div>
+                            <p className="text-[10px] font-black text-primary/50 uppercase tracking-widest mb-1">Información de Retorno</p>
+                            <p className="text-xs font-bold text-primary/80 leading-tight">
+                              Tu aventura de <span className="font-black text-primary">{tour.duration}</span> concluye el día <span className="font-black underline">{endDate ? format(endDate, "EEEE d 'de' MMMM", { locale: es }) : "---"}</span>.
+                            </p>
+                          </div>
+                        </div>
+                      )}
                     </div>
                     
                     <div className="space-y-10 lg:space-y-12">
@@ -202,7 +312,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                               >
                                 <div className="flex justify-between items-start mb-2">
                                   <h4 className="font-bold text-sm lg:text-base tracking-tight group-hover:text-primary transition-colors pr-10">{pkg.name}</h4>
-                                  <span className="text-primary font-black text-lg lg:text-xl leading-none">${pkg.price}</span>
+                                  <span className="text-primary font-black text-lg lg:text-xl leading-none">{"$"}{pkg.price}</span>
                                 </div>
                                 <p className="text-[11px] lg:text-xs text-muted-foreground leading-relaxed italic line-clamp-2">{pkg.description}</p>
                                 {selectedPackage?.name === pkg.name && (
@@ -211,24 +321,61 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                               </div>
                             ))}
                           </div>
+                          
+                          <div className="pt-8 border-t border-dashed">
+                            <Label className="text-xs font-black uppercase tracking-widest text-foreground flex items-center gap-2 mb-4">
+                              <Users size={14} className="text-primary" /> 3. Número de personas
+                            </Label>
+                            <Select value={participantsCount.toString()} onValueChange={(v) => setParticipantsCount(parseInt(v))}>
+                              <SelectTrigger className="rounded-xl lg:rounded-2xl h-14 border-2 hover:border-primary/50 transition-all focus:ring-primary/20 bg-white">
+                                <SelectValue placeholder="Selecciona cantidad" />
+                              </SelectTrigger>
+                              <SelectContent className="rounded-xl lg:rounded-2xl shadow-2xl border-border/50 p-2">
+                                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+                                  <SelectItem key={n} value={n.toString()} className="rounded-lg my-1 focus:bg-primary/5">
+                                    <div className="flex items-center gap-2 font-bold text-sm">
+                                      <User size={14} className="text-primary" />
+                                      {n} {n === 1 ? 'Persona' : 'Personas'}
+                                    </div>
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
                         </div>
                       ) : (
                         <div className="space-y-10">
+                          <div className="pt-2">
+                            <Label className="text-xs font-black uppercase tracking-widest text-foreground flex items-center gap-2 mb-4">
+                              <Users size={14} className="text-primary" /> 2. Número de personas
+                            </Label>
+                            <Select value={participantsCount.toString()} onValueChange={(v) => { setParticipantsCount(parseInt(v)); setSelectedComboIndex(0); }}>
+                              <SelectTrigger className="rounded-xl lg:rounded-2xl h-14 border-2 hover:border-primary/50 transition-all focus:ring-primary/20 bg-white">
+                                <SelectValue placeholder="Selecciona cantidad" />
+                              </SelectTrigger>
+                              <SelectContent className="rounded-xl lg:rounded-2xl shadow-2xl border-border/50 p-2">
+                                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+                                  <SelectItem key={n} value={n.toString()} className="rounded-lg my-1 focus:bg-primary/5">
+                                    <div className="flex items-center gap-2 font-bold text-sm">
+                                      <User size={14} className="text-primary" />
+                                      {n} {n === 1 ? 'Persona' : 'Personas'}
+                                    </div>
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+
                           <div>
                             <Label className="text-xs font-black uppercase tracking-widest text-foreground flex items-center gap-2 mb-4">
-                              <Building2 size={14} className="text-primary" /> 2. Categoría de Hotel
+                              <Building2 size={14} className="text-primary" /> 3. Categoría de Hotel
                             </Label>
                             <div className="space-y-3 max-h-[220px] overflow-y-auto pr-2 custom-scrollbar">
                               {(tour as Tour).rates?.map((rate, idx) => (
                                 <div
                                   key={idx}
-                                  onClick={() => setSelectedHotelRate(rate)}
-                                  className={cn(
-                                    "p-4 lg:p-5 rounded-xl lg:rounded-2xl border-2 cursor-pointer transition-all duration-300",
-                                    selectedHotelRate?.hotel === rate.hotel 
-                                      ? "border-primary bg-primary/5 shadow-lg shadow-primary/5" 
-                                      : "border-border hover:border-primary/50"
-                                  )}
+                                  onClick={() => { setSelectedHotelRate(rate); setSelectedComboIndex(0); }}
+                                  className={cn("p-4 lg:p-5 rounded-xl lg:rounded-2xl border-2 cursor-pointer transition-all duration-300", selectedHotelRate?.hotel === rate.hotel ? "border-primary bg-primary/5 shadow-lg shadow-primary/5" : "border-border hover:border-primary/50")}
                                 >
                                   <div className="flex justify-between items-center">
                                     <div className="flex items-center gap-3">
@@ -244,55 +391,35 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
 
                           <div>
                             <Label className="text-xs font-black uppercase tracking-widest text-foreground flex items-center gap-2 mb-4">
-                              <Bed size={14} className="text-primary" /> 3. Tipo de Acomodación
+                              <Bed size={14} className="text-primary" /> 4. Distribución de Habitaciones
                             </Label>
-                            <div className="grid grid-cols-3 gap-3">
-                               {(['single', 'doble', 'triple'] as const).map((type) => {
-                                 const price = selectedHotelRate?.[type];
-                                 const isDisabled = !price || price === "-";
-                                 return (
-                                   <div
-                                     key={type}
-                                     onClick={() => !isDisabled && setAccommodationType(type)}
-                                     className={cn(
-                                       "p-4 lg:p-5 rounded-xl lg:rounded-2xl border-2 text-center cursor-pointer transition-all flex flex-col items-center gap-2 lg:gap-3",
-                                       accommodationType === type 
-                                          ? "border-primary bg-primary/5 shadow-lg shadow-primary/5" 
-                                          : "border-border hover:border-primary/30",
-                                       isDisabled && "opacity-30 cursor-not-allowed grayscale"
-                                     )}
-                                   >
-                                     <Bed size={18} className={cn(accommodationType === type ? "text-primary" : "text-muted-foreground")} />
-                                     <span className="text-[10px] uppercase font-black tracking-tight">{type === 'single' ? 'Simple' : type}</span>
-                                     <span className="text-sm lg:text-base font-black text-foreground">${price || '-'}</span>
-                                   </div>
-                                 );
-                               })}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                               {availableCombos.length === 0 ? (
+                                 <div className="col-span-full text-xs text-muted-foreground p-4 text-center border-2 border-dashed rounded-xl">No hay combinaciones disponibles para esta cantidad de personas.</div>
+                               ) : (
+                                 availableCombos.map((combo, idx) => {
+                                   const comboPrice = getComboPrice(combo, selectedHotelRate);
+                                   const isSelected = selectedComboIndex === idx;
+                                   return (
+                                     <div
+                                       key={idx}
+                                       onClick={() => setSelectedComboIndex(idx)}
+                                       className={cn(
+                                         "p-4 lg:p-5 rounded-xl lg:rounded-2xl border-2 text-center cursor-pointer transition-all flex flex-col items-center gap-2 lg:gap-3",
+                                         isSelected ? "border-primary bg-primary/5 shadow-lg shadow-primary/5" : "border-border hover:border-primary/30"
+                                       )}
+                                     >
+                                       <Bed size={18} className={isSelected ? "text-primary" : "text-muted-foreground"} />
+                                       <span className="text-[10px] uppercase font-black tracking-tight leading-snug">{formatCombo(combo)}</span>
+                                       <span className="text-sm lg:text-base font-black text-foreground">{"$"}{comboPrice.toFixed(2)} <span className="text-[9px] font-bold text-muted-foreground ml-1">TOTAL</span></span>
+                                     </div>
+                                   );
+                                 })
+                               )}
                             </div>
                           </div>
                         </div>
                       )}
-
-                      <div className="pt-8 border-t border-dashed">
-                        <Label className="text-xs font-black uppercase tracking-widest text-foreground flex items-center gap-2 mb-4">
-                          <Users size={14} className="text-primary" /> {isFullDay ? '3.' : '4.'} Número de personas
-                        </Label>
-                        <Select value={participantsCount.toString()} onValueChange={(v) => setParticipantsCount(parseInt(v))}>
-                          <SelectTrigger className="rounded-xl lg:rounded-2xl h-14 border-2 hover:border-primary/50 transition-all focus:ring-primary/20 bg-white">
-                            <SelectValue placeholder="Selecciona cantidad" />
-                          </SelectTrigger>
-                          <SelectContent className="rounded-xl lg:rounded-2xl shadow-2xl border-border/50 p-2">
-                            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
-                              <SelectItem key={n} value={n.toString()} className="rounded-lg my-1 focus:bg-primary/5">
-                                <div className="flex items-center gap-2 font-bold text-sm">
-                                  <User size={14} className="text-primary" />
-                                  {n} {n === 1 ? 'Persona' : 'Personas'}
-                                </div>
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -322,7 +449,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                         </div>
                         <div className="space-y-2">
                           <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">Confirmar Email</Label>
-                          <Input type="email" placeholder="Repite tu email" className="rounded-2xl h-14 border-2 focus:border-primary" />
+                          <Input type="email" placeholder="Repite tu email" value={buyerInfo.confirmEmail} onChange={(e) => setBuyerInfo({...buyerInfo, confirmEmail: e.target.value})} className="rounded-2xl h-14 border-2 focus:border-primary" />
                         </div>
                      </div>
                   </div>
@@ -341,15 +468,15 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                             <div className="space-y-2">
                               <Label className="text-[9px] font-bold text-muted-foreground ml-1 uppercase">Nombres</Label>
-                              <Input placeholder="Nombre *" className="rounded-2xl h-14 border-2 bg-white" onChange={(e) => handleParticipantChange(i + 1, 'firstName', e.target.value)} />
+                              <Input placeholder="Nombre *" className="rounded-2xl h-14 border-2 bg-white" value={participantsInfo[i+1]?.firstName || ""} onChange={(e) => handleParticipantChange(i + 1, 'firstName', e.target.value)} />
                             </div>
                             <div className="space-y-2">
                               <Label className="text-[9px] font-bold text-muted-foreground ml-1 uppercase">Apellidos</Label>
-                              <Input placeholder="Apellido *" className="rounded-2xl h-14 border-2 bg-white" onChange={(e) => handleParticipantChange(i + 1, 'lastName', e.target.value)} />
+                              <Input placeholder="Apellido *" className="rounded-2xl h-14 border-2 bg-white" value={participantsInfo[i+1]?.lastName || ""} onChange={(e) => handleParticipantChange(i + 1, 'lastName', e.target.value)} />
                             </div>
                             <div className="space-y-2">
                               <Label className="text-[9px] font-bold text-muted-foreground ml-1 uppercase">WhatsApp</Label>
-                              <Input placeholder="Cód. País + Número" className="rounded-2xl h-14 border-2 bg-white" onChange={(e) => handleParticipantChange(i + 1, 'whatsapp', e.target.value)} />
+                              <Input placeholder="Cód. País + Número" className="rounded-2xl h-14 border-2 bg-white" value={participantsInfo[i+1]?.whatsapp || ""} onChange={(e) => handleParticipantChange(i + 1, 'whatsapp', e.target.value)} />
                             </div>
                             
                             <div className="space-y-2 relative">
@@ -425,7 +552,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                         </div>
                         <div className="flex justify-between pt-8 text-3xl lg:text-4xl font-display font-black text-primary tracking-tighter">
                           <span>TOTAL</span>
-                          <span>${total.toFixed(2)}</span>
+                          <span>{"$"}{total.toFixed(2)}</span>
                         </div>
                      </div>
                   </div>
@@ -477,8 +604,21 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                       <CalendarIcon size={24} />
                     </div>
                     <div className="pt-1">
-                      <p className="text-[10px] text-zinc-400 font-black uppercase tracking-[0.2em] mb-2">Fecha seleccionada</p>
-                      <p className="text-base font-black text-zinc-800 leading-none">{date ? format(date, "MMM dd, yyyy", { locale: es }) : "Pendiente"}</p>
+                      <p className="text-[10px] text-zinc-400 font-black uppercase tracking-[0.2em] mb-2">
+                        {isFullDay ? 'Fecha seleccionada' : 'Periodo de viaje'}
+                      </p>
+                      <p className="text-base font-black text-zinc-800 leading-none">
+                        {date ? (
+                          isFullDay 
+                            ? format(date, "MMM dd, yyyy", { locale: es })
+                            : `${format(date, "MMM dd", { locale: es })} - ${endDate ? format(endDate, "MMM dd, yyyy", { locale: es }) : '...'}`
+                        ) : "Pendiente"}
+                      </p>
+                      {!isFullDay && date && (
+                        <span className="inline-block mt-2 text-[9px] font-black text-primary bg-primary/5 px-2 py-0.5 rounded-full uppercase tracking-tighter">
+                          {tour.duration}
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -490,7 +630,9 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                       <p className="text-[10px] text-zinc-400 font-black uppercase tracking-[0.2em] mb-2">{isFullDay ? 'Opción elegida' : 'Alojamiento'}</p>
                       <p className="text-base font-black text-zinc-800 leading-tight truncate">{isFullDay ? (selectedPackage?.name || "No seleccionado") : (selectedHotelRate?.hotel || "No seleccionado")}</p>
                       {!isFullDay && selectedHotelRate && (
-                        <Badge className="mt-3 bg-zinc-900 text-white border-none text-[9px] uppercase font-black tracking-widest px-3 py-1.5">{accommodationType}</Badge>
+                        <Badge className="mt-3 bg-zinc-900 text-white border-none text-[9px] uppercase font-black tracking-widest px-3 py-1.5">
+                           {currentCombo ? formatCombo(currentCombo) : ''}
+                        </Badge>
                       )}
                     </div>
                   </div>
@@ -500,13 +642,9 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                    <div className="flex justify-between items-center group">
                      <div className="flex flex-col">
                         <span className="text-[11px] font-black text-zinc-400 uppercase tracking-widest mb-1.5">{participantsCount} x Viajeros</span>
-                        <span className="text-xs font-bold text-zinc-500 italic">Tarifa: ${getPricePerPerson()} / pax</span>
+                        <span className="text-xs font-bold text-zinc-500 italic">Tarifa: {"$"}{getPricePerPerson().toFixed(2)} / pax</span>
                      </div>
-                     <span className="font-display font-black text-zinc-900 tracking-tighter text-3xl">${(participantsCount * getPricePerPerson()).toFixed(2)}</span>
-                   </div>
-                   <div className="flex justify-between items-center">
-                     <span className="text-[11px] font-black text-zinc-400 uppercase tracking-widest">Servicios de Gestión</span>
-                     <span className="font-display font-black text-zinc-900 tracking-tighter text-3xl">${serviceFee.toFixed(2)}</span>
+                     <span className="font-display font-black text-zinc-900 tracking-tighter text-3xl">{"$"}{total.toFixed(2)}</span>
                    </div>
                 </div>
 
@@ -514,7 +652,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-zinc-50 px-5 text-[10px] font-black text-zinc-300 uppercase tracking-[0.4em]">Total estimado</div>
                   <div className="flex justify-between items-end mb-2">
                     <span className="font-display font-black text-zinc-900 uppercase tracking-[0.2em] text-sm mb-2">INVERSIÓN</span>
-                    <span className="text-6xl font-display font-black text-primary tracking-tighter leading-none">${total.toFixed(2)}</span>
+                    <span className="text-6xl font-display font-black text-primary tracking-tighter leading-none">{"$"}{total.toFixed(2)}</span>
                   </div>
                   <p className="text-[10px] text-zinc-400 text-right font-black italic uppercase tracking-tighter mt-6 opacity-60 leading-relaxed">Tarifa dinámica sujeta a disponibilidad del operador local</p>
                 </div>

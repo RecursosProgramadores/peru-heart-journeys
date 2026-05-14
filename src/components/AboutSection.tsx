@@ -1,6 +1,7 @@
 import { Search, CheckCircle2, ShieldCheck, Heart, UserCheck } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 
 const workCriteria = [
@@ -48,16 +49,16 @@ const AboutSection = () => {
             <div className="flex flex-wrap gap-4 pt-4">
               <Button 
                 className="rounded-full px-8"
-                onClick={() => document.getElementById('tours')?.scrollIntoView({ behavior: 'smooth' })}
+                asChild
               >
-                Descubre nuestros planes
+                <Link to="/destinos">Descubre nuestros planes</Link>
               </Button>
               <Button 
                 variant="outline" 
                 className="rounded-full px-8"
-                onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+                asChild
               >
-                Diseña tu viaje
+                <Link to="/disena-tu-viaje">Diseña tu viaje</Link>
               </Button>
             </div>
           </div>

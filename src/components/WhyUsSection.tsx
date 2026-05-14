@@ -64,9 +64,6 @@ const WhyUsSection = () => {
              >
                WhatsApp
              </a>
-             <button className="px-8 h-14 bg-[#FBC02D] text-[#151517] hover:bg-[#FBC02D]/90 rounded-full font-bold transition-all hover:scale-105">
-               Solicita asesoría
-             </button>
           </div>
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] -mr-32 -mt-32" />
         </div>

@@ -161,10 +161,8 @@ const ActivityDetail = () => {
                       size="lg" 
                       className="w-full rounded-full text-base font-bold"
                       onClick={() => {
-                        navigate("/");
-                        setTimeout(() => {
-                          document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
-                        }, 100);
+                        const message = encodeURIComponent(`¡Hola Inkateam! Estoy interesado/a en consultar la disponibilidad y recibir más información sobre el paquete: *${activity.title}*. ¡Muchas gracias!`);
+                        window.open(`https://wa.me/51942293293?text=${message}`, '_blank');
                       }}
                     >
                       Consultar disponibilidad

@@ -115,27 +115,7 @@ const Blog = () => {
             </div>
           </div>
           
-          {/* Newsletter Subscribe */}
-          <div className="mt-32 bg-[#0A0F1C] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent opacity-60" />
-            <h2 className="relative z-10 font-display text-3xl md:text-5xl font-bold mb-6 text-white">
-              ¿Quieres más consejos de viaje?
-            </h2>
-            <p className="relative z-10 font-body text-xl text-white/70 mb-10 max-w-2xl mx-auto">
-              Únete a nuestra newsletter y recibe directamente las mejores guías, secretos locales y ofertas exclusivas para tu aventura en Perú.
-            </p>
-            <form className="relative z-10 flex flex-col sm:flex-row justify-center max-w-lg mx-auto gap-4">
-              <input 
-                type="email" 
-                placeholder="Tu mejor correo electrónico" 
-                className="w-full h-14 px-6 rounded-2xl bg-white/10 border border-white/20 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary backdrop-blur-sm"
-                required
-              />
-              <Button type="submit" size="xl" className="h-14 px-8 rounded-2xl font-bold text-base whitespace-nowrap bg-primary hover:bg-primary/80 text-primary-foreground shadow-[0_0_20px_rgba(var(--primary),0.3)]">
-                Suscribirme
-              </Button>
-            </form>
-          </div>
+
 
         </div>
       </section>
