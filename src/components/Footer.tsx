@@ -30,7 +30,6 @@ const Footer = () => {
     { name: "Términos y Condiciones", path: "/terminos" },
     { name: "Política de Privacidad", path: "/privacidad" },
     { name: "Libro de Reclamaciones", path: "https://docs.google.com/forms/d/e/1FAIpQLSdimxVhPBQ2slXybhvC50xrhozc7CqlFuL4Q7jwkYxZmB5_zQ/viewform?usp=publish-editor" },
-    { name: "Acceso agencias", path: "https://agencias.inkateamtravel.com" },
   ];
 
   return (
@@ -176,21 +175,34 @@ const Footer = () => {
         
         <div className="container mx-auto flex flex-col items-center gap-8">
           
-          <ul className="flex flex-wrap justify-center gap-6 sm:gap-10 text-sm font-semibold text-white/60">
-            {legalLinks.map((link) => (
-               <li key={link.name}>
-                 {link.path.startsWith('http') ? (
-                   <a href={link.path} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors hover:underline decoration-primary/50 underline-offset-4">
-                     {link.name}
-                   </a>
-                 ) : (
-                   <Link to={link.path} className="hover:text-white transition-colors hover:underline decoration-primary/50 underline-offset-4">
-                     {link.name}
-                   </Link>
-                 )}
-               </li>
-            ))}
-          </ul>
+          <div className="flex flex-col items-center gap-10 w-full">
+            <ul className="flex flex-wrap justify-center items-center gap-6 sm:gap-12 text-sm font-semibold text-white/60">
+              {legalLinks.map((link) => (
+                 <li key={link.name}>
+                   {link.path.startsWith('http') ? (
+                     <a href={link.path} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors hover:underline decoration-primary/50 underline-offset-4">
+                       {link.name}
+                     </a>
+                   ) : (
+                     <Link to={link.path} className="hover:text-white transition-colors hover:underline decoration-primary/50 underline-offset-4">
+                       {link.name}
+                     </Link>
+                   )}
+                 </li>
+              ))}
+              <li className="w-full sm:w-auto flex justify-center mt-2 sm:mt-0">
+                <a 
+                  href="https://agencias.inkateamtravel.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="px-6 py-3 rounded-2xl border border-primary/30 bg-primary/5 text-primary hover:bg-primary hover:text-[#151517] transition-all duration-500 font-black text-[11px] uppercase tracking-[0.2em] flex items-center gap-2 shadow-2xl shadow-primary/10 group"
+                >
+                  Acceso agencias 
+                  <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+              </li>
+            </ul>
+          </div>
           
           <div className="w-full max-w-4xl mx-auto py-4 px-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
             <p className="text-[10px] sm:text-xs font-black text-white/90 uppercase tracking-[0.2em] text-center leading-relaxed">

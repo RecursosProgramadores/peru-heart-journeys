@@ -213,8 +213,8 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
           
           {/* Main Content Area */}
           <div className="flex-1 flex flex-col h-full overflow-hidden bg-white relative">
-            <div className="flex-1 p-6 md:p-10 lg:p-14 overflow-y-auto custom-scrollbar pb-32 sm:pb-32 lg:pb-36">
-              <DialogHeader className="mb-8 md:mb-12 text-left">
+            <div className="flex-1 p-5 sm:p-10 lg:p-14 overflow-y-auto custom-scrollbar pb-32 sm:pb-32 lg:pb-36">
+              <DialogHeader className="mb-6 sm:mb-8 md:mb-12 text-left">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 capitalize px-3 py-1 text-[10px] font-bold tracking-widest">
@@ -234,7 +234,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
               </DialogHeader>
 
               {/* Stepper - Modern Version */}
-              <div className="flex items-center gap-2 mb-8 md:mb-12 max-w-xs">
+              <div className="flex items-center gap-2 mb-6 sm:mb-8 md:mb-12 max-w-xs">
                  <div className={cn("h-1.5 flex-1 rounded-full transition-all duration-500", step === "package" ? "bg-primary w-full" : "bg-primary/20")} />
                  <div className={cn("h-1.5 flex-1 rounded-full transition-all duration-500", step === "participants" ? "bg-primary w-full" : step === "payment" ? "bg-primary/20" : "bg-muted")} />
                  <div className={cn("h-1.5 flex-1 rounded-full transition-all duration-500", step === "payment" ? "bg-primary w-full" : "bg-muted")} />
@@ -461,31 +461,31 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                       </div>
                       Datos de Pasajeros
                     </h3>
-                    <div className="max-h-[400px] lg:max-h-[500px] overflow-y-auto pr-4 space-y-8 custom-scrollbar pb-8">
+                    <div className="max-h-[400px] lg:max-h-[500px] overflow-y-auto pr-2 sm:pr-4 space-y-6 sm:space-y-8 custom-scrollbar pb-8">
                       {Array.from({ length: participantsCount }).map((_, i) => (
-                        <div key={i} className="p-8 lg:p-12 rounded-[2.5rem] border-2 border-dashed border-zinc-200 bg-zinc-50/30 space-y-8 relative group hover:bg-white hover:border-primary/20 transition-all duration-500">
-                          <Badge className="absolute -top-3 left-8 bg-zinc-900 text-white font-black tracking-[0.2em] text-[10px] px-4 py-1.5 shadow-xl">PASAJERO {i + 1}</Badge>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                            <div className="space-y-2">
-                              <Label className="text-[9px] font-bold text-muted-foreground ml-1 uppercase">Nombres</Label>
-                              <Input placeholder="Nombre *" className="rounded-2xl h-14 border-2 bg-white" value={participantsInfo[i+1]?.firstName || ""} onChange={(e) => handleParticipantChange(i + 1, 'firstName', e.target.value)} />
+                        <div key={i} className="p-5 sm:p-8 lg:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] border-2 border-dashed border-zinc-200 bg-zinc-50/30 space-y-6 sm:space-y-8 relative group hover:bg-white hover:border-primary/20 transition-all duration-500">
+                          <Badge className="absolute -top-3 left-5 sm:left-8 bg-zinc-900 text-white font-black tracking-[0.2em] text-[9px] sm:text-[10px] px-3 sm:px-4 py-1 sm:py-1.5 shadow-xl">PASAJERO {i + 1}</Badge>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+                            <div className="space-y-1.5">
+                              <Label className="text-[8px] sm:text-[9px] font-bold text-muted-foreground ml-1 uppercase">Nombres</Label>
+                              <Input placeholder="Nombre *" className="rounded-xl sm:rounded-2xl h-12 sm:h-14 border-2 bg-white text-sm sm:text-base" value={participantsInfo[i+1]?.firstName || ""} onChange={(e) => handleParticipantChange(i + 1, 'firstName', e.target.value)} />
                             </div>
-                            <div className="space-y-2">
-                              <Label className="text-[9px] font-bold text-muted-foreground ml-1 uppercase">Apellidos</Label>
-                              <Input placeholder="Apellido *" className="rounded-2xl h-14 border-2 bg-white" value={participantsInfo[i+1]?.lastName || ""} onChange={(e) => handleParticipantChange(i + 1, 'lastName', e.target.value)} />
+                            <div className="space-y-1.5">
+                              <Label className="text-[8px] sm:text-[9px] font-bold text-muted-foreground ml-1 uppercase">Apellidos</Label>
+                              <Input placeholder="Apellido *" className="rounded-xl sm:rounded-2xl h-12 sm:h-14 border-2 bg-white text-sm sm:text-base" value={participantsInfo[i+1]?.lastName || ""} onChange={(e) => handleParticipantChange(i + 1, 'lastName', e.target.value)} />
                             </div>
-                            <div className="space-y-2">
-                              <Label className="text-[9px] font-bold text-muted-foreground ml-1 uppercase">WhatsApp</Label>
-                              <Input placeholder="Cód. País + Número" className="rounded-2xl h-14 border-2 bg-white" value={participantsInfo[i+1]?.whatsapp || ""} onChange={(e) => handleParticipantChange(i + 1, 'whatsapp', e.target.value)} />
+                            <div className="space-y-1.5">
+                              <Label className="text-[8px] sm:text-[9px] font-bold text-muted-foreground ml-1 uppercase">WhatsApp</Label>
+                              <Input placeholder="Cód. País + Número" className="rounded-xl sm:rounded-2xl h-12 sm:h-14 border-2 bg-white text-sm sm:text-base" value={participantsInfo[i+1]?.whatsapp || ""} onChange={(e) => handleParticipantChange(i + 1, 'whatsapp', e.target.value)} />
                             </div>
                             
-                            <div className="space-y-2 relative">
-                              <Label className="text-[9px] font-bold text-muted-foreground ml-1 uppercase">Nacionalidad</Label>
+                            <div className="space-y-1.5 relative">
+                              <Label className="text-[8px] sm:text-[9px] font-bold text-muted-foreground ml-1 uppercase">Nacionalidad</Label>
                               <Select 
                                 onValueChange={(v) => handleParticipantChange(i + 1, 'nationality', v)}
                                 value={participantsInfo[i+1]?.nationality || ""}
                               >
-                                <SelectTrigger className="rounded-2xl h-14 border-2 bg-white font-bold">
+                                <SelectTrigger className="rounded-xl sm:rounded-2xl h-12 sm:h-14 border-2 bg-white font-bold text-sm sm:text-base">
                                   <SelectValue placeholder="Seleccionar *" />
                                 </SelectTrigger>
                                 <SelectContent className="max-h-[300px] rounded-[2rem] shadow-2xl border-none p-2">
@@ -561,27 +561,38 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
             </div>
 
             {/* Navigation Buttons - Sticky on mobile, Fixed bar on Desktop */}
-            <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-zinc-100 p-6 md:p-8 lg:p-10 flex items-center justify-between z-30 shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.05)]">
+            <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-zinc-100 p-4 sm:p-8 lg:p-10 flex items-center justify-between gap-3 z-50 shadow-[0_-15px_30px_-15px_rgba(0,0,0,0.08)]">
               <Button
                 variant="ghost"
                 onClick={step === "package" ? onClose : handleBack}
-                className="rounded-2xl h-14 lg:h-16 px-6 lg:px-10 font-bold hover:bg-zinc-100 transition-all text-zinc-400 hover:text-zinc-900 group"
+                className="rounded-xl sm:rounded-2xl h-12 sm:h-14 lg:h-16 px-4 sm:px-10 font-bold hover:bg-zinc-100 transition-all text-zinc-400 hover:text-zinc-900 group text-xs sm:text-sm uppercase tracking-wider"
               >
-                {step === "package" ? "Cerrar Ventana" : (
-                  <><ChevronLeft className="mr-2 lg:mr-3 group-hover:-translate-x-1 transition-transform" size={20} /> Volver</>
+                {step === "package" ? (
+                  "Cerrar"
+                ) : (
+                  <>
+                    <ChevronLeft className="mr-1.5 sm:mr-3 group-hover:-translate-x-1 transition-transform" size={18} /> 
+                    Volver
+                  </>
                 )}
               </Button>
               <Button
                 onClick={step === "payment" ? handleFinish : handleNext}
                 className={cn(
-                  "rounded-2xl h-14 lg:h-16 px-10 lg:px-14 font-black transition-all shadow-xl group",
-                  step === "payment" ? "bg-primary text-white hover:bg-primary/90 shadow-primary/30" : "bg-black text-white hover:bg-black/90 shadow-black/30"
+                  "flex-1 sm:flex-none rounded-xl sm:rounded-2xl h-12 sm:h-14 lg:h-16 px-6 sm:px-14 font-black transition-all shadow-xl group uppercase tracking-widest text-[10px] sm:text-sm",
+                  step === "payment" ? "bg-primary text-white hover:bg-primary/90 shadow-primary/40" : "bg-black text-white hover:bg-black/90 shadow-black/40"
                 )}
               >
                 {step === "payment" ? (
-                  <><MessageSquare className="mr-3 fill-current" size={20} /> Enviar Solicitud</>
+                  <>
+                    <MessageSquare className="mr-2 sm:mr-3 fill-current" size={18} /> 
+                    <span className="truncate">Confirmar Reserva</span>
+                  </>
                 ) : (
-                  <>Siguiente Paso <ChevronRight className="ml-3 group-hover:translate-x-1 transition-transform" size={20} /></>
+                  <>
+                    Siguiente Paso 
+                    <ChevronRight className="ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform" size={18} />
+                  </>
                 )}
               </Button>
             </div>
