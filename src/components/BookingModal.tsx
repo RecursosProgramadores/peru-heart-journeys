@@ -20,7 +20,7 @@ import { FullDayTour } from "@/data/fullDayTours";
 import { Tour } from "@/types/tour";
 import { format, addDays, isValid } from "date-fns";
 import { es } from "date-fns/locale";
-import { Calendar as CalendarIcon, Users, User, MessageSquare, ChevronRight, ChevronLeft, CreditCard, Building2, Bed, MapPin, Search, ArrowRight } from "lucide-react";
+import { Calendar as CalendarIcon, Users, User, MessageSquare, ChevronRight, ChevronLeft, CreditCard, Building2, Bed, MapPin, Search, ArrowRight, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { countries } from "@/data/countries";
@@ -75,6 +75,35 @@ const getComboPrice = (c: RoomCombo | undefined, rate: any) => {
   return total;
 };
 
+const COUNTRY_CODES = [
+  { code: "+51", country: "Perú" },
+  { code: "+54", country: "Argentina" },
+  { code: "+591", country: "Bolivia" },
+  { code: "+55", country: "Brasil" },
+  { code: "+56", country: "Chile" },
+  { code: "+57", country: "Colombia" },
+  { code: "+506", country: "Costa Rica" },
+  { code: "+53", country: "Cuba" },
+  { code: "+593", country: "Ecuador" },
+  { code: "+503", country: "El Salvador" },
+  { code: "+34", country: "España" },
+  { code: "+1", country: "EE.UU. / Canadá" },
+  { code: "+502", country: "Guatemala" },
+  { code: "+504", country: "Honduras" },
+  { code: "+52", country: "México" },
+  { code: "+505", country: "Nicaragua" },
+  { code: "+507", country: "Panamá" },
+  { code: "+595", country: "Paraguay" },
+  { code: "+1", country: "Puerto Rico" },
+  { code: "+1", country: "República Dominicana" },
+  { code: "+598", country: "Uruguay" },
+  { code: "+58", country: "Venezuela" },
+  { code: "+49", country: "Alemania" },
+  { code: "+33", country: "Francia" },
+  { code: "+39", country: "Italia" },
+  { code: "+44", country: "Reino Unido" }
+].sort((a, b) => a.country.localeCompare(b.country));
+
 const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) => {
   const isFullDay = 'id' in tour;
   const [step, setStep] = useState<Step>("package");
@@ -95,7 +124,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
     confirmEmail: "",
   });
   const [participantsInfo, setParticipantsInfo] = useState<{
-    [key: number]: { firstName: string; lastName: string; email: string; whatsapp: string; nationality: string };
+    [key: number]: { firstName: string; lastName: string; email: string; whatsapp: string; nationality: string; whatsappPrefix?: string };
   }>({});
   const [countrySearch, setCountrySearch] = useState("");
 
@@ -195,7 +224,8 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
     for (let i = 1; i <= participantsCount; i++) {
       const p = participantsInfo[i];
       if (p) {
-        message += `Pasajero ${i}: ${p.firstName} ${p.lastName} | WhatsApp: ${p.whatsapp} | Nacionalidad: ${p.nationality || 'No especificada'}%0A`;
+        const prefix = p.whatsappPrefix || "+51";
+        message += `Pasajero ${i}: ${p.firstName} ${p.lastName} | WhatsApp: ${prefix} ${p.whatsapp} | Nacionalidad: ${p.nationality || 'No especificada'}%0A`;
       } else {
         message += `Pasajero ${i}: Pendiente de completar%0A`;
       }
@@ -263,16 +293,23 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                         </div>
                       </div>
 
-                      <div className="border border-border/50 rounded-[1.5rem] lg:rounded-[2.5rem] p-4 lg:p-8 bg-zinc-50/30 shadow-inner relative overflow-hidden group">
+                      <div className="border border-border/50 rounded-[1.5rem] lg:rounded-[2.5rem] p-2 sm:p-4 lg:p-8 bg-zinc-50/30 shadow-inner relative overflow-hidden group">
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                         <Calendar
-                          mode="range"
-                          selected={{ from: date, to: endDate }}
-                          onSelect={(range) => {
-                            if (range?.from) setDate(range.from);
+                          mode="single"
+                          selected={date}
+                          onSelect={(d) => {
+                            if (d) setDate(d);
                           }}
-                          className="rounded-md border-none p-0 scale-95 sm:scale-100 lg:scale-110 origin-top mx-auto relative z-10"
+                          modifiers={{
+                            selectedRange: !isFullDay && date && endDate ? { from: date, to: endDate } : []
+                          }}
+                          modifiersClassNames={{
+                            selectedRange: "bg-primary/15 text-primary font-bold rounded-none hover:bg-primary/25"
+                          }}
+                          className="rounded-md border-none p-0 mx-auto relative z-10 w-full flex justify-center"
                           locale={es}
+                          weekStartsOn={1}
                           disabled={{ before: new Date() }}
                         />
                       </div>
@@ -382,7 +419,6 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                                       <Building2 size={16} className="text-primary" />
                                       <h4 className="font-bold text-xs lg:text-sm">{rate.hotel}</h4>
                                     </div>
-                                    {rate.isRecommended && <Badge className="bg-primary text-white text-[8px] lg:text-[10px] px-2.5 font-black tracking-tighter">RECOMENDADO</Badge>}
                                   </div>
                                 </div>
                               ))}
@@ -461,7 +497,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                       </div>
                       Datos de Pasajeros
                     </h3>
-                    <div className="max-h-[400px] lg:max-h-[500px] overflow-y-auto pr-2 sm:pr-4 space-y-6 sm:space-y-8 custom-scrollbar pb-8">
+                    <div className="max-h-[400px] lg:max-h-[500px] overflow-y-auto pr-2 sm:pr-4 pt-4 space-y-6 sm:space-y-8 custom-scrollbar pb-8">
                       {Array.from({ length: participantsCount }).map((_, i) => (
                         <div key={i} className="p-5 sm:p-8 lg:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] border-2 border-dashed border-zinc-200 bg-zinc-50/30 space-y-6 sm:space-y-8 relative group hover:bg-white hover:border-primary/20 transition-all duration-500">
                           <Badge className="absolute -top-3 left-5 sm:left-8 bg-zinc-900 text-white font-black tracking-[0.2em] text-[9px] sm:text-[10px] px-3 sm:px-4 py-1 sm:py-1.5 shadow-xl">PASAJERO {i + 1}</Badge>
@@ -475,8 +511,27 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, tour }) =>
                               <Input placeholder="Apellido *" className="rounded-xl sm:rounded-2xl h-12 sm:h-14 border-2 bg-white text-sm sm:text-base" value={participantsInfo[i+1]?.lastName || ""} onChange={(e) => handleParticipantChange(i + 1, 'lastName', e.target.value)} />
                             </div>
                             <div className="space-y-1.5">
-                              <Label className="text-[8px] sm:text-[9px] font-bold text-muted-foreground ml-1 uppercase">WhatsApp</Label>
-                              <Input placeholder="Cód. País + Número" className="rounded-xl sm:rounded-2xl h-12 sm:h-14 border-2 bg-white text-sm sm:text-base" value={participantsInfo[i+1]?.whatsapp || ""} onChange={(e) => handleParticipantChange(i + 1, 'whatsapp', e.target.value)} />
+                              <Label className="text-[8px] sm:text-[9px] font-bold text-muted-foreground ml-1 uppercase">WhatsApp *</Label>
+                              <div className="flex bg-white rounded-xl sm:rounded-2xl border-2 focus-within:border-primary transition-colors overflow-hidden">
+                                <div className="relative flex items-center border-r-2 border-zinc-100 bg-zinc-50/20">
+                                  <select
+                                    value={participantsInfo[i+1]?.whatsappPrefix || "+51"}
+                                    onChange={(e) => handleParticipantChange(i + 1, 'whatsappPrefix', e.target.value)}
+                                    className="h-11 sm:h-13 bg-transparent pl-3 pr-7 text-xs sm:text-sm font-bold outline-none appearance-none cursor-pointer max-w-[80px] sm:max-w-[100px] truncate"
+                                  >
+                                    {COUNTRY_CODES.map(c => (
+                                      <option key={c.country + c.code} value={c.code}>{c.code} ({c.country})</option>
+                                    ))}
+                                  </select>
+                                  <ChevronsUpDown className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 opacity-50 pointer-events-none" />
+                                </div>
+                                <Input 
+                                  placeholder="Número de celular *" 
+                                  className="h-11 sm:h-13 flex-1 bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 focus:ring-0 px-3 text-sm sm:text-base" 
+                                  value={participantsInfo[i+1]?.whatsapp || ""} 
+                                  onChange={(e) => handleParticipantChange(i + 1, 'whatsapp', e.target.value)} 
+                                />
+                              </div>
                             </div>
                             
                             <div className="space-y-1.5 relative">

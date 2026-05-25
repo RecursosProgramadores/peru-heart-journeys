@@ -4,26 +4,57 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MapPin, Mail, Phone, Send, Clock, MessageCircle } from "lucide-react";
+import { MapPin, Mail, Phone, Send, Clock, MessageCircle, ChevronsUpDown } from "lucide-react";
 
 import bgHero from "@/assets/optimized/Filosofia.webp";
+
+const COUNTRY_CODES = [
+  { code: "+51", country: "Perú" },
+  { code: "+54", country: "Argentina" },
+  { code: "+591", country: "Bolivia" },
+  { code: "+55", country: "Brasil" },
+  { code: "+56", country: "Chile" },
+  { code: "+57", country: "Colombia" },
+  { code: "+506", country: "Costa Rica" },
+  { code: "+53", country: "Cuba" },
+  { code: "+593", country: "Ecuador" },
+  { code: "+503", country: "El Salvador" },
+  { code: "+34", country: "España" },
+  { code: "+1", country: "EE.UU. / Canadá" },
+  { code: "+502", country: "Guatemala" },
+  { code: "+504", country: "Honduras" },
+  { code: "+52", country: "México" },
+  { code: "+505", country: "Nicaragua" },
+  { code: "+507", country: "Panamá" },
+  { code: "+595", country: "Paraguay" },
+  { code: "+1", country: "Puerto Rico" },
+  { code: "+1", country: "República Dominicana" },
+  { code: "+598", country: "Uruguay" },
+  { code: "+58", country: "Venezuela" },
+  { code: "+49", country: "Alemania" },
+  { code: "+33", country: "Francia" },
+  { code: "+39", country: "Italia" },
+  { code: "+44", country: "Reino Unido" }
+].sort((a, b) => a.country.localeCompare(b.country));
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
+    prefijo: "+51",
     whatsapp: "",
     pais: "",
     mensaje: ""
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `*Hola Inkateam, tengo una consulta general.*%0A%0A*Mis Datos:*%0A_Nombre:_ ${formData.nombre}%0A_Correo:_ ${formData.email}%0A_WhatsApp:_ ${formData.whatsapp}%0A_País de origen:_ ${formData.pais}%0A%0A*Mi Mensaje:*%0A${formData.mensaje}`;
+    const fullWhatsapp = `${formData.prefijo} ${formData.whatsapp}`;
+    const message = `*Hola Inkateam, tengo una consulta general.*%0A%0A*Mis Datos:*%0A_Nombre:_ ${formData.nombre}%0A_Correo:_ ${formData.email}%0A_WhatsApp:_ ${fullWhatsapp}%0A_País de origen:_ ${formData.pais}%0A%0A*Mi Mensaje:*%0A${formData.mensaje}`;
     
     window.open(`https://wa.me/51942293293?text=${message}`, '_blank');
   };
@@ -152,14 +183,29 @@ const Contacto = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label className="text-base font-bold text-foreground ml-1">WhatsApp <span className="text-red-500">*</span></Label>
-                      <Input 
-                        name="whatsapp" 
-                        value={formData.whatsapp} 
-                        onChange={handleChange} 
-                        required 
-                        placeholder="Cod. País + Número" 
-                        className="h-14 bg-muted/30 focus-visible:ring-primary/50 text-base rounded-xl border-border/80"
-                      />
+                      <div className="flex bg-muted/30 rounded-xl border border-border/80 focus-within:ring-2 focus-within:ring-primary/50 transition-shadow overflow-hidden">
+                        <div className="relative flex items-center border-r border-border/50 bg-zinc-50/20">
+                          <select
+                            name="prefijo"
+                            value={formData.prefijo}
+                            onChange={handleChange}
+                            className="h-13 bg-transparent pl-3 pr-7 text-sm font-bold outline-none appearance-none cursor-pointer max-w-[100px] truncate text-foreground"
+                          >
+                            {COUNTRY_CODES.map(c => (
+                              <option key={c.country + c.code} value={c.code}>{c.code} ({c.country})</option>
+                            ))}
+                          </select>
+                          <ChevronsUpDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 opacity-50 pointer-events-none text-muted-foreground" />
+                        </div>
+                        <Input 
+                          name="whatsapp"
+                          placeholder="Número de celular *" 
+                          className="h-13 flex-1 bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 focus:ring-0 px-3 text-base" 
+                          value={formData.whatsapp} 
+                          onChange={handleChange} 
+                          required
+                        />
+                      </div>
                     </div>
                     
                     <div className="space-y-2">

@@ -435,6 +435,7 @@ const DisenaTuViaje = () => {
                                 setOpenFecha(false);
                               }}
                               initialFocus
+                              weekStartsOn={1}
                               className="p-3 bg-white rounded-2xl"
                             />
                           </PopoverContent>
